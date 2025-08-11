@@ -354,7 +354,8 @@ local Athena = J({
   loc_vars = function(self, info_queue, center)
     return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } }
   end,
-  rarity = 1, -- Athena
+  rarity = 1, -- Common
+    pools = { ["Zeus"] = true },
   cost = 3,
   atlas = "Jokers01",
   ptype = C.Forest,
