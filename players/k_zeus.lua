@@ -350,11 +350,11 @@ local Aphrodite = J({
 local Athena = J({
   name = "Athena",
   pos = { x = 9, y = 13 },
-  config = { extra = { odds = 4 } },
+  config = { extra = { odds = 8 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } }
   end,
-  rarity = 1, -- Common
+  rarity = 1, -- Athena
   pools = { ["Zeus"] = true },
   cost = 3,
   atlas = "Jokers01",
