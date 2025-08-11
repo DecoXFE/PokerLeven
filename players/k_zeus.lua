@@ -363,24 +363,7 @@ local Athena = J({
   pteam = "Zeus",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
-  calculate = function(self, card, context)
-    if context.blind_defeated and pseudorandom('athena_foil') < G.GAME.probabilities.normal / card.ability.extra.odds then
-      local notfoil = {}
-      for _, joker in ipairs(G.jokers.cards or {}) do
-        if not joker.edition or joker.edition == "e_none" then
-          table.insert(notfoil, joker)
-        end
-      end
-      if #notfoil > 0 then
-        local selected = pseudorandom_element(notfoil, pseudoseed("athena_foil"))
-        convert_cards_to(selected, { edition = "e_foil" })
-        return {
-          message = localize("ina_divine"),
-          colour = G.C.XMULT
-        }
-      end
-    end
-  end,
+
 })
 
 return {
