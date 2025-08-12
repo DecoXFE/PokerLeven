@@ -42,6 +42,7 @@ local Poseidon = {
   end
 }
 
+-- Hephestus
 local Hephestus = J({
   name = "Hephestus",
   pos = { x = 12, y = 5 },
@@ -345,7 +346,44 @@ local Aphrodite = J({
   end,
 })
 
+-- Athena
+local Athena = J({
+  name = "Athena",
+  pos = { x = 9, y = 13 },
+  config = { extra = { odds = 4 } },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } }
+  end,
+  rarity = 1, -- Common
+    pools = { ["Zeus"] = true },
+  cost = 3,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF, -- Midfielder
+  pteam = "Zeus",
+  techtype = C.UPGRADES.Number,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.blind_defeated and pseudorandom('athena_foil') < G.GAME.probabilities.normal / card.ability.extra.odds then
+      local notfoil = {}
+      for _, joker in ipairs(G.jokers.cards or {}) do
+        if not joker.edition or joker.edition == "e_none" then
+          table.insert(notfoil, joker)
+        end
+      end
+      if #notfoil > 0 then
+        local selected = pseudorandom_element(notfoil, pseudoseed("athena_foil"))
+        convert_cards_to(selected, { edition = "e_foil" })
+        return {
+          message = localize("ina_divine"),
+          colour = G.C.XMULT
+        }
+      end
+    end
+  end,
+})
+
 return {
   name = "Zeus",
-  list = { Poseidon, Apollo, Hephestus, Artemis, Hermes, Demeter, Aphrodite },
+  list = { Poseidon, Apollo, Hephestus, Artemis, Hermes, Athena, Demeter, Aphrodite },
 }
