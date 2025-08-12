@@ -17,7 +17,7 @@ end
 
 local Greeny = J({
     name = "Greeny",
-    pos = { x = 0, y = 5 },
+    pos = { x = 12, y = 9 },
     config = { extra = { barriers_added = 1, DF_required = 2, barriers = 3 }
     },
     loc_vars = function(self, info_queue, center)
@@ -69,7 +69,7 @@ local Greeny = J({
 
 local Hayseed = J({
     name = "Hayseed",
-    pos = { x = 11, y = 4 },
+    pos = { x = 0, y = 10 },
     config = {
         extra = {
             current_mult = 0,
@@ -110,7 +110,7 @@ local Hayseed = J({
 
 local Sherman = J({
     name = "Sherman",
-    pos = { x = 12, y = 4 },
+    pos = { x = 3, y = 10 },
     config = { extra = { current_chips = 0, chip_mod = 2 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.chip_mod, center.ability.extra.current_chips } }
@@ -158,7 +158,7 @@ local Sherman = J({
 
 local Spray = J({
     name = "Spray",
-    pos = { x = 8, y = 4 },
+    pos = { x = 6, y = 10 },
     config = { extra = { current_Xmult = 1, max_money = 4, Xmult_mod = 0.25, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.max_money, center.ability.extra.Xmult_mod, center.ability.extra.current_Xmult } }
@@ -197,7 +197,7 @@ local Spray = J({
 
 local Dawson = J({
     name = "Dawson",
-    pos = { x = 9, y = 4 },
+    pos = { x = 7, y = 10 },
     config = { extra = { max_money = 2, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.max_money } }
@@ -244,7 +244,7 @@ local Dawson = J({
 
 local Muffs = J({
     name = "Muffs",
-    pos = { x = 10, y = 4 },
+    pos = { x = 8, y = 10 },
     config = { extra = { current_mult = 0, mult_mod = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Harvester' }
@@ -304,7 +304,7 @@ local Muffs = J({
 
 local Hillvalley = J({
     name = "Hillvalley",
-    pos = { x = 7, y = 4 },
+    pos = { x = 2, y = 10 },
     config = { extra = { current_chips = 0, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.current_chips } }

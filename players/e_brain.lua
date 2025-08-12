@@ -1,7 +1,7 @@
 -- Feldt
 local Feldt = J({
     name = "Feldt",
-    pos = { x = 6, y = 2 },
+    pos = { x = 0, y = 5 },
     config = { extra = { barriers = 1, Xmult_mod = 1 } },
     loc_vars = function(self, info_queue, center)
         local Xmult_mod = center.ability.extra.Xmult_mod
@@ -41,7 +41,7 @@ local Feldt = J({
 -- Marvel
 local Marvel = {
     name = "Marvel",
-    pos = { x = 8, y = 2 },
+    pos = { x = 3, y = 5 },
     config = { extra = { mult_mod = 10, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.mult_mod } }
@@ -83,7 +83,7 @@ local Marvel = {
 -- Tell
 local Tell = {
     name = "Tell",
-    pos = { x = 10, y = 2 },
+    pos = { x = 6, y = 5 },
     config = { extra = { Xchips_mod = 3.1416 } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -120,7 +120,7 @@ local Tell = {
 -- Seller
 local Seller = {
     name = "Seller",
-    pos = { x = 9, y = 2 },
+    pos = { x = 8, y = 5 },
     config = { extra = { sell_potential = 0, sell_mod = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.sell_potential, center.ability.extra.sell_mod } }
@@ -167,7 +167,7 @@ local Seller = {
 -- Kind
 local Kind = {
     name = "Kind",
-    pos = { x = 7, y = 2 },
+    pos = { x = 9, y = 5 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -219,7 +219,7 @@ local Kind = {
 -- Turner
 local Turner = {
     name = "Turner",
-    pos = { x = 11, y = 2 },
+    pos = { x = 10, y = 5 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -265,7 +265,7 @@ local Turner = {
 -- Under
 local Under = {
     name = "Under",
-    pos = { x = 12, y = 2 },
+    pos = { x = 11, y = 5 },
     config = { extra = { chips_mod = 120, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.chips_mod, #find_player_position("GK") or 0 } }

@@ -1,7 +1,7 @@
 -- Otaku
 local Idol = {
     name = "Idol",
-    pos = { x = 2, y = 3 },
+    pos = { x = 3, y = 6 },
     config = { extra = { odds = 2, retrigger_count = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } }
@@ -35,7 +35,7 @@ local Idol = {
 
 local Hero = {
     name = "Hero",
-    pos = { x = 3, y = 3 },
+    pos = { x = 6, y = 6 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -68,7 +68,7 @@ local Hero = {
 
 local Custom = {
     name = "Custom",
-    pos = { x = 4, y = 3 },
+    pos = { x = 9, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -87,7 +87,7 @@ local Custom = {
 
 local Robot = {
     name = "Robot",
-    pos = { x = 5, y = 3 },
+    pos = { x = 10, y = 6 },
     config = { extra = { retrigger_count = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -121,7 +121,7 @@ local Robot = {
 
 local Gamer = {
     name = "Gamer",
-    pos = { x = 6, y = 3 },
+    pos = { x = 11, y = 6 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
         local otaku_count = #find_player_team("Otaku")
@@ -160,7 +160,7 @@ local Gamer = {
 
 local Artist = {
     name = "Artist",
-    pos = { x = 0, y = 3 },
+    pos = { x = 12, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -203,7 +203,7 @@ local Artist = {
 
 local Arcade = {
     name = "Arcade",
-    pos = { x = 1, y = 3 },
+    pos = { x = 0, y = 7 },
     config = { extra = { new_lucky = 5, minus_dollars = -5, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.new_lucky, center.ability.extra.minus_dollars } }
