@@ -346,26 +346,6 @@ local Aphrodite = J({
   end,
 })
 
--- Athena
-local Athena = J({
-  name = "Athena",
-  pos = { x = 9, y = 13 },
-  config = { extra = { odds = 5 } },
-  loc_vars = function(self, info_queue, center)
-    return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } }
-  end,
-  rarity = 1, -- Common
-  pools = { ["Zeus"] = true },
-  cost = 3,
-  atlas = "Jokers01",
-  ptype = C.Forest,
-  pposition = C.MF, -- Midfielder
-  pteam = "Zeus",
-  techtype = C.UPGRADES.Number,
-  blueprint_compat = true,
-
-})
-
 return {
   name = "Zeus",
   list = { Poseidon, Apollo, Hephestus, Artemis, Hermes, Athena, Demeter, Aphrodite },
