@@ -387,7 +387,7 @@ local Jude_Raimon = J({
 -- Bobby
 local Bobby = J({
   name = "Bobby",
-  pos = { x = 0, y = 1 },
+  pos = { x = 0, y = 0 },
   config = { extra = { chips_mod = 20 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips_mod } }
@@ -395,7 +395,7 @@ local Bobby = J({
   rarity = 2,
   pools = { ["Raimon"] = true },
   cost = 7,
-  atlas = "Jokers01",
+  atlas = "JokersBobby",
   ptype = "Wind",
   pposition = "DF",
   pteam = "Raimon",

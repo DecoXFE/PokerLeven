@@ -1,7 +1,7 @@
 -- Dulce
 local Dulce = {
     name = "Dulce",
-    pos = { x = 2, y = 6 },
+    pos = { x = 6, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -9,7 +9,7 @@ local Dulce = {
     rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
-    atlas = "Jokers01",
+    atlas = "Jokers10",
     ptype = "Wind",
     pposition = "DF",
     pteam = "Scout",
@@ -22,7 +22,7 @@ local Dulce = {
 -- Ryoma
 local Ryoma = {
     name = "Ryoma",
-    pos = { x = 3, y = 6 },
+    pos = { x = 5, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -30,7 +30,7 @@ local Ryoma = {
     rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
-    atlas = "Jokers01",
+    atlas = "Jokers10",
     ptype = "Mountain",
     pposition = "GK",
     pteam = "Scout",
@@ -43,7 +43,7 @@ local Ryoma = {
 -- Blazer
 local Blazer = J({
     name = "Blazer",
-    pos = { x = 5, y = 6 },
+    pos = { x = 2, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -51,7 +51,7 @@ local Blazer = J({
     rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
-    atlas = "Jokers01",
+    atlas = "Jokers10",
     ptype = "Fire",
     pposition = "FW",
     pteam = "Scout",
@@ -88,7 +88,7 @@ local Blazer = J({
 -- Chester
 local Chester = {
     name = "Chester",
-    pos = { x = 6, y = 6 },
+    pos = { x = 0, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -96,7 +96,7 @@ local Chester = {
     rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
-    atlas = "Jokers01",
+    atlas = "Jokers10",
     ptype = "Forest",
     pposition = "MF",
     pteam = "Scout",
@@ -109,7 +109,7 @@ local Chester = {
 -- Mach
 local Mach = {
     name = "Mach",
-    pos = { x = 7, y = 6 },
+    pos = { x = 3, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -117,7 +117,7 @@ local Mach = {
     rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
-    atlas = "Jokers01",
+    atlas = "Jokers10",
     ptype = "Wind",
     pposition = "FW",
     pteam = "Scout",
@@ -130,7 +130,7 @@ local Mach = {
 -- Miles
 local Miles = {
     name = "Miles",
-    pos = { x = 8, y = 6 },
+    pos = { x = 4, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -138,7 +138,7 @@ local Miles = {
     rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
-    atlas = "Jokers01",
+    atlas = "Jokers10",
     ptype = "Wind",
     pposition = "DF",
     pteam = "Scout",
@@ -151,7 +151,7 @@ local Miles = {
 -- George
 local George = {
     name = "George",
-    pos = { x = 9, y = 6 },
+    pos = { x = 1, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -159,7 +159,7 @@ local George = {
     rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
-    atlas = "Jokers01",
+    atlas = "Jokers10",
     ptype = "Forest",
     pposition = "MF",
     pteam = "Scout",
