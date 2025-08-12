@@ -33,7 +33,7 @@ local Chicken = {
 local Boar = {
     name = "Boar",
     pos = { x = 10, y = 3 },
-    config = { extra = { triggered = false } },
+    config = { extra = { triggered = false, cards_removed = 0 } },
     loc_vars = function(self, info_queue, center)
         return {}
     end,
@@ -47,21 +47,25 @@ local Boar = {
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
-        if context.scoring_name == "Pair" and context.destroying_card and not context.blueprint then
-            if context.scoring_hand[1]:get_id() == 2
-                and not context._wildtag_triggered then
-                context._wildtag_triggered = true
-                card.ability.extra.triggered = true
-                G.E_MANAGER:add_event(Event({
-                    func = (function()
-                        add_tag(Tag('tag_ina_wild_tag'))
-                        play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
-                        play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
-                        return true
-                    end)
-                }))
+        if context.destroying_card and context.scoring_name == "Pair" and not context.blueprint then
+            if context.destroying_card:get_id() == 2
+                and card.ability.extra.cards_removed < 2 then
+                card.ability.extra.cards_removed = card.ability.extra.cards_removed + 1
+                if not context._wildtag_triggered then
+                    card.ability.extra.cards_removed = 0
+                    context._wildtag_triggered = true
+                    card.ability.extra.triggered = true
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            add_tag(Tag('tag_ina_wild_tag'))
+                            play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
+                            play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+                            return true
+                        end)
+                    }))
+                end
+                return true
             end
-            return true
         end
     end,
     ina_credits = {
