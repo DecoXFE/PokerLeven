@@ -927,6 +927,14 @@ return {
                 },
             },
 
+            j_ina_Athena = {
+                name = "Athena",
+                text = { "{C:wind}Entrada Huracán{}",
+                    "Probabilidad de {C:green}#1# entre #2#{} de",
+                    "convertir un joker en {C:attention}laminado{}",
+                    "al finalizar la ciega{}" }
+            },
+
             j_ina_Blazer = {
                 name = "Blazer",
                 text = { {
