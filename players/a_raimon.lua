@@ -1,7 +1,7 @@
 -- Kevin Dragonfly
 local Kevin = J({
   name = "Kevin",
-  pos = { x = 0, y = 0 },
+  pos = { x = 11, y = 0 },
   config = { extra = { retriggers = 1, triggered = false } },
   rarity = 2,
   pools = { ["Raimon"] = true },
@@ -37,7 +37,7 @@ local Kevin = J({
 -- Mark Evans
 local Mark = J({
   name = "Mark",
-  pos = { x = 1, y = 0 },
+  pos = { x = 0, y = 0 },
   config = { extra = { extra_hands = 1 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.extra_hands } }
@@ -69,7 +69,7 @@ local Mark = J({
 -- Nathan
 local Nathan = J({
   name = "Nathan",
-  pos = { x = 2, y = 0 },
+  pos = { x = 1, y = 0 },
   config = { extra = { xmult = 1.25, triggered = false } },
   loc_vars = function(self, info_queue, center)
     local count = #find_player_team("Raimon");
@@ -105,7 +105,7 @@ local Nathan = J({
 -- Jack
 local Jack = {
   name = "Jack",
-  pos = { x = 3, y = 0 },
+  pos = { x = 2, y = 0 },
   config = { extra = { chips_mod = 8, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips_mod } }
@@ -141,7 +141,7 @@ local Jack = {
 -- Axel Blaze
 local Axel = {
   name = "Axel",
-  pos = { x = 4, y = 0 },
+  pos = { x = 10, y = 0 },
   config = { extra = { xmult = 3.5, suit = "Hearts", triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.xmult } }
@@ -178,7 +178,7 @@ local Axel = {
 -- Shadow
 local Shadow = {
   name = "Shadow",
-  pos = { x = 5, y = 0 },
+  pos = { x = 2, y = 1 },
   config = { extra = { current_mult = 0, mult_mod = 2 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.current_mult, center.ability.extra.mult_mod } }
@@ -228,7 +228,7 @@ local Shadow = {
 -- Willy
 local Willy = {
   name = "Willy",
-  pos = { x = 6, y = 0 },
+  pos = { x = 12, y = 0 },
   config = { extra = { odds = 30 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { G.GAME.probabilities.normal, center.ability.extra.odds } }
@@ -255,7 +255,7 @@ local Willy = {
 -- Max
 local Max = {
   name = "Max",
-  pos = { x = 7, y = 0 },
+  pos = { x = 9, y = 0 },
   config = { extra = { chip_mod = 20, triggered = false } },
   loc_vars = function(self, info_queue, center)
     local count = #find_player_type("Wind")
@@ -327,7 +327,7 @@ local Peabody = {
 -- Jude
 local Jude_Raimon = J({
   name = "Jude_Raimon",
-  pos = { x = 12, y = 6 },
+  pos = { x = 3, y = 3 },
   config = {
     extra = { current_xmult = 1, xmult_mod = 0.10, next_xmult = 1, triggered = false
     }
@@ -387,7 +387,7 @@ local Jude_Raimon = J({
 -- Bobby
 local Bobby = J({
   name = "Bobby",
-  pos = { x = 10, y = 6 },
+  pos = { x = 0, y = 1 },
   config = { extra = { chips_mod = 20 } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips_mod } }
@@ -472,7 +472,7 @@ local Bobby = J({
 -- Steve
 local Steve = J({
   name = "Steve",
-  pos = { x = 2, y = 7 },
+  pos = { x = 5, y = 0 },
   config = { extra = { chip_mod = 6, mult_mod = 3, money = 1 } },
   loc_vars = function(self, info_queue, center)
     local count = #find_player_team("Raimon")
