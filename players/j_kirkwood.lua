@@ -1,6 +1,6 @@
 local Neville = J({
     name = "Neville",
-    pos = { x = 1, y = 5 },
+    pos = { x = 2, y = 11 },
     config = { extra = { new_glass_denom = 6 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { G.GAME.probabilities.normal, G.GAME.probabilities.new_glass_denom or center.ability.extra.new_glass_denom } }
@@ -24,7 +24,7 @@ local Neville = J({
 
 local Night = J({
     name = "Night",
-    pos = { x = 4, y = 5 },
+    pos = { x = 3, y = 11 },
     config = {},
     loc_vars = function(self, info_queue, center)
         return {}
@@ -56,7 +56,7 @@ local Night = J({
 
 local Marvin = J({
     name = "Marvin",
-    pos = { x = 5, y = 5 },
+    pos = { x = 10, y = 11 },
     config = { extra = { mult_mod = 4 } },
     loc_vars = function(self, info_queue, center)
         local mult_mod = center.ability.extra.mult_mod
@@ -89,7 +89,7 @@ end
 
 local Thomas = J({
     name = "Thomas",
-    pos = { x = 6, y = 5 },
+    pos = { x = 11, y = 11 },
     config = { extra = { chips_mod = 15, retrigger_count = 1 } },
     loc_vars = function(self, info_queue, center)
         local chips_mod = center.ability.extra.chips_mod
@@ -128,7 +128,7 @@ local Thomas = J({
 
 local Tyler = J({
     name = "Tyler",
-    pos = { x = 7, y = 5 },
+    pos = { x = 12, y = 11 },
     config = { extra = { odds = 8 } },
     loc_vars = function(self, info_queue, center)
         table.insert(info_queue, { set = "Other", key = "Trillizos" })
@@ -165,7 +165,7 @@ local Tyler = J({
 
 local Damian = J({
     name = "Damian",
-    pos = { x = 3, y = 5 },
+    pos = { x = 7, y = 11 },
     config = { extra = { chips_mod = 7, current_chips = 0, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.chips_mod, center.ability.extra.current_chips } }
@@ -207,7 +207,7 @@ local Damian = J({
 
 local Nashmith = J({
     name = "Nashmith",
-    pos = { x = 2, y = 5 },
+    pos = { x = 8, y = 11 },
     config = { extra = { chip_mod = 10 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.chip_mod } }
@@ -243,7 +243,7 @@ local Nashmith = J({
     end,
 })
 
-local z_triangle = J({
+--[[ local z_triangle = J({
     name = "Z_Triangle",
     pos = { x = 11, y = 6 },
     config = {},
@@ -263,9 +263,9 @@ local z_triangle = J({
     end,
     unlocked = false,
     special = "Technique"
-})
+}) ]]
 
 return {
     name = "Kirkwood",
-    list = { Neville, Night, Damian, Nashmith, Marvin, Thomas, Tyler, z_triangle }
+    list = { Neville, Night, Damian, Nashmith, Marvin, Thomas, Tyler }
 }

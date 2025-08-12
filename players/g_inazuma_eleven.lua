@@ -1,7 +1,7 @@
 -- Inazuma Eleven Jokers
 local hillman = J({
   name = "Hillman",
-  pos = { x = 7, y = 3 },
+  pos = { x = 6, y = 7 },
   config = { extra = { Xchip_mod = 0.2, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return {
@@ -37,7 +37,7 @@ local hillman = J({
 
 local island = J({
   name = "Island",
-  pos = { x = 8, y = 3 },
+  pos = { x = 7, y = 7 },
   config = { extra = { current_chips = 0, chips_mod = 10, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return {
@@ -83,9 +83,10 @@ local island = J({
   }
 })
 
+-- Sweet
 local sweet = J({
   name = "Sweet",
-  pos = { x = 9, y = 3 },
+  pos = { x = 9, y = 7 },
   config = {
     extra = {
       triggered = false,
@@ -121,9 +122,10 @@ local sweet = J({
   }
 })
 
+-- Butler
 local butler = J({
   name = "Butler",
-  pos = { x = 10, y = 3 },
+  pos = { x = 10, y = 7 },
   config = {
     extra = {
       dollars_mod = 4,
@@ -171,9 +173,10 @@ local butler = J({
   end
 })
 
+-- Barista
 local barista = J({
   name = "Barista",
-  pos = { x = 11, y = 3 },
+  pos = { x = 1, y = 8 },
   config = {},
   loc_vars = function(self, info_queue, center)
     return {}
@@ -202,7 +205,7 @@ local barista = J({
 
 local builder = J({
   name = "Builder",
-  pos = { x = 12, y = 3 },
+  pos = { x = 3, y = 8 },
   config = {},
   loc_vars = function(self, info_queue, center)
     return {}

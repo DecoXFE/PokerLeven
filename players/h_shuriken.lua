@@ -1,6 +1,6 @@
 local hood = J({
     name = "Hood",
-    pos = { x = 0, y = 4 },
+    pos = { x = 9, y = 8 },
     config = {
         extra = {
             xmult_per_gk = 0.5,
@@ -35,7 +35,7 @@ local hood = J({
 
 local hillfort = J({
     name = "Hillfort",
-    pos = { x = 1, y = 4 },
+    pos = { x = 11, y = 8 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { calculate_avg_sell_cost("Wind") or 0 } }
@@ -61,7 +61,7 @@ local hillfort = J({
 
 local code = J({
     name = "Code",
-    pos = { x = 2, y = 4 },
+    pos = { x = 1, y = 9 },
     config = { extra = { { triggered = false } } },
     rarity = 2, -- Uncommon
     pools = { ["Shuriken"] = true },
@@ -88,7 +88,7 @@ local code = J({
 
 local star = J({
     name = "Star",
-    pos = { x = 3, y = 4 },
+    pos = { x = 2, y = 9 },
     config = { extra = { mult_mod = 1, money = 1, suit = "Diamonds", triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.money, center.ability.extra.mult_mod } }
@@ -120,7 +120,7 @@ local star = J({
 
 local cleats = J({
     name = "Cleats",
-    pos = { x = 4, y = 4 },
+    pos = { x = 3, y = 9 },
     config = {},
     loc_vars = function(self, info_queue, center)
         return {}
@@ -152,7 +152,7 @@ local cleats = J({
 
 local hattori = J({
     name = "Hattori",
-    pos = { x = 5, y = 4 },
+    pos = { x = 5, y = 9 },
     config = { extra = { copies = {}, copies_number = 2, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.copies_number } }
@@ -225,7 +225,7 @@ end
 
 local cloack = J({
     name = "Cloack",
-    pos = { x = 6, y = 4 },
+    pos = { x = 6, y = 9 },
     atlas = "Jokers01",
     rarity = 3,
     cost = 8,

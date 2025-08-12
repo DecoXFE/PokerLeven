@@ -1,7 +1,7 @@
 -- Chicken
 local Chicken = {
     name = "Chicken",
-    pos = { x = 0, y = 2 },
+    pos = { x = 11, y = 3 },
     config = { extra = { money = 4, odds = 2, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { '' .. (G.GAME and G.GAME.probabilities.normal or 1), center.ability.extra.odds, center.ability.extra.money } }
@@ -32,7 +32,7 @@ local Chicken = {
 -- Boar
 local Boar = {
     name = "Boar",
-    pos = { x = 12, y = 1 },
+    pos = { x = 10, y = 3 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -72,7 +72,7 @@ local Boar = {
 -- Chamaleon
 local Chamaleon = J({
     name = "Chamaleon",
-    pos = { x = 1, y = 2 },
+    pos = { x = 2, y = 4 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -147,7 +147,7 @@ local Chamaleon = J({
 -- Eagle
 local Eagle = {
     name = "Eagle",
-    pos = { x = 2, y = 2 },
+    pos = { x = 3, y = 4 },
     config = { extra = { current_mult = 0, mult_mod = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.mult_mod, center.ability.extra.current_mult } }
@@ -199,7 +199,7 @@ local Eagle = {
 -- Monkey
 local Monkey = {
     name = "Monkey",
-    pos = { x = 3, y = 2 },
+    pos = { x = 4, y = 4 },
     config = { extra = { wild_count = 0, triggered = false } },
     loc_vars = function(self, info_queue, center)
         local wild_players = #find_player_team('Wild')
@@ -246,7 +246,7 @@ local Monkey = {
 -- Gorilla
 local Gorilla = {
     name = "Gorilla",
-    pos = { x = 5, y = 2 },
+    pos = { x = 5, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
         return {}
@@ -277,7 +277,7 @@ local Gorilla = {
 -- Cheetah
 local Cheetah = {
     name = "Cheetah",
-    pos = { x = 4, y = 2 },
+    pos = { x = 7, y = 4 },
     config = { extra = { current_element = "Wind", possible_elements = { "Wind", "Fire", "Forest", "Mountain" }, triggered = false } },
     loc_vars = function(self, info_queue, center)
         G.ARGS.LOC_COLOURS["select_element"] = G.ARGS.LOC_COLOURS[string.lower(center.ability.extra.current_element)] or

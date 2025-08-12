@@ -29,17 +29,17 @@ C.UPGRADES.NumberType.Z = "ina_tech_numberz_sticker"
 --- For specific jokers
 C.CUSTOM = {}
 C.CUSTOM.Bobby_Teams = {
-    ["Raimon"]         = { x = 10, y = 6 },
-    ["Royal Academy"]  = { x = 3, y = 14 },
-    ["Occult"]         = { x = 7, y = 14 },
-    ["Wild"]           = { x = 8, y = 14 },
-    ["Brain"]          = { x = 9, y = 14 },
-    ["Otaku"]          = { x = 10, y = 14 },
-    ["Inazuma Eleven"] = { x = 11, y = 14 },
-    ["Shuriken"]       = { x = 12, y = 14 },
-    ["Farm"]           = { x = 0, y = 15 },
-    ["Kirkwood"]       = { x = 1, y = 15 },
-    ["Zeus"]           = { x = 2, y = 15 }
+    ["Raimon"]         = { x = 0, y = 0 },
+    ["Royal Academy"]  = { x = 1, y = 0 },
+    ["Occult"]         = { x = 5, y = 0 },
+    ["Wild"]           = { x = 6, y = 0 },
+    ["Brain"]          = { x = 7, y = 0 },
+    ["Otaku"]          = { x = 8, y = 0 },
+    ["Inazuma Eleven"] = { x = 9, y = 0 },
+    ["Shuriken"]       = { x = 10, y = 0 },
+    ["Farm"]           = { x = 11, y = 0 },
+    ["Kirkwood"]       = { x = 12, y = 0 },
+    ["Zeus"]           = { x = 0, y = 1 }
 }
 
 local team_number = 0
