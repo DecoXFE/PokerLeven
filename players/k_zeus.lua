@@ -1,7 +1,7 @@
 -- Poseidon
 local Poseidon = {
   name = "Poseidon",
-  pos = { x = 10, y = 5 },
+  pos = { x = 6, y = 12 },
   config = { extra = { min_face = 3, barriers_added = 1, chips_mod = 40, barriers = 1 } },
   loc_vars = function(self, info_queue, center)
     table.insert(info_queue, { set = "Other", key = "Frontal" })
@@ -44,7 +44,7 @@ local Poseidon = {
 
 local Hephestus = J({
   name = "Hephestus",
-  pos = { x = 12, y = 5 },
+  pos = { x = 10, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
   end,
@@ -90,7 +90,7 @@ local Hephestus = J({
 -- Apollo
 local Apollo = {
   name = "Apollo",
-  pos = { x = 11, y = 5 },
+  pos = { x = 7, y = 12 },
   config = { extra = { chips_mod = 11, alt_chips_mod = 4, current_chips = 0, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips_mod, center.ability.extra.alt_chips_mod, center.ability.extra.current_chips } }
@@ -135,7 +135,7 @@ local Apollo = {
 -- Artemis
 local Artemis = J({
   name = "Artemis",
-  pos = { x = 0, y = 6 },
+  pos = { x = 10, y = 12 },
   config = { extra = { current_chips = 0, chips_mod = 10 } },
   loc_vars = function(self, info_queue, center)
     info_queue[#info_queue + 1] = { set = 'Other', key = 'Harvester' }
@@ -188,7 +188,7 @@ local Artemis = J({
 -- Hermes
 local Hermes = {
   name = "Hermes",
-  pos = { x = 9, y = 5 },
+  pos = { x = 11, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
@@ -220,7 +220,7 @@ local Hermes = {
 -- Demeter
 local Demeter = {
   name = "Demeter",
-  pos = { x = 8, y = 5 },
+  pos = { x = 0, y = 13 },
   config = { extra = { mult_mod = 4, chip_mod = 10 } },
   loc_vars = function(self, info_queue, center)
     local remaining_discards = G.GAME and G.GAME.current_round and G.GAME.current_round.discards_left or 0
@@ -313,7 +313,7 @@ end
 
 local Aphrodite = J({
   name = "Aphrodite",
-  pos = { x = 1, y = 6 },
+  pos = { x = 1, y = 13 },
   config = { extra = { mf_probability = 0.7, byron_mult_fw = 0.3, byron_mult_mf = 0.15 } },
   loc_vars = function(self, info_queue, center)
     local position = center.ability.extra.pposition
