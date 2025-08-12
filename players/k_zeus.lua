@@ -1,7 +1,7 @@
 -- Poseidon
 local Poseidon = {
   name = "Poseidon",
-  pos = { x = 6, y = 12 },
+  pos = { x = 5, y = 12 },
   config = { extra = { min_face = 3, barriers_added = 1, chips_mod = 40, barriers = 1 } },
   loc_vars = function(self, info_queue, center)
     table.insert(info_queue, { set = "Other", key = "Frontal" })
@@ -44,7 +44,7 @@ local Poseidon = {
 
 local Hephestus = J({
   name = "Hephestus",
-  pos = { x = 10, y = 12 },
+  pos = { x = 9, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
   end,
@@ -90,7 +90,7 @@ local Hephestus = J({
 -- Apollo
 local Apollo = {
   name = "Apollo",
-  pos = { x = 7, y = 12 },
+  pos = { x = 6, y = 12 },
   config = { extra = { chips_mod = 11, alt_chips_mod = 4, current_chips = 0, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.chips_mod, center.ability.extra.alt_chips_mod, center.ability.extra.current_chips } }
