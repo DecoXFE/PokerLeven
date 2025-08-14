@@ -357,7 +357,117 @@ local Aphrodite = J({
   }
 })
 
+local function get_random_card_by_suit_from_config(card)
+  local extra = card.ability.extra or {}
+  local suit = extra.suit or "H"
+  local enhancement_chance = (extra.enhancement_chance or 0) / 100
+  local enhancement_pool = extra.enhancement_pool or {}
+  local edition_chance = (extra.edition_chance or 0) / 100
+  local edition_pool = extra.edition_pool_valid or {}
+  local seal_chance = (extra.seal_chance or 0) / 100
+  local seal_pool = extra.seal_pool or {}
+
+  local ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A" }
+  local cards = {}
+  for _, r in ipairs(ranks) do
+    table.insert(cards, G.P_CARDS[suit .. "_" .. r])
+  end
+  local card_front = pseudorandom_element(cards, pseudoseed('add_card_' .. suit))
+
+  -- Enhancement
+  local enhancement_pool_valid = {}
+  for _, k in ipairs(enhancement_pool) do
+    if G.P_CENTERS[k] then table.insert(enhancement_pool_valid, G.P_CENTERS[k]) end
+  end
+  local center = nil
+  if math.random() < enhancement_chance and #enhancement_pool_valid > 0 then
+    center = pseudorandom_element(enhancement_pool_valid, pseudoseed('add_card_enhancement'))
+  end
+
+  local new_card = create_playing_card({
+    front = card_front,
+    center = center
+  }, G.discard, true, false, nil, true)
+
+  -- Edition
+  local edition_pool_valid = {}
+  for _, k in ipairs(edition_pool) do
+    -- Si G.P_EDITIONS existe, filtra por ella, si no, acepta todos
+    if not G.P_EDITIONS or (G.P_EDITIONS and G.P_EDITIONS[k]) then
+      table.insert(edition_pool_valid, k)
+    end
+  end
+  if math.random() < edition_chance and #edition_pool_valid > 0 then
+    new_card:set_edition(pseudorandom_element(edition_pool_valid, pseudoseed('add_card_edition')), true)
+  end
+
+  -- Seal
+  local seal_pool_valid = {}
+  for _, k in ipairs(seal_pool) do
+    table.insert(seal_pool_valid, k)
+  end
+  if math.random() < seal_chance and #seal_pool_valid > 0 then
+    new_card:set_seal(pseudorandom_element(seal_pool_valid, pseudoseed('add_card_seal')), true)
+  end
+
+  G.E_MANAGER:add_event(Event({
+    func = function()
+      new_card:start_materialize()
+      G.play:emplace(new_card)
+      return true
+    end
+  }))
+  SMODS.calculate_effect({
+    func = function()
+      G.E_MANAGER:add_event(Event({
+        func = function()
+          G.deck.config.card_limit = G.deck.config.card_limit + 1
+          return true
+        end
+      }))
+      draw_card(G.play, G.deck, 90, 'up')
+      SMODS.calculate_context({ playing_card_added = true, cards = { new_card } })
+    end
+  }, card)
+  card_eval_status_text(card, 'extra', nil, nil, nil, {
+    message = "ina_divine",
+    colour = G.C.GREEN
+  })
+end
+
+local Athena = J({
+  name = "Athena",
+  pos = { x = 12, y = 12 },
+  config = { extra = { odds = 1, cards = 2, suit = "H", enhancement_chance = 30, enhancement_pool = { "m_bonus", "m_mult" } } },
+  loc_vars = function(self, info_queue, center)
+    local suit_map = { H = "Corazones", S = "Picas", D = "Diamantes", C = "Tréboles" }
+    local suit = suit_map[center.ability.extra.suit] or "?"
+    return { vars = { center.ability.extra.odds, center.ability.extra.cards, suit } }
+  end,
+  rarity = 1, -- Common
+  cost = 15,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF, -- Midfielder
+  pteam = "Zeus",
+  techtype = C.UPGRADES.Plus,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.skip_blind then
+      if SMODS.pseudorandom_probability(card, 'athena_odds', 1, card.ability.extra.odds) then
+        local num_cards = card.ability.extra.cards or 1
+        for i = 1, num_cards do
+          get_random_card_by_suit_from_config(card)
+        end
+      end
+    end
+  end,
+  ina_credits = {
+    idea = { "Shadorossa" }
+  },
+})
+
 return {
   name = "Zeus",
-  list = { Poseidon, Apollo, Hephestus, Artemis, Hermes, Demeter, Aphrodite },
+  list = { Poseidon, Apollo, Hephestus, Artemis, Hermes, Athena, Demeter, Aphrodite },
 }
