@@ -423,7 +423,6 @@ Pokerleven.create_random_card = function(card, config)
             or math.random(100) <= chance
     end
 
-    -- Recopilar cartas del palo especificado
     local card_keys = {}
     for key in pairs(G.P_CARDS) do
         if string.sub(key, 1, 1) == suit_code then
