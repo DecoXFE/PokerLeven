@@ -357,7 +357,56 @@ local Aphrodite = J({
   }
 })
 
+
+local Athena = J({
+  name = "Athena",
+  pos = { x = 12, y = 12 },
+  config = {
+    extra = {
+      odds = 2,
+      Obtained_cards = 2,
+      suit_name = Pokerleven.get_suit_name("H"),
+    }
+  },
+  loc_vars = function(self, info_queue, center)
+    return {
+      vars = { center.ability.extra.odds, center.ability.extra.Obtained_cards, center.ability.extra.suit_name }
+    }
+  end,
+  rarity = 1, -- Common
+  cost = 15,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF, -- Midfielder
+  pteam = "Zeus",
+  techtype = C.UPGRADES.Plus,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.skip_blind and SMODS.pseudorandom_probability(card, '', 1, card.ability.extra.odds) then
+      local num_cards = card.ability.extra.Obtained_cards or 0
+      local added_cards = 0
+
+      for i = 1, num_cards do
+        G.E_MANAGER:add_event(Event({
+          delay = 0.8 * i,
+          func = function()
+            local new_card = SMODS.add_card({ set = "Playing Card", area = G.discard, suit = "H", enhanced_poll = 0.3 })
+            new_card:start_materialize()
+            G.play:emplace(new_card)
+            draw_card(G.play, G.deck, 90, 'up', nil, nil, 1.2, false, nil, nil)
+            card_eval_status_text(card, 'extra', nil, nil, nil, {
+              message = localize("ina_divine"),
+              colour = G.C.GREEN
+            })
+            return true
+          end
+        }))
+      end
+    end
+  end
+})
+
 return {
   name = "Zeus",
-  list = { Poseidon, Apollo, Hephestus, Artemis, Hermes, Demeter, Aphrodite },
+  list = { Poseidon, Apollo, Hephestus, Artemis, Hermes, Athena, Demeter, Aphrodite },
 }

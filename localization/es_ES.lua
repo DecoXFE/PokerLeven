@@ -930,6 +930,14 @@ return {
                     "en {C:attention}cartas doradas{}" }
             },
 
+            j_ina_Athena = {
+                name = "Athena",
+                text = { "{C:wind}Entrada Huracán{}",
+                    "{C:attention}1 en #1#{} de generar {C:attention}#2# cartas{}",
+                    "de {C:hearts}#3#{} {C:attention}mejoradas{} cuando",
+                    "se omite una ciega" }
+            },
+
             j_ina_Demeter = {
                 name = "Demeter",
                 text = {
