@@ -168,3 +168,10 @@ Card.create_consumable_as_joker = function(self, consumable_type)
         }
     }
 end
+
+-- Función para comprobar si estamos en la fase después de la puntuación
+---@param context table
+---@return boolean True
+Pokerleven.after_scoring_phase = function(context)
+    return context.after and context.cardarea == G.jokers
+end
