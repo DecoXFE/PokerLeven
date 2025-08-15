@@ -395,105 +395,12 @@ Pokerleven.destroy_manager_with_key = function(manager_key)
 end
 
 -- Obtener la configuración del palo
-function Pokerleven.get_suit_name(suit_code)
+function Pokerleven.get_suit_name(input)
     local suit_map = {
-        H = "Corazones",
-        S = "Picas",
-        D = "Diamantes",
-        C = "Treboles"
+        ["H"] = "Corazones",
+        ["S"] = "Picas",
+        ["D"] = "Diamantes",
+        ["C"] = "Treboles"
     }
-    return suit_map[suit_code] or suit_code or "?"
+    return suit_map[input]
 end
-
-Pokerleven.create_random_card = function(card, config)
-    local extra = card and card.ability and card.ability.extra or {}
-    config = config or {}
-    local suit_code = extra.suit
-
-    local function random_pick(collection, seed)
-        return SMODS and type(SMODS.pseudorandom_element) == "function"
-            and SMODS.pseudorandom_element(card, seed, collection)
-            or collection[math.random(#collection)]
-    end
-
-    local function random_chance(chance, seed)
-        if chance <= 0 then return false end
-        return SMODS and type(SMODS.pseudorandom_probability) == "function"
-            and SMODS.pseudorandom_probability(card, seed, chance, 100)
-            or math.random(100) <= chance
-    end
-
-    -- Recopilar cartas del palo especificado
-    local card_keys = {}
-    for key in pairs(G.P_CARDS) do
-        if string.sub(key, 1, 1) == suit_code then
-            table.insert(card_keys, key)
-        end
-    end
-
-    local selected_card_key = random_pick(card_keys, 'card_selection')
-
-    local enhancement_pool = config.enhancement_pool or extra.enhancement_pool or {
-        "m_bonus", "m_mult", "m_gold", "m_steel", "m_glass",
-        "m_wild", "m_lucky", "m_stone"
-    }
-    local valid_enhancements = {}
-    for _, enh_key in ipairs(enhancement_pool) do
-        if G.P_CENTERS[enh_key] then
-            table.insert(valid_enhancements, enh_key)
-        end
-    end
-
-    local center = nil
-    local enhancement_chance = config.enhancement_chance or extra.enhancement_chance or 0
-
-    if #valid_enhancements > 0 and random_chance(enhancement_chance, 'enhancement_check') then
-        local chosen_key = random_pick(valid_enhancements, 'enhancement_selection')
-        center = G.P_CENTERS[chosen_key]
-    end
-
-
-    local new_card = create_playing_card({
-        front = G.P_CARDS[selected_card_key],
-        center = center
-    }, G.discard, true, false, nil, true)
-
-    local edition_chance = config.edition_chance or extra.edition_chance or 0
-    local edition_pool = config.edition_pool or extra.edition_pool or {
-        "e_foil", "e_holo", "e_polychrome", "e_negative"
-    }
-
-    if #edition_pool > 0 and random_chance(edition_chance, 'edition_check') then
-        local selected_edition = random_pick(edition_pool, 'edition_selection')
-        new_card:set_edition(selected_edition, true)
-    end
-
-
-    local seal_chance = config.seal_chance or extra.seal_chance or 0
-    local seal_pool = config.seal_pool or extra.seal_pool or {
-        "Gold", "Red", "Blue", "Purple"
-    }
-
-    if #seal_pool > 0 and random_chance(seal_chance, 'seal_check') then
-        local selected_seal = random_pick(seal_pool, 'seal_selection')
-        new_card:set_seal(selected_seal, true)
-    end
-
-
-    G.E_MANAGER:add_event(Event({
-        func = function()
-            new_card:start_materialize()
-            G.play:emplace(new_card)
-            G.deck.config.card_limit = G.deck.config.card_limit + 1
-            draw_card(G.play, G.deck, 90, 'up')
-            if SMODS and SMODS.calculate_context then
-                SMODS.calculate_context({ playing_card_added = true, cards = { new_card } })
-            end
-            return true
-        end
-    }))
-
-    return new_card
-end
-
-return { create_random_card = Pokerleven.create_random_card }
