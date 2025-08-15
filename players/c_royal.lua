@@ -69,12 +69,12 @@ local King = {
 }
 
 -- Bloom
-local Bloom = {
+local Bloom = J({
   name = "Bloom",
   pos = { x = 12, y = 2 },
-  config = { extra = { current_mult = 0, mult_mod = 1, triggered = false } },
+  config = { extra = { cards_scored = 0, Xmult_mod = 3 } },
   loc_vars = function(self, info_queue, center)
-    return { vars = { center.ability.extra.current_mult, center.ability.extra.mult_mod } }
+    return { vars = { center.ability.extra.Xmult_mod, center.ability.extra.cards_scored } }
   end,
   rarity = 1,
   pools = { ["Royal Academy"] = true },
@@ -86,17 +86,17 @@ local Bloom = {
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if context.joker_main and context.scoring_hand and next(context.poker_hands['Straight']) then
-      card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.mult_mod
-      card.ability.extra.triggered = true
+    if context.individual and Pokerleven.card_scoring(context) then
+      card.ability.extra.cards_scored = card.ability.extra.cards_scored + 1
+    end
+    if context.joker_main and context.scoring_hand and next(context.poker_hands['Straight'])
+        and card.ability.extra.cards_scored > 100 then
       return {
-        message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.current_mult } },
-        colour = G.C.MULT,
-        mult_mod = card.ability.extra.current_mult
+        Xmult = card.ability.extra.Xmult_mod
       }
     end
   end,
-}
+})
 
 -- Drent
 local Drent = {

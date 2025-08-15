@@ -165,7 +165,7 @@ player_in_pool = function(self)
     else
         name = self.name or "Mark"
     end
-    if next(find_joker(name)) or player_in_bench(name) then
+    if next(find_joker(name)) or player_in_bench(name) or self.pteam == 'Scout' then
         return false
     else
         return true
@@ -205,7 +205,7 @@ get_random_joker_key = function(pseed, inararity, area, inateam, exclude_keys, e
     local ina_keys = {}
     local inaarea = area or G.jokers
     local ina_key
-    exclude_keys = exclude_keys or {}
+    exclude_keys = exclude_keys or { j_ina_Jude_Raimon = true }
 
     if inararity and type(inararity) == "string" then
         if string.lower(inararity) == "common" then inararity = 1 end
@@ -217,7 +217,7 @@ get_random_joker_key = function(pseed, inararity, area, inateam, exclude_keys, e
         if ((special and v.special == special) or v.pteam)
             and not (inararity and v.rarity ~= inararity)
             and not (inateam and v.pteam and inateam ~= v.pteam)
-            and ((special and v.special == special) or (not special and player_in_pool(v)))
+            and ((special and v.special == special) or (not special and player_in_pool(v)) or (v.pteam == 'Scout'))
             and not v.aux_ina
             and not exclude_keys[v.key] then
             local no_dup = true

@@ -278,7 +278,7 @@ local Max = {
 local Peabody = {
   name = "Peabody",
   pos = { x = 8, y = 0 },
-  config = { extra = { current_mult = 0, mult_mod = 4, triggered = false } },
+  config = { extra = { current_mult = 0, mult_mod = 2, triggered = false } },
   loc_vars = function(self, info_queue, center)
     return { vars = { center.ability.extra.current_mult, center.ability.extra.mult_mod } }
   end,
@@ -292,22 +292,25 @@ local Peabody = {
   pteam = "Raimon",
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if context.cardarea == G.jokers and context.scoring_hand and G.GAME.current_round.hands_left == 0 then
-      if context.before and not context.blueprint then
+    if G.GAME.current_round.hands_left == 0 then
+      if context.individual and Pokerleven.card_scoring(context) then
         card.ability.extra.current_mult =
             card.ability.extra.current_mult + card.ability.extra.mult_mod;
         return {
           message = localize('k_upgrade_ex'),
-          colour = G.C.MULT
+          colour = G.C.MULT,
+          card = card
         }
       end
-      if context.joker_main then
-        card.ability.extra.triggered = true;
-        return {
-          message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.current_mult } },
-          colour = G.C.MULT,
-          mult_mod = card.ability.extra.current_mult
-        }
+      if context.cardarea == G.jokers and context.scoring_hand then
+        if context.joker_main then
+          card.ability.extra.triggered = true;
+          return {
+            message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.current_mult } },
+            colour = G.C.MULT,
+            mult_mod = card.ability.extra.current_mult
+          }
+        end
       end
     end
   end

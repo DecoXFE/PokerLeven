@@ -12,7 +12,7 @@
 	"badge_colour": "F7931E",
 	"badge_text_colour": "FFFFFF",
 	"display_name": "Pokerleven",
-	"version": "0.0.3b-alpha",
+	"version": "0.0.4a-alpha",
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-0323a)",
 		"Talisman (>=2.3.0)",

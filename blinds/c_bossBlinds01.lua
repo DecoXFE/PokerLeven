@@ -44,8 +44,7 @@ local goalkeeper = {
     key = "goalkeeper",
     pos = { x = 0, y = 3 },
     boss = {
-        min = 1,
-        max = 10,
+        min = 4,
     },
     discovered = false,
     mult = 2,
@@ -73,8 +72,7 @@ local forward = {
     key = "forward",
     pos = { x = 0, y = 0 },
     boss = {
-        min = 1,
-        max = 10,
+        min = 4,
     },
     discovered = false,
     mult = 2,
@@ -102,8 +100,7 @@ local defense = {
     key = "defense",
     pos = { x = 0, y = 2 },
     boss = {
-        min = 1,
-        max = 10,
+        min = 4,
     },
     discovered = false,
     mult = 2,
@@ -131,8 +128,7 @@ local midfielder = {
     key = "midfielder",
     pos = { x = 0, y = 1 },
     boss = {
-        min = 1,
-        max = 10,
+        min = 4,
     },
     discovered = false,
     mult = 2,
@@ -160,8 +156,7 @@ local fire = {
     key = "fire",
     pos = { x = 0, y = 4 },
     boss = {
-        min = 1,
-        max = 10,
+        min = 4,
     },
     discovered = false,
     mult = 2,
@@ -189,8 +184,7 @@ local mountain = {
     key = "mountain",
     pos = { x = 0, y = 7 },
     boss = {
-        min = 1,
-        max = 10,
+        min = 4,
     },
     discovered = false,
     mult = 2,
@@ -218,8 +212,7 @@ local wind = {
     key = "wind",
     pos = { x = 0, y = 5 },
     boss = {
-        min = 1,
-        max = 10,
+        min = 4,
     },
     discovered = false,
     mult = 2,
@@ -247,8 +240,7 @@ local forest = {
     key = "forest",
     pos = { x = 0, y = 6 },
     boss = {
-        min = 1,
-        max = 10,
+        min = 4,
     },
     discovered = false,
     mult = 2,
@@ -279,7 +271,7 @@ local inazuma_og = {
         min = 0,
     },
     discovered = false,
-    mult = 2,
+    mult = 1,
     atlas = "bossBlinds",
     order = 1,
     debuff = { h_size_ge = 5 },
@@ -292,7 +284,7 @@ local royal_blind = {
     key = "royal_blind",
     pos = { x = 0, y = 9 },
     boss = {
-        min = 2,
+        min = 1,
     },
     discovered = false,
     mult = 1.25,
@@ -321,7 +313,7 @@ local wild = B({
         min = 2,
     },
     discovered = false,
-    mult = 2,
+    mult = 1,
     atlas = "bossBlinds",
     order = 1,
     recalc_debuff = function(self, card, from_blind)
@@ -338,7 +330,7 @@ local brain = {
     key = "brain",
     pos = { x = 0, y = 11 },
     boss = {
-        min = 2,
+        min = 1,
     },
     discovered = false,
     mult = 2,

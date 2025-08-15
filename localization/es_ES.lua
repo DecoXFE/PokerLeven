@@ -335,7 +335,8 @@ return {
             j_ina_Peabody = {
                 name = "Peabody",
                 text = { "{C:mountain}Mano Celestial{}", "{C:mult}+#1#{} Mult en tu última mano",
-                    "Aumenta en {C:mult}+#2#{} por cada última mano jugada" }
+                    "Aumenta en {C:mult}+#2#{} por cada {C:attention}carta activada{}",
+                    "en la última mano jugada" }
             },
             j_ina_Jude_Raimon = {
                 name = "Jude",
@@ -407,8 +408,11 @@ return {
             },
             j_ina_Bloom = {
                 name = "Bloom",
-                text = { "{C:fire}Chut de los 100 toques{}", "{C:mult}+#1#{} Mult",
-                    "Gana {C:mult}+#2#{} Mult si la mano jugada", "contiene una {C:attention}escalera{}" }
+                text = { "{C:fire}Chut de los 100 toques{}",
+                    "Si has jugado 100 cartas o más",
+                    "{X:mult,C:white}X#1#{} Mult al jugar una mano",
+                    "si contiene una escalera",
+                    "{C:inactive}Actualmente{} {C:mult}#2#{} jugadas" }
             },
             j_ina_Drent = {
                 name = "Drent",
