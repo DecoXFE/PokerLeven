@@ -297,7 +297,7 @@ local Mach = J({
 })
 
 -- Miles
-local Miles = {
+local Miles = J({
     name = "Miles",
     pos = { x = 8, y = 0 },
     config = { extra = {} },
@@ -315,11 +315,11 @@ local Miles = {
     calculate = function(self, card, context)
         -- TODO Add logic
     end
-}
+})
 
--- George
-local George = {
-    name = "George",
+-- Winters
+local Winters = J({
+    name = "Winters",
     pos = { x = 5, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
@@ -329,14 +329,14 @@ local George = {
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Forest",
-    pposition = "MF",
+    ptype = C.Forest,
+    pposition = C.FW,
     pteam = "Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
-        -- TODO Add logic
+
     end
-}
+})
 
 -- Ace Server
 local Ace_Server = J({
@@ -362,10 +362,54 @@ local Ace_Server = J({
             Pokerleven.has_enough_cards_of_rank(context.scoring_hand, card.ability.extra.rank_played, card.ability.extra.ammount_needed) then
             return Pokerleven.level_up_hand(card.ability.extra.hand_level_up)
         end
-    end
+    end,
+    ina_credits = {
+        idea = { "Shadorossa" },
+    }
 })
+
+-- Rex George
+local Rex_George = J({
+    name = "Rex_George",
+    pos = { x = 0, y = 1 },
+    config = { extra = { needed_rank = { 2, 3, 4 }, converted_rank = 9 } },
+    loc_vars = function(self, info_queue, center)
+        local needed_ranks_str = table.concat(center.ability.extra.needed_rank, ", ")
+        return {
+            vars = { needed_ranks_str, tostring(center.ability.extra.converted_rank) }
+        }
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Forest,
+    pposition = C.GK,
+    pteam = "Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            local card_value = context.other_card:get_id()
+            for _, target_rank in ipairs(card.ability.extra.needed_rank) do
+                if card_value == target_rank then
+                    convert_cards_to(context.other_card, {
+                        set_rank = tostring(card.ability.extra.converted_rank)
+                    })
+                    return {
+                        message = localize("ina_convert"),
+                        colour = G.C.XMULT,
+                    }
+                end
+            end
+        end
+    end,
+    ina_credits = {
+        idea = { "Shadorossa" },
+    }
+})
+
 
 return {
     name = "Scout",
-    list = { Ace_Server, Blazer, Weathervane, Noggin, Montayne, Dulce, Ryoma, Mach },
+    list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Dulce, Ryoma },
 }
