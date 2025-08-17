@@ -314,9 +314,9 @@ local Miles = {
     end
 }
 
--- George
-local George = {
-    name = "George",
+-- Winters
+local Winters = {
+    name = "Winters",
     pos = { x = 5, y = 0 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
@@ -327,7 +327,7 @@ local George = {
     cost = 5,
     atlas = "Jokers10",
     ptype = "Forest",
-    pposition = "MF",
+    pposition = "FW",
     pteam = "Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -408,5 +408,5 @@ local Rex_George = J({
 
 return {
     name = "Scout",
-    list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Dulce, Ryoma },
+    list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Ryoma, Dulce },
 }
