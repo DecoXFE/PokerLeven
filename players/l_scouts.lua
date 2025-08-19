@@ -381,7 +381,7 @@ local Rex_George = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = C.Forest,
+    ptype = C.Wind,
     pposition = C.GK,
     pteam = "Scout",
     blueprint_compat = true,
