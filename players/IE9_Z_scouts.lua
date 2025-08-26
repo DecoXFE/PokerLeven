@@ -1,3 +1,6 @@
+
+-- Versión 0.1
+
 -- Dulce
 ---@param card Card
 local select_random_cards_for_harvest = function(card)
@@ -316,27 +319,6 @@ local Miles = {
     end
 }
 
--- George
-local George = {
-    name = "George",
-    pos = { x = 5, y = 0 },
-    config = { extra = {} },
-    loc_vars = function(self, info_queue, center)
-        return {}
-    end,
-    rarity = 1,
-    pools = { ["Scout"] = true },
-    cost = 5,
-    atlas = "Jokers10",
-    ptype = "Forest",
-    pposition = "MF",
-    pteam = "Scout",
-    blueprint_compat = true,
-    calculate = function(self, card, context)
-        -- TODO Add logic
-    end
-}
-
 -- Ace Server
 local Ace_Server = J({
     name = "Ace_Server",
@@ -407,6 +389,90 @@ local Rex_George = J({
     }
 })
 
+ -- Versión 0.2
+-- George
+local George = {
+    name = "George",
+    pos = { x = 5, y = 0 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = "Forest",
+    pposition = "FW",
+    pteam = "Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+}
+
+-- Spring
+local Spring = {
+    name = "Spring",
+    pos = { x = 4, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 3,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = "Fire",
+    pposition = "MF",
+    pteam = "Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+}
+
+-- Summer
+local Summer = {
+    name = "Summer",
+    pos = { x = 3, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 3,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = "Mountain",
+    pposition = "DF",
+    pteam = "Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+}
+
+-- Autumn
+local Autumn = {
+    name = "Autumn",
+    pos = { x = 2, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 3,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = "Wind",
+    pposition = "GK",
+    pteam = "Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+}
 
 return {
     name = "Scout",
