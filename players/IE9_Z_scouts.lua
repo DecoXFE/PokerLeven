@@ -410,8 +410,38 @@ local Rex_George = J({
     }
 })
 
+-- Cricket
+local Cricket = J({
+    name = "Cricket",
+    pos = { x = 12, y = 0 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {
+            vars = { center.ability.extra.odds, center.ability.extra.hand_level_up, center.ability.extra.ammount_needed, center.ability.extra.rank_played }
+        }
+    end,
+    rarity = 1, -- Common
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = C.Fire,
+    pposition = C.MF,
+    techtype = C.UPGRADES.Number,
+    pteam = "Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        if context.modify_scoring_hand and not context.blueprint then
+            return {
+                add_to_hand = true
+            }
+        end
+    end,
+    ina_credits = {
+        idea = { "Shadorossa" },
+    }
+})
 
 return {
     name = "Scout",
-    list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Dulce, Ryoma },
+    list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Cricket, Mach, Dulce, Ryoma },
 }
