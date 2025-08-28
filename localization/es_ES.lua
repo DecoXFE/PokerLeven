@@ -1158,6 +1158,14 @@ return {
                 } }
             },
 
+            j_ina_Cricket = {
+                name = "Holly Cricket",
+                text = { {
+                    "{C:purple}¡Todo suma!{}",
+                    "Todas las cartas cuentan para puntuar",
+                } }
+            },
+
             j_ina_Nelly = {
                 name = "Nelly",
                 text = { { "Por cada ronda se otorga entre {C:money}#1#${} a {C:money}#2#${},",
