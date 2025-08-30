@@ -99,7 +99,44 @@ local training_2 = V({
     end
 })
 
+local managers_1 = V({
+    key = "managers_1",
+    atlas = "vouchers01",
+    order = 33,
+    set = "Voucher",
+    pos = { x = 2, y = 0 },
+    discovered = false,
+    unlocked = false,
+    available = true,
+    cost = 10,
+    loc_vars = function(self, info_queue)
+        return {}
+    end,
+    redeem = function(self, card)
+        Pokerleven.ina_manager_area.config.card_limit = Pokerleven.ina_manager_area.config.card_limit + 1
+    end
+})
+
+local managers_2 = V({
+    key = "managers_2",
+    atlas = "vouchers01",
+    order = 33,
+    set = "Voucher",
+    pos = { x = 2, y = 1 },
+    discovered = false,
+    unlocked = false,
+    available = true,
+    requires = { "v_ina_managers_1" },
+    cost = 10,
+    loc_vars = function(self, info_queue)
+        return {}
+    end,
+    redeem = function(self, card)
+        Pokerleven.ina_manager_area.config.card_limit = Pokerleven.ina_manager_area.config.card_limit + 1
+    end
+})
+
 return {
     name = "Vouchers01",
-    list = { ex_law, ex_law_2, training, training_2 }
+    list = { ex_law, ex_law_2, training, training_2, managers_1, managers_2 }
 }

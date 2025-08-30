@@ -226,11 +226,20 @@ SMODS.Sound({
 })
 
 local custom_colours = loc_colour
-local gradient = SMODS.Gradient({
+local top_rarity = SMODS.Gradient({
     key = 'topplayer2',
     colours = {
         HEX('e7b400'),
         HEX('df7500'),
+    },
+    cycle = 5,
+    interpolation = 'trig'
+})
+local maxlvl = SMODS.Gradient({
+    key = 'maxlvl',
+    colours = {
+        HEX('b30c00'),
+        HEX('ffb200'),
     },
     cycle = 5,
     interpolation = 'trig'
@@ -263,7 +272,8 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["bench"] = HEX("4ca0a5")
     G.ARGS.LOC_COLOURS["training"] = HEX("5A00FF")
     G.ARGS.LOC_COLOURS["strat"] = HEX("9AA4B7")
-    G.ARGS.LOC_COLOURS["top"] = gradient
+    G.ARGS.LOC_COLOURS["top"] = top_rarity
+    G.ARGS.LOC_COLOURS["maxlvl"] = maxlvl
 
 
     return custom_colours(_c, _default)

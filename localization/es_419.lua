@@ -1603,18 +1603,30 @@ return {
             v_ina_training = {
                 name = "Entrenamiento",
                 text = {
-                    "{C:attention}+1{} al nivel máximo de técnica"
+                    "{C:attention}+1{} al {C:gold}nivel máximo{} de técnica"
                 },
             },
             v_ina_training_2 = {
                 name = "Súper Entrenamiento",
                 text = {
-                    "{C:attention}+1{} al nivel máximo de técnica"
+                    "{C:attention}+1{} al {C:maxlvl}nivel máximo{} de técnica"
                 },
                 unlock = {
                     "Sube a {C:training}ASZ/+4/A/G5{}",
                     "la técnica de un jugador"
                 }
+            },
+            v_ina_managers_1 = {
+                name = "Nueva incorporación",
+                text = {
+                    "{C:attention}+1{} espacio de {C:enhanced}Mánager{}"
+                },
+            },
+            v_ina_managers_2 = {
+                name = "Nueva incorporación",
+                text = {
+                    "{C:attention}+1{} espacio de {C:enhanced}Mánager{}"
+                },
             },
         }
     },

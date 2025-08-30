@@ -1538,18 +1538,30 @@ return {
             v_ina_training = {
                 name = "Training",
                 text = {
-                    "{C:attention}+1{} to max technique level"
+                    "{C:attention}+1{} to {C:gold}max technique level{}"
                 },
             },
             v_ina_training_2 = {
                 name = "Super Training",
                 text = {
-                    "{C:attention}+1{} to max technique level"
+                    "{C:attention}+1{} to {C:maxlvl}max technique level{}"
                 },
                 unlock = {
                     "Raise a player's technique",
                     "to {C:training}ASZ/+4/A/G5{}"
                 }
+            },
+            v_ina_managers_1 = {
+                name = "New incorporation",
+                text = {
+                    "{C:attention}+1{} {C:enhanced}Mánager{} slot"
+                },
+            },
+            v_ina_managers_2 = {
+                name = "New incorporation",
+                text = {
+                    "{C:attention}+1{} {C:enhanced}Mánager{} slot"
+                },
             },
         }
     },
