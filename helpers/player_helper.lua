@@ -467,3 +467,31 @@ Pokerleven.get_random_team_from_actuals = function()
 
     return selected_team
 end
+
+---@param enh_name string
+---@return integer
+Pokerleven.get_enhancement_count = function(c, enh_name)
+    local count = 0
+    if SMODS.has_enhancement(c, enh_name) then
+        count = count + 1
+    end
+    return count
+end
+
+Pokerleven.get_jokers_to_the_left = function(card)
+    for i, c in ipairs(G.jokers.cards) do
+        if c == card then
+            return i - 1
+        end
+    end
+    return 0
+end
+
+Pokerleven.get_jokers_to_the_right = function(card)
+    for i, c in ipairs(G.jokers.cards) do
+        if c == card then
+            return #G.jokers.cards - i
+        end
+    end
+    return 0
+end

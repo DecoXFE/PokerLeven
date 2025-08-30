@@ -502,6 +502,15 @@ return {
                     "Gana {C:chips}+#1#{} fichas",
                 }
             },
+            j_ina_Tod = {
+                name = "Tod",
+                text = {
+                    "{C:wind}Equilibrismo{}",
+                    "Gana {C:chips}+#1#{} fichas por",
+                    "cada {C:enhanced}Acero{}",
+                    "en {C:attention}mano{} o {C:attention}jugada{}"
+                }
+            },
             -- Occult
             j_ina_Talisman = {
                 name = "Talisman",
@@ -769,6 +778,16 @@ return {
                     "{C:green}#1# en 15{} de ganar {C:money}$20{}",
                     "en una {C:gold}Carta de la Suerte{}",
                     "{C:inactive}Jugarlas cuesta{} {C:money}#2#${}", }
+            },
+
+            j_ina_Vox = {
+                name = "Vox",
+                text = {
+                    "{C:wind}Segundón Resonante{}",
+                    "{C:attention}Diestro{}",
+                    "Gana {C:chips}+#1#{} fichas por",
+                    "cada {C:attention}Joker{} a su izquierda"
+                }
             },
 
             -- Inazuma Eleven
