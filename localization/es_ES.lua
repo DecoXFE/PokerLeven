@@ -1161,8 +1161,9 @@ return {
             j_ina_Cricket = {
                 name = "Holly Cricket",
                 text = { {
-                    "{C:purple}¡Todo suma!{}",
-                    "Todas las cartas cuentan para puntuar",
+                    "{C:purple}¡Ultratécnica!{}",
+                    "Si se juega {C:attention}póker{}",
+                    "la mano se balancea"
                 } }
             },
 
@@ -1735,3 +1736,4 @@ return {
         }
     }
 }
+
