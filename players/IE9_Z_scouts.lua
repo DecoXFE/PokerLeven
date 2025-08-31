@@ -430,15 +430,10 @@ local Cricket = J({
     pteam = "Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
-        if context.modify_scoring_hand and not context.blueprint then
-            return {
-                add_to_hand = true
-            }
+        if Pokerleven.is_joker_turn(context) and context.scoring_name == "Four of a Kind" then
+            return { balance = true }
         end
-    end,
-    ina_credits = {
-        idea = { "Shadorossa" },
-    }
+    end
 })
 
 return {
