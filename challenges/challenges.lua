@@ -113,6 +113,89 @@ local futbol_frontier = {
     },
 }
 
+local more_or_less = {
+    object_type = "Challenge",
+    key = "more_or_less",
+    rules = {
+        modifiers = {
+            { id = 'joker_slots', value = 5 },
+        }
+    },
+    jokers = {
+        { id = "j_ina_Marvin", eternal = true },
+        { id = "j_ina_Thomas", eternal = true },
+        { id = "j_ina_Tyler",  eternal = true },
+    },
+    restrictions = {
+        banned_cards = {
+            { id = "j_ina_Cleats" }
+        },
+        banned_tags = {
+        },
+        banned_other = {
+        },
+    },
+    deck = {
+        type = 'Challenge Deck',
+    },
+}
+
+local mark_challenge = Ch({
+    object_type = "Challenge",
+    key = "mark_challenge",
+    rules = {
+        custom = {
+            { id = 'ina_win_ante16' },
+        },
+        modifiers = {
+            { id = 'joker_slots', value = 5 },
+        }
+    },
+    jokers = {
+        { id = "j_ina_Mark", eternal = true },
+    },
+    restrictions = {
+        banned_cards = {
+            { id = "j_ina_Cleats" }
+        },
+        banned_tags = {},
+        banned_other = {},
+    },
+    deck = {
+        type = 'Challenge Deck',
+    },
+    apply = function(self)
+        G.GAME.win_ante = 16
+    end
+})
+
+local recruiter = {
+    object_type = "Challenge",
+    key = "recruiter",
+    rules = {
+        custom = {
+            { id = 'no_shop_jokers' },
+        },
+        modifiers = {
+            { id = 'joker_slots', value = 5 },
+        }
+    },
+    jokers = {
+        { id = "j_ina_Celia", eternal = true },
+    },
+    restrictions = {
+        banned_cards = {
+            { id = "j_ina_Cleats" }
+        },
+        banned_tags = {},
+        banned_other = {},
+    },
+    deck = {
+        type = 'Challenge Deck',
+    },
+}
+
+
 local ff_bosses = { "bl_ina_wild", "bl_ina_brain", "bl_ina_otaku",
     "bl_ina_royal_blind", "bl_ina_shuriken",
     "bl_ina_farm", "bl_ina_kirkwood", "bl_ina_zeus" }
@@ -159,5 +242,5 @@ end
 
 return {
     name = "Challenge",
-    list = { glasses_team, love_pair, futbol_frontier, elementals }
+    list = { glasses_team, love_pair, futbol_frontier, elementals, more_or_less, mark_challenge, recruiter }
 }

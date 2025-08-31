@@ -266,3 +266,9 @@ Pokerleven.get_all_type_pos_combinations = function()
 
     return combinations
 end
+
+Pokerleven.get_random_type_pos_held = function()
+    local combinations = Pokerleven.get_all_type_pos_combinations()
+    local selected_combination = pseudorandom_element(combinations, pseudoseed('training'))
+    return selected_combination;
+end

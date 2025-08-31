@@ -1,363 +1,78 @@
-local Raimon = {
-	name = "Raimon Pack",
-	key = "team_pack_raimon",
-	kind = "Team",
-	atlas = "Boosters01",
-	pos = { x = 0, y = 0 },
-	config = { extra = 2, choose = 1, c_keys = {} },
-	cost = 6,
-	order = 1,
-	weight = function()
-		if #find_player_team("Raimon") > 0 then
-			return 0.2
-		else
-			return 0
-		end
-	end,
-	draw_hand = false,
-	unlocked = true,
-	discovered = false,
-	create_card = function(self, card, i)
-		return create_card("Raimon", G.pack_cards, nil, nil, true, true, nil, nil)
-	end,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, card.ability.extra } }
-	end,
-	group_key = "k_team_pack",
-	ina_credits = {
-		art = { "Shadorossa" }
-	}
-}
-
-local Occult = {
-	name = "Occult",
-	key = "team_pack_occult",
-	kind = "Team",
-	atlas = "Boosters01",
-	pos = { x = 2, y = 0 },
-	config = { extra = 2, choose = 1, c_keys = {} },
-	cost = 6,
-	order = 1,
-	weight = function()
-		if #find_player_team("Occult") > 0 then
-			return 0.2
-		else
-			return 0
-		end
-	end,
-	draw_hand = false,
-	unlocked = true,
-	discovered = false,
-	create_card = function(self, card, i)
-		return create_card("Occult", G.pack_cards, nil, nil, true, true, nil, nil)
-	end,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, card.ability.extra } }
-	end,
-	group_key = "k_team_pack",
-	ina_credits = {
-		art = { "Shadorossa" }
-	}
-}
-
-local RoyalAcademy = {
-	name = "Royal Academy",
-	key = "team_pack_royal",
-	kind = "Team",
-	atlas = "Boosters01",
-	pos = { x = 1, y = 0 },
-	config = { extra = 2, choose = 1, c_keys = {} },
-	cost = 4,
-	order = 1,
-	weight = function()
-		if #find_player_team("Royal Academy") > 0 then
-			return 0.2
-		else
-			return 0
-		end
-	end,
-	draw_hand = false,
-	unlocked = true,
-	discovered = false,
-	create_card = function(self, card, i)
-		return create_card("Royal Academy", G.pack_cards, nil, nil, true, true, nil, nil)
-	end,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, card.ability.extra } }
-	end,
-	group_key = "k_team_pack",
-	ina_credits = {
-		art = { "Shadorossa" }
-	}
-}
-
-local Wild = {
-	name = "Wild",
-	key = "team_pack_wild",
-	kind = "Team",
-	atlas = "Boosters01",
-	pos = { x = 3, y = 0 },
-	config = { extra = 2, choose = 1, c_keys = {} },
-	cost = 6,
-	order = 1,
-	weight = function()
-		if #find_player_team("Wild") > 0 then
-			return 0.2
-		else
-			return 0
-		end
-	end,
-	draw_hand = false,
-	unlocked = true,
-	discovered = false,
-	create_card = function(self, card, i)
-		return create_card("Wild", G.pack_cards, nil, nil, true, true, nil, nil)
-	end,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, card.ability.extra } }
-	end,
-	group_key = "k_team_pack",
-	ina_credits = {
-		art = { "Shadorossa" }
-	}
-}
-
-local Brain = {
-	name = "Brain",
-	key = "team_pack_brain",
-	kind = "Team",
-	atlas = "Boosters01",
-	pos = { x = 0, y = 1 },
-	config = { extra = 2, choose = 1, c_keys = {} },
-	cost = 6,
-	order = 1,
-	weight = function()
-		if #find_player_team("Brain") > 0 then
-			return 0.2
-		else
-			return 0
-		end
-	end,
-	draw_hand = false,
-	unlocked = true,
-	discovered = false,
-	create_card = function(self, card, i)
-		return create_card("Brain", G.pack_cards, nil, nil, true, true, nil, nil)
-	end,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, card.ability.extra } }
-	end,
-	group_key = "k_team_pack",
-	ina_credits = {
-		art = { "Shadorossa" }
-	}
-}
-
-local Otaku = {
-	name = "Otaku",
-	key = "team_pack_otaku",
-	kind = "Team",
-	atlas = "Boosters01",
-	pos = { x = 1, y = 1 },
-	config = { extra = 2, choose = 1, c_keys = {} },
-	cost = 6,
-	order = 1,
-	weight = function()
-		if #find_player_team("Otaku") > 0 then
-			return 0.2
-		else
-			return 0
-		end
-	end,
-	draw_hand = false,
-	unlocked = true,
-	discovered = false,
-	create_card = function(self, card, i)
-		return create_card("Otaku", G.pack_cards, nil, nil, true, true, nil, nil)
-	end,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, card.ability.extra } }
-	end,
-	group_key = "k_team_pack",
-	ina_credits = {
-		art = { "Shadorossa" }
-	}
-}
-
-local Inazuma = {
-	name = "Inazuma Eleven",
-	key = "team_pack_inazuma",
-	kind = "Team",
-	atlas = "Boosters01",
-	pos = { x = 2, y = 1 },
-	config = { extra = 2, choose = 1, c_keys = {} },
-	cost = 4,
-	order = 1,
-	weight = function()
-		if #find_player_team("Inazuma Eleven") > 0 then
-			return 0.2
-		else
-			return 0
-		end
-	end,
-	draw_hand = false,
-	unlocked = true,
-	discovered = false,
-	create_card = function(self, card, i)
-		return create_card("Inazuma Eleven", G.pack_cards, nil, nil, true, true, nil, nil)
-	end,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, card.ability.extra } }
-	end,
-	group_key = "k_team_pack",
-	ina_credits = {
-		art = { "Shadorossa" }
-	}
-}
-
-local Shuriken = {
-	name = "Shuriken",
-	key = "team_pack_shuriken",
-	kind = "Team",
-	atlas = "Boosters01",
-	pos = { x = 3, y = 1 },
-	config = { extra = 2, choose = 1, c_keys = {} },
-	cost = 4,
-	order = 1,
-	weight = function()
-		if #find_player_team("Shuriken") > 0 then
-			return 0.2
-		else
-			return 0
-		end
-	end,
-	draw_hand = false,
-	unlocked = true,
-	discovered = false,
-	create_card = function(self, card, i)
-		return create_card("Shuriken", G.pack_cards, nil, nil, true, true, nil, nil)
-	end,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, card.ability.extra } }
-	end,
-	group_key = "k_team_pack",
-	ina_credits = {
-		art = { "Shadorossa" }
-	}
-}
-
-local Farm = {
-	name = "Farm",
-	key = "team_pack_farm",
-	kind = "Team",
-	atlas = "Boosters01",
-	pos = { x = 0, y = 2 },
-	config = { extra = 2, choose = 1, c_keys = {} },
-	cost = 4,
-	order = 1,
-	weight = function()
-		if #find_player_team("Farm") > 0 then
-			return 0.2
-		else
-			return 0
-		end
-	end,
-	draw_hand = false,
-	unlocked = true,
-	discovered = false,
-	create_card = function(self, card, i)
-		return create_card("Farm", G.pack_cards, nil, nil, true, true, nil, nil)
-	end,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, card.ability.extra } }
-	end,
-	group_key = "k_team_pack",
-	ina_credits = {
-		art = { "Shadorossa" }
-	}
-}
-
-local Kirkwood = {
-	name = "Kirkwood",
-	key = "team_pack_kirkwood",
-	kind = "Team",
-	atlas = "Boosters01",
-	pos = { x = 1, y = 2 },
-	config = { extra = 2, choose = 1, c_keys = {} },
-	cost = 4,
-	order = 1,
-	weight = function()
-		if #find_player_team("Kirkwood") > 0 then
-			return 0.2
-		else
-			return 0
-		end
-	end,
-	draw_hand = false,
-	unlocked = true,
-	discovered = false,
-	create_card = function(self, card, i)
-		return create_card("Kirkwood", G.pack_cards, nil, nil, true, true, nil, nil)
-	end,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, card.ability.extra } }
-	end,
-	group_key = "k_team_pack",
-	ina_credits = {
-		art = { "Shadorossa" }
-	}
-}
-
-local Zeus = {
-	name = "Zeus",
-	key = "team_pack_zeus",
-	kind = "Team",
-	atlas = "Boosters01",
-	pos = { x = 2, y = 2 },
-	config = { extra = 2, choose = 1, c_keys = {} },
-	cost = 4,
-	order = 1,
-	weight = function()
-		if #find_player_team("Zeus") > 0 then
-			return 0.2
-		else
-			return 0
-		end
-	end,
-	draw_hand = false,
-	unlocked = true,
-	discovered = false,
-	create_card = function(self, card, i)
-		return create_card("Zeus", G.pack_cards, nil, nil, true, true, nil, nil)
-	end,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, card.ability.extra } }
-	end,
-	group_key = "k_team_pack",
-	ina_credits = {
-		art = { "Shadorossa" }
-	}
-}
-
-
---- INA PACKS
 local Consts = {
-	max_quantity = 4,
+	max_quantity_small = 4,
+	max_quantity_jumbo = 5,
+	max_quantity_mega = 5,
+	choose_small = 1,
+	choose_jumbo = 1,
+	choose_mega = 2,
 	strats = 1,
 	trainings = 1
 }
 
+local Growing_Pack = {
+	name = "Growing Pack",
+	key = "growing_pack",
+	kind = "Team",
+	atlas = "Boosters01",
+	pos = { x = 0, y = 0 },
+	config = { extra = Consts.max_quantity_small - 2, choose = Consts.choose_small, c_keys = {} },
+	cost = 4,
+	order = 1,
+	weight = 0.35,
+	draw_hand = false,
+	unlocked = true,
+	discovered = false,
+	create_card = function(self, card, i)
+		local selected_team = tostring(Pokerleven.get_random_team_from_actuals())
+
+		return create_card(selected_team, G.pack_cards, nil, nil, true, true, nil, nil)
+	end,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.choose, card.ability.extra } }
+	end,
+	group_key = "k_team_pack",
+}
+
+local Advanced_Pack = {
+	name = "AdvancedPack",
+	key = "advanced_pack",
+	kind = "Team",
+	atlas = "Boosters01",
+	pos = { x = 1, y = 0 },
+	config = { extra = Consts.max_quantity_jumbo - 1, choose = Consts.choose_jumbo, c_keys = {} },
+	cost = 6,
+	order = 1,
+	weight = 0.15,
+	draw_hand = false,
+	unlocked = true,
+	discovered = false,
+	create_card = function(self, card, i)
+		local selected_team = Pokerleven.get_random_team_from_actuals()
+
+		return create_card(selected_team, G.pack_cards, nil, nil, true, true, nil, nil)
+	end,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.choose, card.ability.extra } }
+	end,
+	group_key = "k_team_pack",
+	in_pool = function(self, args)
+		if G.GAME.round_resets.ante >= 3 then
+			return true
+		end
+		return false
+	end
+}
+
 local CARD_ORDER = {
 	default = "Tarot",
-	[Consts.max_quantity - 1] = C.STRAT,
-	[Consts.max_quantity] = C.TRAINING,
+	[Consts.max_quantity_small - 1] = C.STRAT,
+	[Consts.max_quantity_small] = C.TRAINING,
 }
 
 local create_card_by_order = function(position_index)
 	local card_type = CARD_ORDER[position_index] or CARD_ORDER.default
 	if card_type == C.TRAINING then
-		combinations = Pokerleven.get_all_type_pos_combinations()
-		local selected_combination = pseudorandom_element(combinations, pseudoseed('training'))
+		local selected_combination = Pokerleven.get_random_type_pos_held()
 
 		return create_card(C.TRAINING, G.pack_cards, nil, nil, true, true,
 			selected_combination, nil)
@@ -370,8 +85,8 @@ local Ina_Pack = {
 	key = "item_pack_ina",
 	kind = "Item",
 	atlas = "Boosters01",
-	pos = { x = 3, y = 2 },
-	config = { extra = Consts.max_quantity, choose = 1 },
+	pos = { x = 0, y = 3 },
+	config = { extra = Consts.max_quantity_small, choose = Consts.choose_small },
 	cost = 4,
 	order = 1,
 	weight = 1,
@@ -382,7 +97,7 @@ local Ina_Pack = {
 		return create_card_by_order(i)
 	end,
 	loc_vars = function(self, info_queue, card)
-		local tarots = Consts.max_quantity - Consts.strats - Consts.trainings
+		local tarots = Consts.max_quantity_small - Consts.strats - Consts.trainings
 		return { vars = { card.ability.choose, tarots, Consts.strats, Consts.trainings } }
 	end,
 	group_key = "k_item_pack",
@@ -393,8 +108,8 @@ local Training_Pack = {
 	key = "training_pack",
 	kind = "Item",
 	atlas = "Boosters01",
-	pos = { x = 1, y = 3 },
-	config = { extra = Consts.max_quantity, choose = 1 },
+	pos = { x = 0, y = 2 },
+	config = { extra = Consts.max_quantity_small, choose = Consts.choose_small },
 	cost = 4,
 	order = 1,
 	weight = 0.15,
@@ -405,7 +120,61 @@ local Training_Pack = {
 		return create_card(C.TRAINING, G.pack_cards, nil, nil, true, true, nil, nil)
 	end,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.choose, Consts.max_quantity } }
+		return { vars = { card.ability.choose, Consts.max_quantity_small } }
+	end,
+	group_key = "k_item_pack",
+}
+
+local Jumbo_Training_Pack = {
+	name = "Jumbo Training Pack",
+	key = "jumbo_training_pack",
+	kind = "Item",
+	atlas = "Boosters01",
+	pos = { x = 1, y = 2 },
+	config = { extra = Consts.max_quantity_jumbo, choose = Consts.choose_jumbo },
+	cost = 6,
+	order = 1,
+	weight = 0.07,
+	draw_hand = false,
+	unlocked = true,
+	discovered = false,
+	create_card = function(self, card, i)
+		local selected_combination
+		if i == 1 then
+			selected_combination = Pokerleven.get_random_type_pos_held()
+		end
+
+		return create_card(C.TRAINING, G.pack_cards, nil, nil, true, true, selected_combination or nil, nil)
+	end,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.choose, Consts.max_quantity_mega } }
+	end,
+	group_key = "k_item_pack",
+}
+
+local Mega_Training_Pack = {
+	name = "Mega Training Pack",
+	key = "mega_training_pack",
+	kind = "Item",
+	atlas = "Boosters01",
+	pos = { x = 2, y = 2 },
+	config = { extra = Consts.max_quantity_mega, choose = Consts.choose_mega },
+	cost = 10,
+	order = 1,
+	weight = 0.01,
+	draw_hand = false,
+	unlocked = true,
+	discovered = false,
+	create_card = function(self, card, i)
+		local selected_combination
+		if i == 1 or i == 2 then
+			selected_combination = Pokerleven.get_random_type_pos_held()
+		end
+
+		return create_card(C.TRAINING, G.pack_cards, nil, nil, true, true, selected_combination or nil, nil)
+	end,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.choose, Consts.max_quantity_mega } }
 	end,
 	group_key = "k_item_pack",
 }
@@ -417,7 +186,7 @@ local Manager_Pack = {
 	key = "manager_pack",
 	kind = "Manager",
 	atlas = "Boosters01",
-	pos = { x = 0, y = 3 },
+	pos = { x = 0, y = 1 },
 	config = { extra = 2, choose = 1 },
 	cost = 4,
 	order = 1,
@@ -445,6 +214,5 @@ local Manager_Pack = {
 
 return {
 	name = "Boosters01",
-	list = { Raimon, Occult, RoyalAcademy, Wild, Brain, Otaku, Inazuma, Shuriken, Farm, Kirkwood, Zeus,
-		Ina_Pack, Training_Pack, Manager_Pack }
+	list = { Growing_Pack, Advanced_Pack, Ina_Pack, Training_Pack, Jumbo_Training_Pack, Mega_Training_Pack, Manager_Pack }
 }

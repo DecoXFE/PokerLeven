@@ -168,7 +168,7 @@ local Jude = {
   pos = { x = 0, y = 0 },
   soul_pos = { x = 0, y = 1 },
   config = {
-    extra = { current_xmult = 1, xmult_mod = 0.1, next_xmult = 1, triggered = false
+    extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false
     }
   },
   loc_vars = function(self, info_queue, center)
@@ -242,7 +242,9 @@ local Martin = J({
   blueprint_compat = true,
   calculate = function(self, card, context)
     if not context.debuff then
-      if context.other_joker and not context.other_joker.debuff and context.other_joker.config.center.rarity == 3 and card ~= context.other_joker then
+      if context.other_joker and not context.other_joker.debuff
+          and (context.other_joker.config.center.rarity == 3 or context.other_joker.config.center.rarity == "ina_top")
+          and card ~= context.other_joker then
         card.ability.extra.triggered = true;
         G.E_MANAGER:add_event(Event({
           func = function()
@@ -290,13 +292,15 @@ local Martin = J({
           end
         }))
         return {
-          message = localize({
-            type = "variable",
-            key = "a_powmult",
-            vars = { number_format(card.ability.extra.legendary_exp) },
-          }),
-          Emult_mod = card.ability.extra.legendary_exp,
-          colour = G.C.DARK_EDITION,
+          mult_message = {
+            message = localize({
+              type = "variable",
+              key = "a_powmult",
+              vars = { number_format(card.ability.extra.legendary_exp) },
+            }),
+            colour = G.C.DARK_EDITION,
+          },
+          mult = (mult ^ card.ability.extra.legendary_exp) - mult,
         }
       end
     end

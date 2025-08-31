@@ -1,6 +1,9 @@
 C = {}
+
+-- Seals
 C.SEALS = { 'Blue', 'Red', 'Gold', 'Purple' }
 
+-- Types
 C.ALL_TYPES = { "Wind", "Fire", "Forest", "Mountain" }
 C.Wind = C.ALL_TYPES[1]
 C.Fire = C.ALL_TYPES[2]
@@ -11,17 +14,22 @@ C.STICKERS = {}
 C.STICKERS.types = { "wind_sticker", "fire_sticker", "forest_sticker", "mountain_sticker" }
 C.STICKERS.positions = { "fw_sticker", "mf_sticker", "gk_sticker", "df_sticker" }
 
+-- Positions
 C.ALL_POSITIONS = { "FW", "MF", "DF", "GK" }
 C.FW = C.ALL_POSITIONS[1]
 C.MF = C.ALL_POSITIONS[2]
 C.DF = C.ALL_POSITIONS[3]
 C.GK = C.ALL_POSITIONS[4]
 
+-- Dictionary
 C.TRAINING = "Training"
 C.STRAT = "Strat"
-
 C.INA_UPGRADE_TECHNIQUE_KEY = "c_ina_upgrade_technique_"
 
+-- Overridable
+C.MAX_HIGHLIGHTED_MAGICIAN = 2
+
+-- Upgrades
 C.UPGRADES = { "plus", "number", "grade" }
 C.UPGRADES.Plus = C.UPGRADES[1]
 C.UPGRADES.Number = C.UPGRADES[2]

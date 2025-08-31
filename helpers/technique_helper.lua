@@ -34,6 +34,9 @@ technique_values = {
     cooldown_base = -0.2,
     current_cooldown = -0.2,
     evolving_retriggers = 1,
+    card_count1 = 1,
+    odds4 = -0.1499,
+    odds2 = -0.1
 }
 
 local roundable_fields = {
@@ -43,7 +46,7 @@ local roundable_fields = {
     chip_mod = true,
     copies_number = true,
     cooldown_base = true,
-    current_cooldown = true
+    current_cooldown = true,
 }
 
 

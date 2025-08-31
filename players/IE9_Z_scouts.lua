@@ -1,7 +1,9 @@
+-- Versión 0.1
+
 -- Dulce
 ---@param card Card
 local select_random_cards_for_harvest = function(card)
-    local count = #Pokerleven.find_player_type_and_position("Wind", "MF")
+    local count = (#find_player_type("Wind") + #find_player_position("MF")) * card.ability.extra.card_count1
 
     if count > 0 and G.deck and G.deck.cards and #G.deck.cards > 0 then
         table.unpack = table.unpack or unpack
@@ -28,9 +30,9 @@ end
 local Dulce = J({
     name = "Dulce",
     pos = { x = 10, y = 0 },
-    config = { extra = {} },
+    config = { extra = { card_count1 = 1 } },
     loc_vars = function(self, info_queue, center)
-        return {}
+        return { vars = { center.ability.extra.card_count1 } }
     end,
     rarity = 3,
     pools = { ["Scout"] = true },
@@ -258,7 +260,7 @@ local Chester = J({
 local Mach = J({
     name = "Mach",
     pos = { x = 7, y = 0 },
-    config = { extra = { current_xmult = 1, xmult_mod = 0.25 } },
+    config = { extra = { current_xmult = 1, xmult_mod = 0.15 } },
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.xmult_mod, center.ability.extra.current_xmult } }
     end,
@@ -317,35 +319,14 @@ local Miles = {
     end
 }
 
--- George
-local George = {
-    name = "George",
-    pos = { x = 5, y = 0 },
-    config = { extra = {} },
-    loc_vars = function(self, info_queue, center)
-        return {}
-    end,
-    rarity = 1,
-    pools = { ["Scout"] = true },
-    cost = 5,
-    atlas = "Jokers10",
-    ptype = "Forest",
-    pposition = "MF",
-    pteam = "Scout",
-    blueprint_compat = true,
-    calculate = function(self, card, context)
-        -- TODO Add logic
-    end
-}
-
 -- Ace Server
 local Ace_Server = J({
     name = "Ace_Server",
     pos = { x = 0, y = 0 },
-    config = { extra = { odds = 4, hand_level_up = 1, ammount_needed = 2, rank_played = 14, } },
+    config = { extra = { odds4 = 4, hand_level_up = 1, ammount_needed = 2, rank_played = 14, } },
     loc_vars = function(self, info_queue, center)
         return {
-            vars = { center.ability.extra.odds, center.ability.extra.hand_level_up, center.ability.extra.ammount_needed, center.ability.extra.rank_played }
+            vars = { center.ability.extra.odds4, center.ability.extra.hand_level_up, center.ability.extra.ammount_needed, center.ability.extra.rank_played }
         }
     end,
     rarity = 2,
@@ -435,6 +416,91 @@ local Cricket = J({
         end
     end
 })
+
+-- Versión 0.2
+-- George
+local George = {
+    name = "George",
+    pos = { x = 5, y = 0 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 1,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = "Forest",
+    pposition = "FW",
+    pteam = "Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+}
+
+-- Spring
+local Spring = {
+    name = "Spring",
+    pos = { x = 4, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 3,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = "Fire",
+    pposition = "MF",
+    pteam = "Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+}
+
+-- Summer
+local Summer = {
+    name = "Summer",
+    pos = { x = 3, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 3,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = "Mountain",
+    pposition = "DF",
+    pteam = "Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+}
+
+-- Autumn
+local Autumn = {
+    name = "Autumn",
+    pos = { x = 2, y = 1 },
+    config = { extra = {} },
+    loc_vars = function(self, info_queue, center)
+        return {}
+    end,
+    rarity = 3,
+    pools = { ["Scout"] = true },
+    cost = 5,
+    atlas = "Jokers10",
+    ptype = "Wind",
+    pposition = "GK",
+    pteam = "Scout",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        -- TODO Add logic
+    end
+}
 
 return {
     name = "Scout",

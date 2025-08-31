@@ -64,6 +64,40 @@ local tactic_pos = {
   end
 }
 
+local divine_water = {
+  name = "Divine Water",
+  key = "divine_water",
+  set = "Spectral",
+  pos = { x = 2, y = 0 },
+  atlas = "Consumables",
+  cost = 10,
+  unlocked = true,
+  discovered = false,
+  can_use = function(self, card)
+    return (
+          (G.jokers.highlighted and #G.jokers.highlighted == 1) or
+          (Pokerleven.ina_bench_area.highlighted and #Pokerleven.ina_bench_area.highlighted == 1)
+        ) and can_upgrade_tech_level(G.jokers.highlighted[1] or Pokerleven.ina_bench_area.highlighted[1])
+        and
+        ((G.jokers.highlighted[1] and not G.jokers.highlighted[1].ability.eternal)
+          or (Pokerleven.ina_bench_area.highlighted[1] and not Pokerleven.ina_bench_area.highlighted[1].ability.eternal))
+  end,
+  use = function(self, card, area, copier)
+    local choice = G.jokers.highlighted[1] or Pokerleven.ina_bench_area.highlighted[1]
+
+    for _ = choice.ability.extra.tech_level or 0, 4 do
+      increment_technique(choice)
+    end
+
+    choice.ability.perishable = true
+    choice.ability.perish_tally = 5
+
+    check_for_unlock({ type = "ray_dark" })
+    card_eval_status_text(choice, 'extra', nil, nil, nil,
+      { message = localize("ina_technique_upgrade"), colour = G.C.SECONDARY_SET.Spectral })
+  end
+}
+
 local black_room = {
   name = "Black Room",
   key = "black_room",
@@ -675,7 +709,7 @@ local upgrade_technique_Mountain_GK = {
 
 return {
   name = "Trainings",
-  list = { tech_book, tactic_pos, black_room, centella,
+  list = { tech_book, tactic_pos, divine_water, black_room, centella,
     upgrade_technique_Forest_GK, upgrade_technique_Forest_DF, upgrade_technique_Forest_MF, upgrade_technique_Forest_FW,
     upgrade_technique_Fire_GK, upgrade_technique_Fire_DF, upgrade_technique_Fire_MF, upgrade_technique_Fire_FW,
     upgrade_technique_Wind_GK, upgrade_technique_Wind_DF, upgrade_technique_Wind_MF, upgrade_technique_Wind_FW,

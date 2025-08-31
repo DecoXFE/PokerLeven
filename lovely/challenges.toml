@@ -1,0 +1,13 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 3
+
+## Custom bosses only
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''local _area = G.P_CENTERS[joker].consumeable and G.consumeables or G.jokers'''
+position = 'at'
+match_indent = true
+payload = '''local _area = G.P_CENTERS[joker].consumeable and G.consumeables or (G.P_CENTERS[joker].special == "Manager" and Pokerleven.ina_manager_area or G.jokers)'''

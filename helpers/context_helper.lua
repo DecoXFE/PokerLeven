@@ -108,7 +108,8 @@ end
 ---@param self Card
 ---@return boolean
 Card.odds_triggered = function(self, seed)
-    return pseudorandom(seed) < G.GAME.probabilities.normal / self.ability.extra.odds
+    return pseudorandom(seed) <
+    G.GAME.probabilities.normal / (self.ability.extra.odds or self.ability.extra.odds4 or self.ability.extra.odds2)
 end
 
 ---Shows a text on the card

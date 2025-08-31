@@ -19,6 +19,17 @@ return {
                     "{C:inactive}Must have space{}"
                 }
             },
+            b_ina_ray_dark = {
+                name = "Ray Dark",
+                text = {
+                    "{C:pink}#1# Managers{}",
+                    "{C:spectral}Spectral{} cards",
+                    "can now spawn in shop"
+                },
+                unlock = {
+                    "Usa un {C:dark_edition}Néctar de los Dioses{}"
+                }
+            },
         },
         Blind = {
             -- Small Blinds
@@ -383,6 +394,12 @@ return {
                     "grants {C:chips}+#1#{} chips and {C:mult}+#2#{} mult",
                     "Gets {C:money}+#3#${} at the end of the round",
                     "{C:inactive}Currently{} {C:chips}+#4#{}{C:inactive} {C:inactive}and{} {C:mult}+#5#{}" }
+            },
+            j_ina_Jim = {
+                name = "Jim",
+                text = { "{C:wind}Coil turn{}",
+                    "Gain {C:chips}+#1#{} chips",
+                }
             },
             -- Occult
             j_ina_Talisman = {
@@ -763,6 +780,15 @@ return {
                     "spends {C:mountain}#1# Barriers{} to clone",
                     "a random joker {C:dark_edition}negative{}" }
             },
+            b_ina_wintersea = {
+                name = "Wintersea",
+                text = {
+                    "{C:pink}#1# Managers{}",
+                    "The first joker",
+                    "will be {C:dark_edition}eternal{}, {C:attention}pinned{}",
+                    "and {C:mult}polychrome{}"
+                },
+            },
 
             -- Farm
             j_ina_Greeny = {
@@ -1070,9 +1096,9 @@ return {
                 text = {
                     "{C:wind}Harvest Wind{}",
                     "When selecting the {C:attention}blind{} sows",
-                    "a random card from the deck",
+                    "{C:attention}#1#{} random card/s from the deck",
                     "per joker that is",
-                    "{X:wind,C:white}Wind{} and {X:mf,C:white}MF{}",
+                    "{X:wind,C:white}Wind{} or {X:mf,C:white}MF{}",
                 }
             },
 
@@ -1159,6 +1185,14 @@ return {
         },
 
         Other = {
+            ina_training_seal = {
+                name = "Sello de entrenamiento",
+                text = {
+                    "Creates a {C:training}Training{} card",
+                    "if scores in the{C:attention}last hand{}",
+                    "{C:inactive}(Must have space){}",
+                },
+            },
             card_emult = {
                 text = {
                     "{C:dark_edition}^#1#{} Mult"
@@ -1222,50 +1256,13 @@ return {
                 text = { "Activates if it is the",
                     "rightmost {C:attention}Joker{}" }
             },
-            p_ina_team_pack_raimon = {
-                name = "Raimon Pack",
-                text = { "Choose {C:attention}#1#{} from", "{C:attention}#2#{} {X:raimon,C:white}Raimon{} players" }
+            p_ina_growing_pack = {
+                name = "Growing Pack",
+                text = { "Choose {C:attention}#1#{} between {C:attention}#2#{}", "{C:attention}Jokers{} from your teams" }
             },
-            p_ina_team_pack_occult = {
-                name = "Occult Pack",
-                text = { "Choose {C:attention}#1#{} from", "{C:attention}#2#{} {X:occult,C:white}Occult{} players" }
-            },
-            p_ina_team_pack_royal = {
-                name = "Royal Pack",
-                text = { "Choose {C:attention}#1#{} from",
-                    "{C:attention}#2#{} {X:royal academy,C:white}R. Academy{} players" }
-            },
-            p_ina_team_pack_wild = {
-                name = "Wild Pack",
-                text = { "Choose {C:attention}#1#{} from", "{C:attention}#2#{} {X:wild,C:white}Wild{} players" }
-            },
-            p_ina_team_pack_brain = {
-                name = "Brain Pack",
-                text = { "Choose {C:attention}#1#{} from", "{C:attention}#2#{} {X:brain,C:white}Brain{} players" }
-            },
-            p_ina_team_pack_otaku = {
-                name = "Otaku Pack",
-                text = { "Choose {C:attention}#1#{} from", "{C:attention}#2#{} {X:otaku,C:white}Otaku{} players" }
-            },
-            p_ina_team_pack_inazuma = {
-                name = "Inazuma Pack",
-                text = { "Choose {C:attention}#1#{} from", "{C:attention}#2#{} {X:inazuma,C:white}Inazuma{} players" }
-            },
-            p_ina_team_pack_shuriken = {
-                name = "Shuriken Pack",
-                text = { "Choose {C:attention}#1#{} from", "{C:attention}#2#{} {X:shuriken,C:white}Shuriken{} players" }
-            },
-            p_ina_team_pack_farm = {
-                name = "Farm Pack",
-                text = { "Choose {C:attention}#1#{} from", "{C:attention}#2#{} {X:farm,C:white}Farm{} players" }
-            },
-            p_ina_team_pack_kirkwood = {
-                name = "Kirkwood Pack",
-                text = { "Choose {C:attention}#1#{} from", "{C:attention}#2#{} {X:kirkwood,C:white}Kirwood{} players" }
-            },
-            p_ina_team_pack_zeus = {
-                name = "Zeus Pack",
-                text = { "Choose {C:attention}#1#{} from", "{C:attention}#2#{} {X:zeus,C:white}Zeus{} players" }
+            p_ina_advanced_pack = {
+                name = "Advanced Pack",
+                text = { "Choose {C:attention}#1#{} between {C:attention}#2#{}", "{C:attention}Jokers{} from your teams" }
             },
             p_ina_item_pack_ina = {
                 name = "Ina Pack",
@@ -1282,6 +1279,18 @@ return {
                 name = "Training Pack",
                 text = { "Choose {C:attention}#1#{} of {C:attention}#2#{} {C:training}Trainings{}",
                     "to use immediately" }
+            },
+            p_ina_jumbo_training_pack = {
+                name = "Jumbo Training Pack",
+                text = { "Choose {C:attention}#1#{} of {C:attention}#2#{} {C:training}Trainings{}",
+                    "to use immediately", "At least one will be",
+                    "compatible with your {C:attention}Jokers{}" }
+            },
+            p_ina_mega_training_pack = {
+                name = "Mega Training Pack",
+                text = { "Choose {C:attention}#1#{} of {C:attention}#2#{} {C:training}Trainings{}",
+                    "to use immediately", "At least two will be",
+                    "compatible with your {C:attention}Jokers{}" }
             },
             ina_harvest_sticker = {
                 name = "Harvestable",
@@ -1466,6 +1475,12 @@ return {
                     "of a card regardless of",
                     "its type or position" }
             },
+            c_ina_divine_water = {
+                name = "Divine Water",
+                text = { "Upgrades {C:training}technique level{}",
+                    "of one joker {C:dark_edition,E:1}to the max{}",
+                    "but sets a {C:dark_edition}perishable{} sticker" }
+            },
             c_ina_centella = {
                 name = "Centella Center",
                 text = { "Raises the {C:training}technique level{}",
@@ -1492,7 +1507,7 @@ return {
             },
             tag_ina_technique_tag = {
                 name = "Technique Tag",
-                text = { "Grants a free {C:training}Training Pack{}" }
+                text = { "Grants a free {C:training}Mega Training Pack{}" }
             }
         },
         Tarot = {},
@@ -1547,6 +1562,9 @@ return {
             c_ina_love_pair = "The Love Pair",
             c_ina_futbol_frontier = "Football Frontier",
             c_ina_elementals = "The Elementals",
+            c_ina_more_or_less = "More or Less",
+            c_ina_mark_challenge = "The Legendary goalkeeper",
+            c_ina_recruiter = "Recruiter",
         },
         collabs = {},
         dictionary = {
@@ -1613,6 +1631,7 @@ return {
         },
         high_scores = {},
         labels = {
+            ina_training_seal = "Training Seal",
             ina_harvest_sticker = "Harvestable",
             ina_tech_plus1_sticker = "Upgraded Technique",
             ina_tech_plus2_sticker = "Upgraded Technique",
@@ -1668,6 +1687,7 @@ return {
         },
         v_text = {
             ch_c_ina_futbol_frontier = { "Blinds will be in {C:attention}Fútbol Frontier{} order" },
+            ch_c_ina_win_ante16 = { "Defeat a {C:dark_edition}Legendary{} enemy" },
             ch_c_ina_elementals = { "Blinds can only be {C:dark_edition}Elemental{}" }
         }
     }

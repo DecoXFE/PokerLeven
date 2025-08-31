@@ -162,7 +162,6 @@ local Artemis = J({
     if context.discard and context.other_card.ability["ina_harvest_sticker"] == true then
       card.ability.extra.current_chips =
           card.ability.extra.current_chips + card.ability.extra.chips_mod
-      context.other_card.ability["ina_harvest_sticker"] = false
       return {
         message = localize("ina_harvest"),
         colour = G.C.MULT,
@@ -280,8 +279,8 @@ local swap_random_to_fw_or_mf = function(card)
   local POS_FW = "FW"
   local POS_MF = "MF"
 
-  local roll = math.random()
-  local selected_pos = (roll < card.ability.extra.mf_probability) and POS_MF or POS_FW
+  local selected_pos = #find_player_position(POS_FW)
+      > #find_player_position(POS_MF) and POS_FW or POS_MF
 
   apply_property_sticker(card, selected_pos, "position")
 
@@ -330,7 +329,7 @@ local Aphrodite = J({
   name = "Aphrodite",
   pos = { x = 0, y = 2 },
   soul_pos = { x = 0, y = 3 },
-  config = { extra = { mf_probability = 0.7, byron_mult_fw = 0.3, byron_mult_mf = 0.15 } },
+  config = { extra = { byron_mult_fw = 0.6, byron_mult_mf = 0.3 } },
   loc_vars = function(self, info_queue, center)
     local position = center.ability.extra.pposition
     return { vars = { center.ability.extra.byron_mult_fw, center.ability.extra.byron_mult_mf, get_byron_xmult(center, position) } }

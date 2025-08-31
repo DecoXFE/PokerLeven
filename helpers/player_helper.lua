@@ -25,7 +25,6 @@ find_player_type = function(target_type, is_not)
     return found
 end
 
-
 find_player_position = function(target_type)
     local found = {}
     if G.jokers and G.jokers.cards then
@@ -440,4 +439,59 @@ restore_types_for_area = function()
     if Pokerleven.ina_bench_area and Pokerleven.ina_bench_area.cards then
         restore_types(Pokerleven.ina_bench_area)
     end
+end
+
+Pokerleven.get_random_team_from_actuals = function()
+    local possible_teams = {}
+    if G.jokers and G.jokers.cards then
+        for _, v in pairs(G.jokers.cards) do
+            if v.ability and type(v.ability.extra) == "table" and v.ability.extra.pteam
+                and v.ability.extra.pteam ~= "Scout" then
+                possible_teams[v.ability.extra.pteam] = true
+            end
+        end
+    end
+
+    local team_list = {}
+    for team, _ in pairs(possible_teams) do
+        table.insert(team_list, team)
+    end
+
+    local selected_team = nil
+    if #team_list > 0 then
+        selected_team = pseudorandom_element(team_list, pseudoseed("teamselect"))
+    end
+    if not selected_team then
+        selected_team = "Raimon"
+    end
+
+    return selected_team
+end
+
+---@param enh_name string
+---@return integer
+Pokerleven.get_enhancement_count = function(c, enh_name)
+    local count = 0
+    if SMODS.has_enhancement(c, enh_name) then
+        count = count + 1
+    end
+    return count
+end
+
+Pokerleven.get_jokers_to_the_left = function(card)
+    for i, c in ipairs(G.jokers.cards) do
+        if c == card then
+            return i - 1
+        end
+    end
+    return 0
+end
+
+Pokerleven.get_jokers_to_the_right = function(card)
+    for i, c in ipairs(G.jokers.cards) do
+        if c == card then
+            return #G.jokers.cards - i
+        end
+    end
+    return 0
 end

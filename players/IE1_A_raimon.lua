@@ -327,7 +327,7 @@ local Jude_Raimon = J({
   pos = { x = 1, y = 0 },
   soul_pos = { x = 1, y = 1 },
   config = {
-    extra = { current_xmult = 1, xmult_mod = 0.1, next_xmult = 1, triggered = false
+    extra = { current_xmult = 1, xmult_mod = 0.08, next_xmult = 1, triggered = false
     }
   },
   loc_vars = function(self, info_queue, center)
@@ -556,9 +556,78 @@ local Erik = J({
   end
 })
 
+-- Jim
+local Jim = J({
+  name = "Jim",
+  pos = { x = 3, y = 0 },
+  config = { extra = { chips_mod = 1 } },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { center.ability.extra.chips_mod } }
+  end,
+  rarity = 1,
+  pools = { ["Raimon"] = true },
+  cost = 7,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  techtype = C.UPGRADES.Plus,
+  pteam = "Raimon",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if Pokerleven.is_joker_turn(context) then
+      return {
+        chips = card.ability.extra.chips
+      }
+    end
+  end
+})
 
+-- Tod
+local Tod = J({
+  name = "Tod",
+  pos = { x = 4, y = 0 },
+  config = { extra = { chip_mod = 20 } },
+  loc_vars = function(self, info_queue, center)
+    return { vars = { center.ability.extra.chip_mod } }
+  end,
+  rarity = 1,
+  pools = { ["Raimon"] = true },
+  cost = 3,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.DF,
+  techtype = C.UPGRADES.Plus,
+  pteam = "Raimon",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if Pokerleven.is_joker_turn(context) and context.cardarea == G.jokers and context.joker_main and context.scoring_hand then
+      local count = 0
+      -- Count played metal cards
+      for _, c in ipairs(context.scoring_hand) do
+        count = count + Pokerleven.get_enhancement_count(c, 'm_steel')
+      end
+
+      -- Count metal cards in hand
+      for _, c in ipairs(G.hand.cards) do
+        count = count + Pokerleven.get_enhancement_count(c, 'm_steel')
+      end
+
+      local total_chips = count * card.ability.extra.chip_mod
+      if total_chips > 0 then
+        return {
+          message = localize { type = 'variable', key = 'a_chips', vars = { total_chips } },
+          colour = G.C.CHIPS,
+          chip_mod = total_chips
+        }
+      end
+    end
+  end,
+  ina_credits = {
+    idea = { "Lovahi" }
+  }
+})
 
 return {
   name = "Raimon",
-  list = { Mark, Nathan, Jack, Steve, Peabody, Max, Axel, Kevin, Willy, Bobby, Erik, Jude_Raimon, Shadow, },
+  list = { Mark, Nathan, Jack, Jim, Tod, Steve, Peabody, Max, Axel, Kevin, Willy, Bobby, Erik, Jude_Raimon, Shadow },
 }

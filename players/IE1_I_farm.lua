@@ -230,7 +230,7 @@ local Dawson = J({
 local Muffs = J({
     name = "Muffs",
     pos = { x = 8, y = 10 },
-    config = { extra = { current_mult = 0, mult_mod_low = 1, triggered = false } },
+    config = { extra = { current_mult = 0, mult_mod_low = 3, triggered = false } },
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = { set = 'Other', key = 'Harvester' }
         return { vars = { center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
@@ -249,7 +249,6 @@ local Muffs = J({
             card.ability.extra.current_mult =
                 card.ability.extra.current_mult + card.ability.extra.mult_mod_low
             card.ability.extra.triggered = true
-            context.other_card.ability["ina_harvest_sticker"] = false
             return {
                 message = localize("ina_harvest"),
                 colour = G.C.MULT,

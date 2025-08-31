@@ -33,6 +33,27 @@ local get_form_cards = function(keys, card_area)
   return form_cards
 end
 
+local get_shadow_forms = function(key, card_area)
+  local form_cards = {}
+  local base_shadow = SMODS.create_card({
+    key = key,
+    no_edition = true,
+    area = card_area
+  })
+
+  local clone_shadow = SMODS.create_card({
+    key = key,
+    no_edition = true,
+    area = card_area
+  })
+  clone_shadow.ability.extra.clone = true
+
+  table.insert(form_cards, base_shadow)
+  table.insert(form_cards, clone_shadow)
+
+  return form_cards
+end
+
 local get_teams_for_bobby = function(key, card_area)
   local form_cards = {}
   for team_name, team_table in pairs(C.CUSTOM.Bobby_Teams) do
@@ -140,7 +161,7 @@ local function create_forms_tab_for_joker(key)
   local card_center = G.P_CENTERS[key]
   local keys_to_add = get_family_keys(card_center.name)
 
-  if #keys_to_add > 1 or key == 'j_ina_Bobby' then
+  if #keys_to_add > 1 or key == 'j_ina_Bobby' or key == 'j_ina_Shadow' then
     return {
       label = localize("ina_forms"),
       chosen = false,
@@ -150,6 +171,9 @@ local function create_forms_tab_for_joker(key)
         if key == 'j_ina_Bobby' then
           card_area = Pokerleven.ui.create_card_area_to_area_table(C.CUSTOM.Bobby_Teams_Number, t.area_table)
           card_form_list = get_teams_for_bobby(key, card_area)
+        elseif key == 'j_ina_Shadow' then
+          card_area = Pokerleven.ui.create_card_area_to_area_table(2, t.area_table)
+          card_form_list = get_shadow_forms(key, card_area)
         else
           card_area = Pokerleven.ui.create_card_area_to_area_table(#keys_to_add, t.area_table)
           card_form_list = get_form_cards(keys_to_add, card_area)
