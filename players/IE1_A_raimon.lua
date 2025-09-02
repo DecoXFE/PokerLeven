@@ -569,7 +569,7 @@ local Jim = J({
   end,
   rarity = 1,
   pools = { ["Raimon"] = true },
-  cost = 7,
+  cost = 3,
   atlas = "Jokers01",
   ptype = C.Forest,
   pposition = C.DF,
