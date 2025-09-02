@@ -186,7 +186,7 @@ local Artemis = J({
       return {
         message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.current_chips } },
         colour = G.C.CHIPS,
-        mult_mod = card.ability.extra.current_chips,
+        chip_mod = card.ability.extra.current_chips,
       }
     end
   end,
