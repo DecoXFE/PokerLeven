@@ -34,16 +34,16 @@ return {
         Blind = {
             -- Small Blinds
             bl_ina_benchers = {
-                name = "Benchwarmers",
+                name = "Benchers",
                 text = { "Sam, to the bench",
                     "(Does nothing)" }
             },
             bl_ina_baseball_all_stars = {
-                name = "All-Star Batters",
+                name = "Baseball All Stars",
                 text = { "Win with 4 hands" }
             },
             bl_ina_strange_guys = {
-                name = "Suspicious Guys",
+                name = "Shady Guys",
                 text = { "The first card played",
                     "in the first hand",
                     "becomes a random other card" }
@@ -323,7 +323,7 @@ return {
             },
             j_ina_Nathan = {
                 name = "Nathan",
-                text = { "{C:wind}Hurricane Entry{}",
+                text = { "{C:wind}Flurry Dash{}",
                     "Each {X:raimon,C:white}Raimon{} player grants {X:mult,C:white}X#2#{}" }
             },
             j_ina_Jack = {
@@ -339,7 +339,7 @@ return {
             },
             j_ina_Shadow = {
                 name = "Shadow",
-                text = { "{C:forest}Dark Tornado{}",
+                text = { "{C:forest}Back Tornado{}",
                     "When selecting the blind",
                     "if it is the only player",
                     "creates a {C:dark_edition}negative{} copy",
@@ -351,7 +351,7 @@ return {
             },
             j_ina_Willy = {
                 name = "Willy",
-                text = { "{C:forest}Glasses Shot{}",
+                text = { "{C:forest}Spectacle Crash{}",
                     "{C:green}#1# in #2#{} chance to convert",
                     "the played hand into {C:attention}polychrome{},",
                     "{C:attention}glass{} and {C:attention}red seal{} cards" }
@@ -369,7 +369,7 @@ return {
             },
             j_ina_Jude_Raimon = {
                 name = "Jude",
-                text = { "{C:wind}Ball Mirage{}", "{X:mult,C:white}X#1#{}",
+                text = { "{C:wind}Illusion ball{}", "{X:mult,C:white}X#1#{}",
                     "Gains {X:mult,C:white}X#2#{} each time the joker",
                     "to its {C:attention}left{} is activated" }
             },
@@ -390,7 +390,7 @@ return {
             },
             j_ina_Steve = {
                 name = "Steve",
-                text = { "{C:wind}Rolling Shot{}", "Each {X:raimon,C:white}Raimon{} player",
+                text = { "{C:wind}Rolling kick{}", "Each {X:raimon,C:white}Raimon{} player",
                     "grants {C:chips}+#1#{} chips and {C:mult}+#2#{} mult",
                     "Gets {C:money}+#3#${} at the end of the round",
                     "{C:inactive}Currently{} {C:chips}+#4#{}{C:inactive} {C:inactive}and{} {C:mult}+#5#{}" }
@@ -404,12 +404,12 @@ return {
             -- Occult
             j_ina_Talisman = {
                 name = "Talisman",
-                text = { "{C:forest}Divine Abduction{}", "Reactivates",
+                text = { "{C:forest}Teleport Shot{}", "Reactivates",
                     " the {X:occult,C:white}Occult{} joker to its right{} {C:attention}#1# times{}" }
             },
             j_ina_Wolfy = {
                 name = "Wolfy",
-                text = { "{C:fire}Crescent Moon{}", "{X:mult,C:white}X#1#{}", "Gains {X:mult,C:white}X#2#{} per",
+                text = { "{C:fire}Moonsault{}", "{X:mult,C:white}X#1#{}", "Gains {X:mult,C:white}X#2#{} per",
                     "{C:tarot}The Moon{} card used" }
             },
             j_ina_Blood = {
@@ -431,26 +431,26 @@ return {
             },
             j_ina_Styx = {
                 name = "Styx",
-                text = { "{C:forest}Ghost Shot{}", "{C:chips}+#1#{} chips",
+                text = { "{C:forest}Phantom shot{}", "{C:chips}+#1#{} chips",
                     "{C:chips}+#2#{} chips per {C:tarot}Tarot{} card used" }
             },
             j_ina_Franky = {
                 name = "Franky",
-                text = { "{C:mountain}Mega Earthquake{}", "{C:attention}High Card{} grants {C:mult}+#1#{} Mult" }
+                text = { "{C:mountain}Mega Quake{}", "{C:attention}High Card{} grants {C:mult}+#1#{} Mult" }
             },
             j_ina_Mummy = {
                 name = "Mummy",
-                text = { "{C:forest}Gravity{}", "Each {C:clubs}#3#{} grants {C:mult}+#1#{} Mult and {C:chips}+#2#{} Chips" }
+                text = { "{C:forest}Ghost Pull{}", "Each {C:clubs}#3#{} grants {C:mult}+#1#{} Mult and {C:chips}+#2#{} Chips" }
             },
             j_ina_King = {
                 name = "King",
-                text = { "{C:fire}Force Shield{}", "If the played hand contains",
+                text = { "{C:fire}Power shield{}", "If the played hand contains",
                     "a {C:attention}Three of a Kind{} of {C:attention}Kings{}:",
                     "Creates a copy of the rightmost king" }
             },
             j_ina_Bloom = {
                 name = "Bloom",
-                text = { "{C:fire}100 Touch Shot{}",
+                text = { "{C:fire}Wrath Shot{}",
                     "If you have played 100 cards or more",
                     "{X:mult,C:white}X#1#{} Mult when playing a hand",
                     "that contains a straight",
@@ -464,20 +464,20 @@ return {
             },
             j_ina_Jude = {
                 name = "Jude",
-                text = { "{C:wind}Ball Mirage{}", "{X:mult,C:white}X#1#{}",
+                text = { "{C:wind}Illusion bal{}", "{X:mult,C:white}X#1#{}",
                     "Gains {X:mult,C:white}X#2#{} each time the joker",
                     "to its {C:attention}left{} is activated", "in the scoring hand" }
             },
             j_ina_Martin = {
                 name = "Martin",
-                text = { "{C:forest}Defensive Sweep{}", "{C:blue}Common{} jokers grant {C:mult}+#1#{} Mult",
+                text = { "{C:forest}Killer slide{}", "{C:blue}Common{} jokers grant {C:mult}+#1#{} Mult",
                     "{C:green}Uncommon{} jokers grant {C:mult}+#2#{} Mult",
                     "{C:red}Rare{} jokers grant {X:mult,C:white}X#3#{} Mult",
                     "{C:purple}Legendary{} jokers grant {X:dark_edition,C:white}^#4#{} Mult" }
             },
             j_ina_Master = {
                 name = "Master",
-                text = { "{C:wind}Kick{}", "{C:mult}+#1#{} Mult per",
+                text = { "{C:wind}Breakthrough{}", "{C:mult}+#1#{} Mult per",
                     "{X:royal academy,C:white}Royal Acad.{} joker",
                     "if it is the {C:attention}first{} joker on the left" }
             },
@@ -488,7 +488,7 @@ return {
             },
             j_ina_Swing = {
                 name = "Swing",
-                text = { "{C:wind}Multiple Dribble{}", "{C:chips}+#1#{} Chips per",
+                text = { "{C:wind}Clone Faker{}", "{C:chips}+#1#{} Chips per",
                     "{X:royal academy,C:white}Royal Acad.{} joker if the",
                     "hand contains a {C:attention}Three of a Kind{}" }
             },
@@ -504,20 +504,20 @@ return {
             },
             j_ina_Chamaleon = {
                 name = "Chameleon",
-                text = { "{C:wind}Mirage{}",
+                text = { "{C:wind}Afterimage{}",
                     "You can play {C:attention}Flush{} with 4 cards",
                     "If you play a 5th card", "and it's a different suit,",
                     "transforms it into a {C:tarot}Versatile Card{}" }
             },
             j_ina_Eagle = {
                 name = "Eagle",
-                text = { "{C:wind}Condor Attack{}", "Gains {C:mult}+#1#{} Mult per",
+                text = { "{C:wind}Condor dive{}", "Gains {C:mult}+#1#{} Mult per",
                     "{C:tarot}Versatile Card{} that scores in a hand", "containing a {C:attention}Flush{}",
                     "{C:inactive}Currently{} {C:mult}+#2#{}" }
             },
             j_ina_Monkey = {
                 name = "Monkey",
-                text = { "{C:wind}Monkey Spin{}",
+                text = { "{C:wind}Monkey turn{}",
                     "Gain {X:mult,C:white}XMult{} equal to",
                     "the number of {C:tarot}Versatile Cards{}",
                     "in the deck multiplied by", "{X:wild,C:white}Wild{} team players / 10",
@@ -525,19 +525,19 @@ return {
             },
             j_ina_Gorilla = {
                 name = "Gorilla",
-                text = { "{C:mountain}Tarzan Shot{}", "Creates a {C:attention}Wild Tag{}",
+                text = { "{C:mountain}Tarzan kick{}", "Creates a {C:attention}Wild Tag{}",
                     "upon defeating a Boss Blind" }
             },
             j_ina_Cheetah = {
                 name = "Cheetah",
-                text = { "{C:wind}Super Acceleration{}", "If you play {C:attention}5 scoring versatile cards{}",
+                text = { "{C:wind}Dash Accelerator{}", "If you play {C:attention}5 scoring versatile cards{}",
                     "reactivates them once", "per {X:select_element,C:white}#1#{} element player",
                     "Element changes each round" }
             },
             j_ina_Feldt = {
                 name = "Feldt",
                 text = { {
-                    "{C:forest}Defensive Force Field{}",
+                    "{C:forest}Shot Pocket{}",
                     "Generates {C:attention}#1#{} {X:mountain,C:white}Barrier{}",
                     "if you play at least {C:attention}3{} {C:spades}Spades{}"
                 },
@@ -553,7 +553,7 @@ return {
             j_ina_Feldt_n3 = {
                 name = "Feldt",
                 text = { {
-                    "{C:forest}Defensive Force Field{}",
+                    "{C:forest}Shot Pocket{}",
                     "Generates {C:attention}#1#{} {X:mountain,C:white}Barrier{}",
                     "if you play at least {C:attention}3{} {C:spades}Spades{}"
                 },
@@ -569,7 +569,7 @@ return {
 
             j_ina_Marvel = {
                 name = "Marvel",
-                text = { "{C:mountain}Defense Scanner", "If the {C:chips}chip{} value",
+                text = { "{C:mountain}Defense Scan", "If the {C:chips}chip{} value",
                     "of the scoring card",
                     "has {C:attention}exactly 3 bits set to 1{}",
                     "{C:mult}+#1#{} mult{}" }
@@ -591,7 +591,7 @@ return {
 
             j_ina_Kind = {
                 name = "Kind",
-                text = { "{C:forest}Attack Scanner{}", "If the scoring hand is a {C:attention}palindrome{},",
+                text = { "{C:forest}Attack Scan{}", "If the scoring hand is a {C:attention}palindrome{},",
                     "reactivates the first and last card." }
             },
 
@@ -611,7 +611,7 @@ return {
             -- Otaku
             j_ina_Idol = {
                 name = "Idol",
-                text = { "{C:mountain}Goal Slide{}",
+                text = { "{C:mountain}Sliding goal{}",
                     "Reactivates {C:attention}4s{}",
                     "{C:green}#1# out of #2#{} times" }
             },
@@ -629,7 +629,7 @@ return {
 
             j_ina_Robot = {
                 name = "Robot",
-                text = { "{C:wind}Confusion{}", "Reactivates {C:attention}Lucky Cards{}",
+                text = { "{C:wind}Bewildered{}", "Reactivates {C:attention}Lucky Cards{}",
                     "scored in a {C:attention}straight{}",
                     "that are in the same position",
                     "as each of your {X:mf,C:white}MF{} jokers",
@@ -638,7 +638,8 @@ return {
 
             j_ina_Gamer = {
                 name = "Gamer",
-                text = { "{C:fire}Total Batting{}", "You gain {C:chips}chips{} equal to your {C:attention}FPS / 2{}",
+                text = { "{C:fire}Utter Gutsiness Bat{}",
+                    "You gain {C:chips}chips{} equal to your {C:attention}FPS / 2{}",
                     "Bonus becomes {C:attention}FPS{} if", "you have at least 2 {X:otaku,C:white}Otaku{} players",
                     "Max value is {C:attention}144 FPS{}", "{C:inactive}Currently{} {C:chips}+#1#{}" }
             },
@@ -670,7 +671,7 @@ return {
 
             j_ina_Island = {
                 name = "Island",
-                text = { "{C:forest}Sparkling Zig Zag{}",
+                text = { "{C:forest}Zigzag Spark{}",
                     "Gains {C:chips}+#1#{} chips if the played hand",
                     "contains {C:attention}two pair{}",
                     "{C:inactive}Currently{} {C:chips}+#2#{}" }
@@ -705,7 +706,7 @@ return {
 
             j_ina_Builder = {
                 name = "Builder",
-                text = { "{C:fire}Fire Bird{}",
+                text = { "{C:fire}Fire Rooster{}",
                     "If the played hand contains",
                     " a {C:attention}Full House{} transforms a random",
                     "card into {C:attention}Steel{}",
@@ -725,7 +726,7 @@ return {
 
             j_ina_Hillfort = {
                 name = "Hillfort",
-                text = { "{C:wind}Shadow Attack{}",
+                text = { "{C:wind}Shadow Stitch{}",
                     "When selecting the blind gains {C:chips}+#1#{} chips",
                     "per {C:money}#2#${} sell value",
                     "of {X:wind,C:white}Wind{} players",
@@ -734,7 +735,7 @@ return {
 
             j_ina_Code = {
                 name = "Code",
-                text = { "{C:mountain}Cobweb{}",
+                text = { "{C:mountain}Spider Web{}",
                     "Reactivates {C:attention}gold{} cards",
                     "in the hand at the end of the round",
                     "as many times as",
@@ -743,13 +744,13 @@ return {
 
             j_ina_Star = {
                 name = "Star",
-                text = { "{C:wind}Multiple Dribble{}", "Per {C:red}diamond{} card",
+                text = { "{C:wind}Clone Faker{}", "Per {C:red}diamond{} card",
                     "gains {C:money}+#1#${} and {C:mult}+#2#{} Mult", }
             },
 
             j_ina_Cleats = {
                 name = "Cleats",
-                text = { "{C:wind}Crescent Moon{}",
+                text = { "{C:wind}Moonsault{}",
                     "When selecting the blind",
                     "{C:green}transforms{} the joker to",
                     "the right into another",
@@ -758,7 +759,7 @@ return {
 
             j_ina_Hattori = {
                 name = "Hattori",
-                text = { "{C:forest}Multiple Shot{}",
+                text = { "{C:forest}Clone Shot{}",
                     "When selecting the blind creates",
                     "{C:attention}#1#{} basic {C:dark_edition}negative{} copies",
                     "of itself.",
@@ -767,7 +768,7 @@ return {
 
             j_ina_Cloack = {
                 name = "Cloak",
-                text = { "{C:fire}Mirage{}", "{C:attention}Frontal{}",
+                text = { "{C:fire}Afterimage{}", "{C:attention}Frontal{}",
                     "When selecting the blind",
                     "spends {C:mountain}#1# Barriers{} to clone",
                     "a random joker {C:dark_edition}negative{}",
@@ -775,7 +776,7 @@ return {
             },
             j_ina_Cloack_inf = {
                 name = "Cloak",
-                text = { "{C:fire}Mirage{}", "{C:attention}Frontal{}",
+                text = { "{C:fire}Afterimage{}", "{C:attention}Frontal{}",
                     "When selecting the blind",
                     "spends {C:mountain}#1# Barriers{} to clone",
                     "a random joker {C:dark_edition}negative{}" }
@@ -820,7 +821,7 @@ return {
 
             j_ina_Sherman = {
                 name = "Sherman",
-                text = { "{C:fire}Plot Plot{}",
+                text = { "{C:fire}Bamboo Pattern{}",
                     "Gains {C:chips}+#1# Chips{}", "when a",
                     "{X:farm,C:white}Farm{} player is activated",
                     "{C:inactive}Currently{} {C:chips}+#2# Chips{}" }
@@ -828,7 +829,7 @@ return {
 
             j_ina_Spray = {
                 name = "Spray",
-                text = { "{C:fire}Super Rolling Ball{}",
+                text = { "{C:fire}Run Ball Run{}",
                     "When selecting a {C:attention}blind{} and",
                     "having less than {C:money}#1#${} gains {X:mult,C:white}X#2#{}",
                     "{C:inactive}Currently{}: {X:mult,C:white}X#3#{}" }
@@ -836,7 +837,7 @@ return {
 
             j_ina_Dawson = {
                 name = "Dawson",
-                text = { "{C:wind}Mole Dribble{}",
+                text = { "{C:wind}Mole Fake{}",
                     "If you have less than {C:money}#1#${} and",
                     "the played hand is {C:attention}high card{}",
                     "{C:attention}duplicates{} that card" }
@@ -844,7 +845,7 @@ return {
 
             j_ina_Muffs = {
                 name = "Muffs",
-                text = { "{C:forest}Blinding Shot{}",
+                text = { "{C:forest}Shine Drive{}",
                     "After playing a hand {C:attention}Sow{}.",
                     "{C:attention}Harvester:{} Gains {C:mult}+#1# Mult{}",
                     "{C:inactive}Currently{} {C:mult}+#2# Mult{}" }
@@ -862,7 +863,7 @@ return {
             -- Kirkwood
             j_ina_Neville = {
                 name = "Neville",
-                text = { "{C:fire}Hardness Block{}",
+                text = { "{C:fire}Toughness Block{}",
                     "{C:attention}Glass{} cards",
                     "now break {C:green}#1# out of #2#{} times" }
             },
@@ -879,7 +880,7 @@ return {
 
             j_ina_Marvin = {
                 name = "Marvin",
-                text = { "{C:fire}Reverse Tornado{}",
+                text = { "{C:fire}Back Tornado{}",
                     "{X:attention,C:white}Triplets{}",
                     "{C:attention}Odd{} cards",
                     "grant {C:mult}+#1# Mult{}" }
@@ -887,7 +888,7 @@ return {
 
             j_ina_Thomas = {
                 name = "Thomas",
-                text = { "{C:wind}Reverse Tornado{}",
+                text = { "{C:wind}Back Tornado{}",
                     "{X:attention,C:white}Triplets{}",
                     "{C:attention}Odd{} cards",
                     "grant {C:chips}+#1# Chips{}" }
@@ -896,7 +897,7 @@ return {
             j_ina_Tyler = {
                 name = "Tyler",
                 text = {
-                    "{C:mountain}Reverse Tornado{}",
+                    "{C:mountain}Back Tornado{}",
                     "{X:attention,C:white}Triplets{}",
                     "{C:attention}Odd{} cards",
                     "generate a {C:tarot}tarot{} {C:green}#1# in #2# times{}" }
@@ -905,7 +906,7 @@ return {
             j_ina_Damian = {
                 name = "Damian",
                 text = {
-                    "{C:wind}Crescent Moon{}",
+                    "{C:wind}Moonsault{}",
                     "When leaving the shop, gains",
                     "{C:chips}+#1# Chips{} per",
                     "{X:fire,C:white}Fire{} type player in play",
@@ -915,7 +916,7 @@ return {
             j_ina_Nashmith = {
                 name = "Nashmith",
                 text = {
-                    "{C:forest}Empowerment{}",
+                    "{C:forest}Boost Glide{}",
                     "Each {C:spades}Spade{} played grants",
                     "{C:chips}+#1# Chips{} per",
                     "{X:forest,C:white}Forest{} player",
@@ -923,7 +924,7 @@ return {
             },
 
             j_ina_Z_Triangle = {
-                name = "Z Triangle",
+                name = "Triangle Z",
                 text = { "{C:forest}Placeholder{}", "Placeholder effect line 1", "Placeholder effect line 2" }
             },
 
@@ -943,7 +944,7 @@ return {
             j_ina_Hephestus = {
                 name = "Hephaestus",
                 text = {
-                    "{C:fire}Storm Entry{}",
+                    "{C:fire}Dash Storm{}",
                     "Upon winning the blind converts",
                     "a {C:attention}random card{}",
                     "into a {C:attention}Steel{} card",
@@ -955,7 +956,7 @@ return {
             j_ina_Apollo = {
                 name = "Apollo",
                 text = {
-                    "{C:forest}Celestial Hour{}",
+                    "{C:forest}Heaven's Time{}",
                     "If you play a hand with {C:attention}two pair{}",
                     "Gains {C:chips}+#1# chips{} and {C:mult}+#4# mult{} {C:inactive}between 2pm and 7pm{}",
                     "Gains {C:chips}+#2# chips{} {C:inactive}otherwise{}",
@@ -983,7 +984,7 @@ return {
             j_ina_Demeter = {
                 name = "Demeter",
                 text = {
-                    "{C:fire}Rebound Shot{}",
+                    "{C:fire}Reflect Buster{}",
                     "Grants {C:mult}+#1# Mult{} and {C:chips}+#2# Chips{}",
                     "per remaining discard",
                     "{C:inactive}Currently{}: {C:mult}+#3#{} {C:chips}+#4#{}"
@@ -992,7 +993,7 @@ return {
 
             j_ina_Aphrodite = {
                 name = "Aphrodite",
-                text = { { "{C:forest}Divine Wisdom{}",
+                text = { { "{C:forest}God Knows{}",
                     "At the end of a round",
                     "randomly changes between {X:fw,C:white}FW{} and {X:mf,C:white}MF{}" },
                     { "If {X:fw,C:white}FW{} {X:mult,C:white}X#1#{} per",
@@ -1027,7 +1028,7 @@ return {
             j_ina_Ace_Server = {
                 name = "Ace Server",
                 text = { {
-                    "{C:fire}Vengeful Fist{}",
+                    "{C:fire}Counter Strike{}",
                     "{C:green}1 in #1# {}chance to increase",
                     "the played hand level",
                     "{C:attention}#2# level{} if {C:attention}#3# Aces{} score."
@@ -1481,10 +1482,6 @@ return {
                     "of one joker {C:dark_edition,E:1}to the max{}",
                     "but sets a {C:dark_edition}perishable{} sticker" }
             },
-            c_ina_divine_wait = {
-                name = "Wait a little more",
-                text = { "Creates a {C:dark_edition}Legendary{} Manager" }
-            },
             c_ina_centella = {
                 name = "Centella Center",
                 text = { "Raises the {C:training}technique level{}",
@@ -1542,32 +1539,17 @@ return {
             v_ina_training = {
                 name = "Training",
                 text = {
-                    "{C:attention}+1{} to {C:gold}max technique level{}"
+                    "{C:attention}+1{} to max technique level"
                 },
             },
             v_ina_training_2 = {
                 name = "Super Training",
                 text = {
-                    "{C:attention}+1{} to {C:maxlvl}max technique level{}"
+                    "{C:attention}+1{} to max technique level"
                 },
                 unlock = {
                     "Raise a player's technique",
                     "to {C:training}ASZ/+4/A/G5{}"
-                }
-            },
-            v_ina_managers_1 = {
-                name = "New incorporation",
-                text = {
-                    "{C:attention}+1{} {C:enhanced}Mánager{} slot"
-                },
-            },
-            v_ina_managers_2 = {
-                name = "New incorporation",
-                text = {
-                    "{C:attention}+1{} {C:enhanced}Mánager{} slot"
-                },
-                unlock = {
-                    "Have space for {C:attention}3{} {C:pink}Managers{}"
                 }
             },
         }
