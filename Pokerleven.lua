@@ -58,6 +58,26 @@ SMODS.Rarity({
   pools = { ["Joker"] = true },
 })
 
+SMODS.Rarity({
+  key = "winner",
+  loc_txt = {},
+  badge_colour = SMODS.Gradient({
+    key = 'winnerplayer',
+    colours = {
+      HEX('937d3e'),
+      HEX('e4ce8f'),
+    },
+    cycle = 5,
+    interpolation = 'trig'
+  })
+  ,
+  default_weight = 0.01,
+  get_weight = function(self, weight, object_type)
+    return weight
+  end,
+  pools = { ["Joker"] = true },
+})
+
 SMODS.Sticker:take_ownership("eternal", {
   atlas = "stickers",
   pos = { x = 9, y = 3 },
