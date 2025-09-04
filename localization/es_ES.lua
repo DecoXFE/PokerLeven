@@ -1110,7 +1110,7 @@ return {
                 },
             },
 
-            j_ina_Ace_Server = {
+            j_ina_1er = {
                 name = "Ace Server",
                 text = { {
                     "{C:fire}Puño vengativo{}",
@@ -1214,6 +1214,16 @@ return {
                 } }
             },
 
+            -- GANADORES DE TORNEO
+            j_ina_Turi = {
+                name = "Turiño",
+                text = { { "{C:forest}Remate Rebotado{}",
+                    "Gana {X:dark_edition,C:white}^X#2#{} por cada",
+                    "{C:attention}#3#{} {C:tarot}Tarots{} de {C:suits}Palo{} usados",
+                    "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}, {C:tarot}#4#{} {C:inactive}usados){}" }, }
+            },
+
+            -- GERENTES
             j_ina_Nelly = {
                 name = "Nelly",
                 text = { { "Por cada ronda se otorga entre {C:money}#1#${} a {C:money}#2#${},",
@@ -1718,6 +1728,7 @@ return {
 
             -- Rarities
             k_ina_top = "Destacado",
+            k_ina_winner = "Ganador",
 
             -- Resources
             ina_resource_barriers = "Barreras",
@@ -1761,6 +1772,7 @@ return {
             ina_tech_joker_sticker = "Técnica mejorada",
 
             k_ina_top = "Destacado",
+            k_ina_winner = "Ganador",
         },
         poker_hand_descriptions = {
             ["ina_TriplePair"] = {
