@@ -1592,6 +1592,8 @@ return {
             ina_divine = "Divine Power!",
             ina_settings_custom_middle_blinds = "Custom blinds",
             ina_settings_middle_blinds_abilities = "Small and Big Blinds with abilities",
+            ina_settings_winners_jokers = "Winning mod tournaments jokers",
+            ina_settings_oc_jokers = "Jokers made by the community",
             ina_destroy = "Destroyed!",
             ina_dribbling = "Dribble!",
             ina_harvest = "Harvest!",

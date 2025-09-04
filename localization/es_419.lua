@@ -1695,6 +1695,8 @@ return {
             ina_divine = "¡Poder Divino!",
             ina_settings_custom_middle_blinds = "Ciegas personalizadas",
             ina_settings_middle_blinds_abilities = "Ciegas Pequeñas y Grandes con habilidades",
+            ina_settings_winners_jokers = "Jokers Ganadores de Torneo",
+            ina_settings_oc_jokers = "Jokers creados por la comunidad",
             ina_destroy = "¡Destruido!",
             ina_dribbling = "¡Regate!",
             ina_harvest = "Cosecha!",

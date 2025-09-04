@@ -40,7 +40,16 @@ local Turi = {
     end,
 }
 
-return {
-    name = "Scout",
-    list = { Turi },
-}
+if Pokerleven and Pokerleven.config and Pokerleven.config.winners_jokers == true then
+    return {
+        name = "tournaments",
+        list = { Turi },
+    }
+end
+
+if Pokerleven and Pokerleven.config and Pokerleven.config.winners_jokers == false then
+    return {
+        name = "tournaments",
+        list = {},
+    }
+end
