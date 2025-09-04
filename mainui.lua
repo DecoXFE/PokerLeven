@@ -398,6 +398,8 @@ local restart_toggles_left = {
 }
 
 local restart_toggles_right = {
+  { ref_value = "winners_jokers", label = "ina_settings_winners_jokers" },
+  { ref_value = "oc_jokers",      label = "ina_settings_oc_jokers" },
 }
 local no_restart_toggles = {
   { ref_value = "custom_middle_blinds",    label = "ina_settings_custom_middle_blinds" },

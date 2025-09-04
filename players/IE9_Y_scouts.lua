@@ -476,7 +476,16 @@ local Autumn = {
     end
 }
 
-return {
-    name = "Scout",
-    list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Dulce, Ryoma },
-}
+if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers == true then
+    return {
+        name = "Scout",
+        list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Dulce, Ryoma },
+    }
+end
+
+if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers == false then
+    return {
+        name = "Scout",
+        list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach }
+    }
+end
