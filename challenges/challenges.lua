@@ -209,6 +209,7 @@ local get_next_boss_futbol_frontier = function()
 
     G.GAME.boss_index = G.GAME.boss_index + 1
     if G.GAME.boss_index > #ff_bosses then
+        G.GAME.boss_index = 1
         old_get_new_boss()
     end
     return boss
