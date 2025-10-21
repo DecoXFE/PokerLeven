@@ -6,7 +6,7 @@ local Nelly = J({
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.min_money, center.ability.extra.max_money, center.ability.extra.dead_ante, center.ability.extra.dead_money } }
     end,
-    rarity = 1,
+    rarity = 2,
     special = "Manager",
     pools = { ["Manager"] = true },
     cost = 7,
@@ -44,7 +44,7 @@ local Celia = J({
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 2,
+    rarity = 3,
     special = "Manager",
     pools = { ["Manager"] = true },
     cost = 7,
@@ -127,7 +127,7 @@ local Koudera = J({
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.consumables_slots } }
     end,
-    rarity = 3,
+    rarity = 2,
     special = "Manager",
     cost = 8,
     atlas = "Managers01",
