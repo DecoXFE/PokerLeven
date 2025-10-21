@@ -206,6 +206,76 @@ if self.ability.name == 'The Moon' then
 end
 '''
 match_indent = true
+override = true
+
+# Add total stars played
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if not copier then set_consumeable_usage(self) end
+'''
+position = "after"
+payload = '''
+if self.ability.name == 'The Star' then
+  G.E_MANAGER:add_event(Event({
+    trigger = 'after',
+    delay = 0.1,
+    func = function()
+      G.GAME.used_star_cards = (G.GAME.used_star_cards or 0) + 1
+      return true
+    end
+  }))
+end
+'''
+match_indent = true
+override = true
+
+# Add total worlds played
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if not copier then set_consumeable_usage(self) end
+'''
+position = "after"
+payload = '''
+if self.ability.name == 'The World' then
+  G.E_MANAGER:add_event(Event({
+    trigger = 'after',
+    delay = 0.1,
+    func = function()
+      G.GAME.used_world_cards = (G.GAME.used_world_cards or 0) + 1
+      return true
+    end
+  }))
+end
+'''
+match_indent = true
+override = true
+
+# Add total suns played
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if not copier then set_consumeable_usage(self) end
+'''
+position = "after"
+payload = '''
+if self.ability.name == 'The Sun' then
+  G.E_MANAGER:add_event(Event({
+    trigger = 'after',
+    delay = 0.1,
+    func = function()
+      G.GAME.used_sun_cards = (G.GAME.used_sun_cards or 0) + 1
+      return true
+    end
+  }))
+end
+'''
+
+match_indent = true
 
 # Max allowed tech level a joker can reach
 [[patches]]

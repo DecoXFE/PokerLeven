@@ -34,7 +34,7 @@ local Dulce = J({
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.card_count1 } }
     end,
-    rarity = 2,
+    rarity = 3,
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
@@ -99,7 +99,7 @@ local Blazer = J({
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 2,
+    rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
@@ -135,7 +135,7 @@ local Weathervane = J({
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 2,
+    rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
@@ -171,7 +171,7 @@ local Noggin = J({
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 2,
+    rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
@@ -207,7 +207,7 @@ local Montayne = J({
     loc_vars = function(self, info_queue, center)
         return {}
     end,
-    rarity = 2,
+    rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
@@ -264,7 +264,7 @@ local Mach = J({
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.xmult_mod, center.ability.extra.current_xmult } }
     end,
-    rarity = 3,
+    rarity = 1,
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
@@ -329,7 +329,7 @@ local Ace_Server = J({
             vars = { center.ability.extra.odds4, center.ability.extra.hand_level_up, center.ability.extra.ammount_needed, center.ability.extra.rank_played }
         }
     end,
-    rarity = 1,
+    rarity = 2,
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
@@ -476,7 +476,16 @@ local Autumn = {
     end
 }
 
-return {
-    name = "Scout",
-    list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Dulce, Ryoma },
-}
+if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers == true then
+    return {
+        name = "Scout",
+        list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach, Dulce, Ryoma },
+    }
+end
+
+if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers == false then
+    return {
+        name = "Scout",
+        list = { Blazer, Weathervane, Noggin, Montayne, Ace_Server, Rex_George, Mach }
+    }
+end

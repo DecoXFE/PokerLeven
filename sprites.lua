@@ -55,6 +55,13 @@ SMODS.Atlas({
 }):register()
 
 SMODS.Atlas({
+    key = "tournaments",
+    path = "tournaments.png",
+    px = 71,
+    py = 95
+}):register()
+
+SMODS.Atlas({
     key = "ina_logo",
     path = "ina_logo.png",
     px = 389,
@@ -244,6 +251,17 @@ local maxlvl = SMODS.Gradient({
     cycle = 5,
     interpolation = 'trig'
 })
+local suits = SMODS.Gradient({
+    key = 'suits',
+    colours = {
+        HEX('f03464'),
+        HEX('235955'),
+        HEX('f06b3f'),
+        HEX('3c4368'),
+    },
+    cycle = 5,
+    interpolation = 'trig'
+})
 function loc_colour(_c, _default)
     if not G.ARGS.LOC_COLOURS then
         custom_colours()
@@ -274,6 +292,7 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["strat"] = HEX("9AA4B7")
     G.ARGS.LOC_COLOURS["top"] = top_rarity
     G.ARGS.LOC_COLOURS["maxlvl"] = maxlvl
+    G.ARGS.LOC_COLOURS["suits"] = suits
 
 
     return custom_colours(_c, _default)

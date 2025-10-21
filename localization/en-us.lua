@@ -1131,6 +1131,15 @@ return {
                 } }
             },
 
+            -- TOURNAMENT WINNERS
+            j_ina_Turi = {
+                name = "Turiño",
+                text = { { "{C:forest}Bouncing Bunny{}",
+                    "Earn {X:dark_edition,C:white}^X#2#{} for every",
+                    "{C:attention}#3#{} {C:tarot}Tarots{} of {C:suits}Suit{} used",
+                    "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}, {C:tarot}#4#{} {C:inactive}usados){}" }, }
+            },
+
             j_ina_Nelly = {
                 name = "Nelly",
                 text = { { "Each round grants between {C:money}#1#${} to {C:money}#2#${},",
@@ -1583,6 +1592,8 @@ return {
             ina_divine = "Divine Power!",
             ina_settings_custom_middle_blinds = "Custom blinds",
             ina_settings_middle_blinds_abilities = "Small and Big Blinds with abilities",
+            ina_settings_winners_jokers = "Winning mod tournaments jokers",
+            ina_settings_oc_jokers = "Jokers made by the community",
             ina_destroy = "Destroyed!",
             ina_dribbling = "Dribble!",
             ina_harvest = "Harvest!",
@@ -1616,6 +1627,7 @@ return {
 
             -- Rarity
             k_ina_top = "Top",
+            k_ina_winner = "Winner",
 
             -- Resources
             ina_resource_barriers = "Barriers",
@@ -1658,6 +1670,7 @@ return {
             ina_tech_joker_sticker = "Upgraded Technique",
 
             k_ina_top = "Top",
+            k_ina_winner = "Winner",
         },
         poker_hand_descriptions = {
             ["ina_TriplePair"] = {
