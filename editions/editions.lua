@@ -89,8 +89,38 @@
 -- 	end,
 -- }
 
--- return{
--- 	name = "Editions",
--- 	init = apply_shader(),
--- 	list = {glass_edition}
--- }
+-- === Register the Shader ===
+SMODS.Shader({
+    key = 'lethal', path = 'lethal.fs'
+})
+
+-- === Register the Edition ===
+SMODS.Edition({
+    key = "lethal",
+    loc_txt = {
+        name = "Letal",
+        label = "Letal",
+        text = { "{X:dark_edition,C:white}^1.1{} Multi",
+        "{C:inactive}no se pueden aplicar tarots o espectrales",
+        "{C:inactive}no pueden ser destrozadas o duplicadas{} ." }
+    },
+    disable_shadow = false,
+    disable_base_shader = true,
+    shader = "lethal",
+    discovered = false,
+    unlocked = false,
+    in_shop = false,
+    weight = 8,
+    extra_cost = 6,
+    apply_to_float = true,
+    config = {},
+    loc_vars = function(self)
+        return { vars = {} }
+    end
+})
+
+return{
+	name = "Editions",
+--	init = apply_shader(),
+	list = {lethal}
+}
