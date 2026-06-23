@@ -1,6 +1,6 @@
--- Inazuma Eleven Jokers
-local hillman = J({
-  name = "Hillman",
+-- Seymour Hillman
+local Seymour_Hillman = J({
+name = "Seymour_Hillman",
   pos = { x = 6, y = 7 },
   config = { extra = { Xchip_mod = 0.2, triggered = false } },
   loc_vars = function(self, info_queue, center)
@@ -14,17 +14,16 @@ local hillman = J({
   pools = { ["Inazuma Eleven"] = true },
   cost = 8,
   atlas = "Jokers01",
-  ptype = "Mountain",
-  pposition = "GK",
-  pteam = "Inazuma Eleven",
+  ptype = C.Mountain,
+  pposition = C.GK,
+  pteam = "ina_team_inazuma_eleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.cardarea == G.jokers and context.joker_main then
       return {
         message = localize {
           type = 'variable',
-          key = 'a_xchips',
-          vars = { 1 + card.ability.extra.Xchip_mod * (G.GAME.strat_cards_used or 0) } },
+vars = { 1 + card.ability.extra.Xchip_mod * (G.GAME.strat_cards_used or 0) } },
         colour = G.C.CHIPS,
         Xchip_mod = 1 + card.ability.extra.Xchip_mod * (G.GAME.strat_cards_used or 0),
       }
@@ -35,8 +34,9 @@ local hillman = J({
   }
 })
 
-local island = J({
-  name = "Island",
+-- Charles Island
+local Charles_Island = J({
+name = "Charles_Island",
   pos = { x = 7, y = 7 },
   config = { extra = { current_chips = 0, chips_mod = 20, triggered = false } },
   loc_vars = function(self, info_queue, center)
@@ -51,9 +51,9 @@ local island = J({
   pools = { ["Inazuma Eleven"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "DF",
-  pteam = "Inazuma Eleven",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pteam = "ina_team_inazuma_eleven",
   techtype = C.UPGRADES.Number,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -72,7 +72,8 @@ local island = J({
     if context.scoring_hand and context.joker_main then
       card.ability.extra.triggered = true
       return {
-        message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.current_chips } },
+        message = localize { type = 'variable',
+vars = { card.ability.extra.current_chips } },
         colour = G.C.CHIPS,
         chip_mod = card.ability.extra.current_chips
       }
@@ -83,9 +84,23 @@ local island = J({
   }
 })
 
--- Sweet
-local sweet = J({
-  name = "Sweet",
+-- Garret Hairtown
+local Garret_Hairtown = J({
+  name = "Garret_Hairtown",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Inazuma Eleven"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pteam = "ina_team_inazuma_eleven",
+})
+
+-- Arthur Sweet
+local Arthur_Sweet = J({
+name = "Arthur_Sweet",
   pos = { x = 9, y = 7 },
   config = {
     extra = {
@@ -98,9 +113,9 @@ local sweet = J({
   pools = { ["Inazuma Eleven"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Mountain",
-  pposition = "DF",
-  pteam = "Inazuma Eleven",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pteam = "ina_team_inazuma_eleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.setting_blind and not context.blueprint then
@@ -122,9 +137,9 @@ local sweet = J({
   }
 })
 
--- Butler
-local butler = J({
-  name = "Butler",
+-- Peter Mildred
+local Peter_Mildred = J({
+name = "Peter_Mildred",
   pos = { x = 10, y = 7 },
   config = {
     extra = {
@@ -144,9 +159,9 @@ local butler = J({
   pools = { ["Inazuma Eleven"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "MF",
-  pteam = "Inazuma Eleven",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pteam = "ina_team_inazuma_eleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.scoring_hand and context.cardarea == G.play
@@ -173,9 +188,51 @@ local butler = J({
   end
 })
 
--- Barista
-local barista = J({
-  name = "Barista",
+-- Josh Nathaniel
+local Josh_Nathaniel = J({
+  name = "Josh_Nathaniel",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Inazuma Eleven"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pteam = "ina_team_inazuma_eleven",
+})
+
+-- Edward Gladstone
+local Edward_Gladstone = J({
+  name = "Edward_Gladstone",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Inazuma Eleven"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pteam = "ina_team_inazuma_eleven",
+})
+
+-- Tyler Thomas
+local Tyler_Thomas = J({
+  name = "Tyler_Thomas",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Inazuma Eleven"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pteam = "ina_team_inazuma_eleven",
+})
+
+-- Joseph Yosemite
+local Joseph_Yosemite = J({
+name = "Joseph_Yosemite",
   pos = { x = 1, y = 8 },
   config = { extra = { Xchips_mod = 2 } },
   loc_vars = function(self, info_queue, center)
@@ -185,9 +242,9 @@ local barista = J({
   pools = { ["Inazuma Eleven"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Wind",
-  pposition = "FW",
-  pteam = "Inazuma Eleven",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pteam = "ina_team_inazuma_eleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.scoring_hand and context.cardarea == G.play
@@ -203,8 +260,23 @@ local barista = J({
   }
 })
 
-local builder = J({
-  name = "Builder",
+-- Ian Suffolk
+local Ian_Suffolk = J({
+  name = "Ian_Suffolk",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Inazuma Eleven"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pteam = "ina_team_inazuma_eleven",
+})
+
+-- Constant Builder
+local Constant_Builder = J({
+name = "Constant_Builder",
   pos = { x = 3, y = 8 },
   config = {},
   loc_vars = function(self, info_queue, center)
@@ -214,9 +286,9 @@ local builder = J({
   pools = { ["Inazuma Eleven"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Fire",
-  pposition = "FW",
-  pteam = "Inazuma Eleven",
+  ptype = C.Fire,
+  pposition = C.FW,
+  pteam = "ina_team_inazuma_eleven",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.final_scoring_step
@@ -261,7 +333,77 @@ local builder = J({
   }
 })
 
+-- Ted Poe
+local Ted_Poe = J({
+  name = "Ted_Poe",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Inazuma Eleven"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pteam = "ina_team_inazuma_eleven",
+})
+
+-- Marshall Heart
+local Marshall_Heart = J({
+  name = "Marshall_Heart",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Inazuma Eleven"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.FW,
+  pteam = "ina_team_inazuma_eleven",
+})
+
+-- Dom Foreman
+local Dom_Foreman = J({
+  name = "Dom_Foreman",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Inazuma Eleven"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pteam = "ina_team_inazuma_eleven",
+})
+
+-- Slot MacHines
+local Slot_MacHines = J({
+  name = "Slot_MacHines",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Inazuma Eleven"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pteam = "ina_team_inazuma_eleven",
+})
+
+-- Bill Steakspear
+local Bill_Steakspear = J({
+  name = "Bill_Steakspear",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Inazuma Eleven"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pteam = "ina_team_inazuma_eleven",
+})
+
 return {
   name = "Inazuma Eleven",
-  list = { hillman, island, sweet, butler, barista, builder },
+  list = { Seymour_Hillman, Charles_Island, Arthur_Sweet, Peter_Mildred, Joseph_Yosemite, Constant_Builder },
 }

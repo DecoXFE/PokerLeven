@@ -55,11 +55,21 @@ C.CUSTOM.Bobby_Teams = {
     ["Zeus"]           = { x = 0, y = 1 }
 }
 
-local team_number = 0
-for _ in pairs(C.CUSTOM.Bobby_Teams) do
-    team_number = team_number + 1
-end
-C.CUSTOM.Bobby_Teams_Number = team_number
+C.CUSTOM.Bobby_Teams_Order = {
+    "Raimon",
+    "Royal Academy",
+    "Occult",
+    "Wild",
+    "Brain",
+    "Otaku",
+    "Inazuma Eleven",
+    "Shuriken",
+    "Farm",
+    "Kirkwood",
+    "Zeus"
+}
+
+C.CUSTOM.Bobby_Teams_Number = #C.CUSTOM.Bobby_Teams_Order
 
 C.ELEMENTALS_KEYS = { j_ina_Weathervane = true, j_ina_Noggin = true, j_ina_Montayne = true, j_ina_Blazer = true }
 

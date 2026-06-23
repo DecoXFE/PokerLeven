@@ -70,7 +70,7 @@ Pokerleven.most_played_team = function()
 
     if G.jokers and G.jokers.cards then
         for _, v in pairs(G.jokers.cards) do
-            if v.ability and v.ability.extra and type(v.ability.extra) == "table" and v.ability.extra.pteam and v.config.center_key ~= "j_ina_Bobby" then
+            if v.ability and v.ability.extra and type(v.ability.extra) == "table" and v.ability.extra.pteam and v.config.center_key ~= "j_ina_Bobby_Shearer" then
                 local team = v.ability.extra.pteam
                 team_counts[team] = (team_counts[team] or 0) + 1
             end
@@ -90,12 +90,23 @@ Pokerleven.most_played_team = function()
     return most_played
 end
 
+Pokerleven.normalize_team = function(team)
+    if not team then return nil end
+    local norm = string.lower(team)
+    if string.find(norm, "^ina_team_") then
+        norm = string.sub(norm, 10)
+    end
+    norm = string.gsub(norm, "_", " ")
+    return norm
+end
+
 find_player_team = function(target_type)
     local found = {}
+    local norm_target = Pokerleven.normalize_team(target_type)
     if G.jokers and G.jokers.cards then
         for k, v in pairs(G.jokers.cards) do
             if v.ability and ((v.ability.extra and type(v.ability.extra) == "table"
-                    and target_type == v.ability.extra.pteam) or v.ability[string.lower(target_type) .. "_sticker"]) then
+                    and norm_target == Pokerleven.normalize_team(v.ability.extra.pteam)) or v.ability[string.lower(target_type) .. "_sticker"]) then
                 table.insert(found, v)
             end
         end
@@ -104,8 +115,8 @@ find_player_team = function(target_type)
 end
 
 is_team = function(card, target_team)
-    if card.ability and (card.ability.extra and type(card.ability.extra) == "table" and target_team == card.ability.extra.pteam) then
-        return true
+    if card.ability and card.ability.extra and type(card.ability.extra) == "table" then
+        return Pokerleven.normalize_team(card.ability.extra.pteam) == Pokerleven.normalize_team(target_team)
     else
         return false
     end
@@ -217,7 +228,7 @@ get_random_joker_key = function(pseed, inararity, area, inateam, exclude_keys, e
     for _, v in pairs(G.P_CENTERS) do
         if ((special and v.special == special) or v.pteam)
             and not (inararity and v.rarity ~= inararity)
-            and not (inateam and v.pteam and inateam ~= v.pteam)
+            and not (inateam and v.pteam and Pokerleven.normalize_team(inateam) ~= Pokerleven.normalize_team(v.pteam))
             and (
                 (special and v.special == special) -- cuando hay special, valida solo esto
                 or (not special and (player_in_pool(v) or (inateam == 'Scout' and v.pteam == 'Scout')))
@@ -253,7 +264,7 @@ get_random_joker_key = function(pseed, inararity, area, inateam, exclude_keys, e
         for _, v in pairs(G.P_CENTERS) do
             if v.pteam
                 and not (inararity and v.rarity ~= inararity)
-                and not (inateam and inateam ~= v.pteam)
+                and not (inateam and Pokerleven.normalize_team(inateam) ~= Pokerleven.normalize_team(v.pteam))
                 and not v.aux_ina
                 and not exclude_keys[v.key] then
                 -- Para enable_dupes ignoramos player_in_pool y repetición
@@ -265,7 +276,7 @@ get_random_joker_key = function(pseed, inararity, area, inateam, exclude_keys, e
     if #ina_keys > 0 then
         ina_key = pseudorandom_element(ina_keys, pseudoseed(pseed))
     else
-        ina_key = "j_ina_Willy"
+        ina_key = "j_ina_William_Glass"
     end
 
     return ina_key

@@ -56,7 +56,8 @@ end
 
 local get_teams_for_bobby = function(key, card_area)
   local form_cards = {}
-  for team_name, team_table in pairs(C.CUSTOM.Bobby_Teams) do
+  for _, team_name in ipairs(C.CUSTOM.Bobby_Teams_Order) do
+    local team_table = C.CUSTOM.Bobby_Teams[team_name]
     local added_card = SMODS.create_card({
       key = key,
       no_edition = true,
@@ -161,17 +162,17 @@ local function create_forms_tab_for_joker(key)
   local card_center = G.P_CENTERS[key]
   local keys_to_add = get_family_keys(card_center.name)
 
-  if #keys_to_add > 1 or key == 'j_ina_Bobby' or key == 'j_ina_Shadow' then
+  if #keys_to_add > 1 or key == 'j_ina_Bobby_Shearer' or key == 'j_ina_Shadow_Cimmerian' then
     return {
       label = localize("ina_forms"),
       chosen = false,
       tab_definition_function = function(t)
         -- +4 to have a little more space
         local card_area
-        if key == 'j_ina_Bobby' then
+        if key == 'j_ina_Bobby_Shearer' then
           card_area = Pokerleven.ui.create_card_area_to_area_table(C.CUSTOM.Bobby_Teams_Number, t.area_table)
           card_form_list = get_teams_for_bobby(key, card_area)
-        elseif key == 'j_ina_Shadow' then
+        elseif key == 'j_ina_Shadow_Cimmerian' then
           card_area = Pokerleven.ui.create_card_area_to_area_table(2, t.area_table)
           card_form_list = get_shadow_forms(key, card_area)
         else
@@ -189,9 +190,22 @@ end
 
 local get_card_keys_from_team = function(team)
   local team_keys = {}
-  for _, card in pairs(G.P_CENTERS) do
-    if card.pteam == team then
-      table.insert(team_keys, card.key)
+  local team_order = Pokerleven.team_players_order[team] or {}
+
+  if #team_order > 0 then
+    for _, player_name in ipairs(team_order) do
+      for card_key, card in pairs(G.P_CENTERS) do
+        if card.name == player_name and card.pteam == team then
+          table.insert(team_keys, card_key)
+          break
+        end
+      end
+    end
+  else
+    for _, card in pairs(G.P_CENTERS) do
+      if card.pteam == team then
+        table.insert(team_keys, card.key)
+      end
     end
   end
   return team_keys

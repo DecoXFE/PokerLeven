@@ -38,8 +38,8 @@ local Dulce = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Wind",
-    pposition = "DF",
+    ptype = C.Wind,
+    pposition = C.DF,
     pteam = "Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -61,8 +61,8 @@ local Ryoma = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Mountain",
-    pposition = "GK",
+    ptype = C.Mountain,
+    pposition = C.GK,
     pteam = "Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -103,8 +103,8 @@ local Blazer = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Fire",
-    pposition = "GK",
+    ptype = C.Fire,
+    pposition = C.GK,
     pteam = "Scout",
     blueprint_compat = true,
     allow_element_application = true,
@@ -139,8 +139,8 @@ local Weathervane = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Wind",
-    pposition = "DF",
+    ptype = C.Wind,
+    pposition = C.DF,
     pteam = "Scout",
     blueprint_compat = true,
     allow_element_application = true,
@@ -175,8 +175,8 @@ local Noggin = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Forest",
-    pposition = "MF",
+    ptype = C.Forest,
+    pposition = C.MF,
     pteam = "Scout",
     blueprint_compat = true,
     allow_element_application = true,
@@ -211,8 +211,8 @@ local Montayne = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Mountain",
-    pposition = "FW",
+    ptype = C.Mountain,
+    pposition = C.FW,
     pteam = "Scout",
     blueprint_compat = true,
     allow_element_application = true,
@@ -247,8 +247,8 @@ local Chester = J({
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Forest",
-    pposition = "MF",
+    ptype = C.Forest,
+    pposition = C.MF,
     pteam = "Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -299,7 +299,7 @@ local Mach = J({
 })
 
 -- Miles
-local Miles = {
+local Miles = J({
     name = "Miles",
     pos = { x = 8, y = 0 },
     config = { extra = {} },
@@ -310,14 +310,14 @@ local Miles = {
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Wind",
-    pposition = "DF",
+    ptype = C.Wind,
+    pposition = C.DF,
     pteam = "Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
         -- TODO Add logic
     end
-}
+})
 
 -- Ace Server
 local Ace_Server = J({
@@ -393,7 +393,7 @@ local Rex_George = J({
 
 -- Versión 0.2
 -- George
-local George = {
+local George = J({
     name = "George",
     pos = { x = 5, y = 0 },
     config = { extra = {} },
@@ -404,17 +404,17 @@ local George = {
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Forest",
-    pposition = "FW",
+    ptype = C.Forest,
+    pposition = C.FW,
     pteam = "Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
         -- TODO Add logic
     end
-}
+})
 
 -- Spring
-local Spring = {
+local Spring = J({
     name = "Spring",
     pos = { x = 4, y = 1 },
     config = { extra = {} },
@@ -425,17 +425,17 @@ local Spring = {
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Fire",
-    pposition = "MF",
+    ptype = C.Fire,
+    pposition = C.MF,
     pteam = "Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
         -- TODO Add logic
     end
-}
+})
 
 -- Summer
-local Summer = {
+local Summer = J({
     name = "Summer",
     pos = { x = 3, y = 1 },
     config = { extra = {} },
@@ -446,17 +446,17 @@ local Summer = {
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Mountain",
-    pposition = "DF",
+    ptype = C.Mountain,
+    pposition = C.DF,
     pteam = "Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
         -- TODO Add logic
     end
-}
+})
 
 -- Autumn
-local Autumn = {
+local Autumn = J({
     name = "Autumn",
     pos = { x = 2, y = 1 },
     config = { extra = {} },
@@ -467,14 +467,14 @@ local Autumn = {
     pools = { ["Scout"] = true },
     cost = 5,
     atlas = "Jokers10",
-    ptype = "Wind",
-    pposition = "GK",
+    ptype = C.Wind,
+    pposition = C.GK,
     pteam = "Scout",
     blueprint_compat = true,
     calculate = function(self, card, context)
         -- TODO Add logic
     end
-}
+})
 
 if Pokerleven and Pokerleven.config and Pokerleven.config.oc_jokers == true then
     return {

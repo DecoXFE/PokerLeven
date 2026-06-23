@@ -1,6 +1,6 @@
--- Otaku
-local Idol = {
-    name = "Idol",
+-- Sam Idol
+local Sam_Idol = J({
+name = "Sam_Idol",
     pos = { x = 3, y = 6 },
     config = { extra = { odds2 = 2, retrigger_count = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -10,9 +10,9 @@ local Idol = {
     pools = { ["Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "GK",
-    pteam = "Otaku",
+    ptype = C.Mountain,
+    pposition = C.GK,
+    pteam = "ina_team_otaku",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -31,10 +31,39 @@ local Idol = {
     ina_credits = {
         idea = { 'LegendaryAd' }
     }
-}
+})
 
-local Hero = {
-    name = "Hero",
+-- Marcus Train
+local Marcus_Train = J({
+    name = "Marcus_Train",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Otaku"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Fire,
+    pposition = C.DF,
+    pteam = "ina_team_otaku",
+})
+
+-- Light Nobel
+local Light_Nobel = J({
+    name = "Light_Nobel",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Otaku"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.MF,
+    pteam = "ina_team_otaku",
+})
+
+-- Walter Valiant
+local Walter_Valiant = J({
+name = "Walter_Valiant",
     pos = { x = 6, y = 6 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -44,9 +73,9 @@ local Hero = {
     pools = { ["Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "DF",
-    pteam = "Otaku",
+    ptype = C.Fire,
+    pposition = C.MF,
+    pteam = "ina_team_otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.individual and context.other_card then
@@ -64,11 +93,39 @@ local Hero = {
     ina_credits = {
         idea = { "LegendaryAd" }
     }
-}
+})
 
--- Custom
-local Custom = {
-    name = "Custom",
+-- Spencer Gates
+local Spencer_Gates = J({
+    name = "Spencer_Gates",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Otaku"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pteam = "ina_team_otaku",
+})
+
+-- Josh Spear
+local Josh_Spear = J({
+    name = "Josh_Spear",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Otaku"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pteam = "ina_team_otaku",
+})
+
+-- Gaby Farmer
+local Gaby_Farmer = J({
+name = "Gaby_Farmer",
     pos = { x = 9, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
@@ -78,17 +135,17 @@ local Custom = {
     pools = { ["Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "FW",
-    pteam = "Otaku",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pteam = "ina_team_otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
--- Robot
-local Robot = {
-    name = "Robot",
+-- Anthony Woodbridge
+local Anthony_Woodbridge = J({
+name = "Anthony_Woodbridge",
     pos = { x = 10, y = 6 },
     config = { extra = { retrigger_count = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -98,9 +155,9 @@ local Robot = {
     pools = { ["Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF",
-    pteam = "Otaku",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pteam = "ina_team_otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play and next(context.poker_hands['Straight']) then
@@ -119,10 +176,11 @@ local Robot = {
             end
         end
     end
-}
+})
 
-local Gamer = {
-    name = "Gamer",
+-- Gus Gamer
+local Gus_Gamer = J({
+name = "Gus_Gamer",
     pos = { x = 11, y = 6 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -137,9 +195,9 @@ local Gamer = {
     pools = { ["Otaku"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "FW",
-    pteam = "Otaku",
+    ptype = C.Fire,
+    pposition = C.FW,
+    pteam = "ina_team_otaku",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -158,10 +216,11 @@ local Gamer = {
             }
         end
     end
-}
+})
 
-local Artist = {
-    name = "Artist",
+-- Mark Gambling
+local Mark_Gambling = J({
+name = "Mark_Gambling",
     pos = { x = 12, y = 6 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
@@ -171,9 +230,9 @@ local Artist = {
     pools = { ["Otaku"] = true },
     cost = 8,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "FW",
-    pteam = "Otaku",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pteam = "ina_team_otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main then
@@ -201,10 +260,11 @@ local Artist = {
     ina_credits = {
         idea = { "Shadorossa" }
     }
-}
+})
 
-local Arcade = {
-    name = "Arcade",
+-- Theodore Master
+local Theodore_Master = J({
+name = "Theodore_Master",
     pos = { x = 0, y = 7 },
     config = { extra = { new_lucky = 5, minus_dollars = -2, triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -214,9 +274,9 @@ local Arcade = {
     pools = { ["Otaku"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "FW",
-    pteam = "Otaku",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pteam = "ina_team_otaku",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -238,15 +298,58 @@ local Arcade = {
     ina_credits = {
         idea = { "Shadorossa" }
     }
-}
+})
 
--- Vox
-local Vox = J({
-    name = "Vox",
+-- Grant Eldorado
+local Grant_Eldorado = J({
+    name = "Grant_Eldorado",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Otaku"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Fire,
+    pposition = C.GK,
+    pteam = "ina_team_otaku",
+})
+
+-- Ham Signalman
+local Ham_Signalman = J({
+    name = "Ham_Signalman",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Otaku"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pteam = "ina_team_otaku",
+})
+
+-- Bill Formby
+local Bill_Formby = J({
+    name = "Bill_Formby",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Otaku"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pteam = "ina_team_otaku",
+})
+
+-- Mike Vox
+local Mike_Vox = J({
+name = "Mike_Vox",
     pos = { x = 4, y = 7 },
     config = { extra = { chip_mod = 30, triggered = false } },
     loc_vars = function(self, info_queue, center)
-        table.insert(info_queue, { set = 'Other', key = 'Right_Footed' })
+        table.insert(info_queue, { set = 'Other',
+})
         return { vars = { center.ability.extra.chip_mod } }
     end,
     rarity = 1, -- Common
@@ -255,7 +358,7 @@ local Vox = J({
     atlas = "Jokers01",
     ptype = C.Wind,
     pposition = C.DF,
-    pteam = "Otaku",
+    pteam = "ina_team_otaku",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if Pokerleven.is_joker_turn(context) and context.joker_main and context.scoring_hand and card:is_rightmost_joker() then
@@ -263,7 +366,8 @@ local Vox = J({
 
             if count > 0 then
                 return {
-                    message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chip_mod * count } },
+                    message = localize { type = 'variable',
+vars = { card.ability.extra.chip_mod * count } },
                     colour = G.C.CHIPS,
                     chip_mod = card.ability.extra.chip_mod * count,
                 }
@@ -275,7 +379,21 @@ local Vox = J({
     }
 })
 
+-- Ollie Webb
+local Ollie_Webb = J({
+    name = "Ollie_Webb",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Otaku"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.DF,
+    pteam = "ina_team_otaku",
+})
+
 return {
     name = "Otaku",
-    list = { Idol, Hero, Custom, Robot, Gamer, Artist, Arcade, Vox }
+    list = { Sam_Idol, Walter_Valiant, Gaby_Farmer, Anthony_Woodbridge, Gus_Gamer, Mark_Gambling, Theodore_Master, Mike_Vox }
 }

@@ -51,7 +51,7 @@ local Celia = J({
     atlas = "Managers01",
     calculate = function(self, card, context)
         if context.starting_shop then
-            jude = get_joker_with_key("j_ina_Jude")
+            jude = get_joker_with_key("j_ina_Jude_Sharp")
             if jude then
                 return {
                     message = ina_evolve(jude, "j_ina_Jude_Raimon")

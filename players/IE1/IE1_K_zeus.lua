@@ -1,10 +1,11 @@
--- Poseidon
-local Poseidon = {
-  name = "Poseidon",
+-- Paul Siddon
+local Paul_Siddon = J({
+name = "Paul_Siddon",
   pos = { x = 5, y = 12 },
   config = { extra = { min_face = 3, barriers_added = 1, chips_mod = 40, barriers = 1 } },
   loc_vars = function(self, info_queue, center)
-    table.insert(info_queue, { set = "Other", key = "Frontal" })
+    table.insert(info_queue, { set = "Other",
+})
     local barriers = center.ability.extra.barriers_added
     local chips_mod = center.ability.extra.chips_mod
     local min_face = center.ability.extra.min_face
@@ -17,10 +18,10 @@ local Poseidon = {
   pools = { ["Zeus"] = true },
   cost = 8,
   atlas = "Jokers01",
-  ptype = "Mountain",
-  pposition = "GK",
+  ptype = C.Mountain,
+  pposition = C.GK,
   techtype = C.UPGRADES.Number,
-  pteam = "Zeus",
+  pteam = "ina_team_zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_turn(context)
@@ -41,58 +42,11 @@ local Poseidon = {
       return Pokerleven.ease_barriers(barriers)
     end
   end
-}
-
--- Hephestus
-local Hephestus = J({
-  name = "Hephestus",
-  pos = { x = 9, y = 12 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-  end,
-  rarity = 2,
-  pools = { ["Zeus"] = true },
-  cost = 7,
-  atlas = "Jokers01",
-  ptype = "Fire",
-  pposition = "DF",
-  techtype = C.UPGRADES.Number,
-  pteam = "Zeus",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-    if context.blind_defeated and not context.blueprint then
-      local count = #Pokerleven.find_player_type_and_position("Fire", "DF")
-
-      if count > 0 and G.deck and G.deck.cards and #G.deck.cards > 0 then
-        table.unpack = table.unpack or unpack
-
-        local candidates = { table.unpack(G.deck.cards) }
-
-        for i = 1, count do
-          if #candidates == 0 then break end
-
-          local steelCard = pseudorandom_element(candidates, pseudoseed("steel_card_" .. i))
-          if steelCard then
-            convert_cards_to(steelCard, { mod_conv = "m_steel", true, true })
-            card_eval_status_text(steelCard, 'extra', nil, nil, nil,
-              { message = localize("ina_convert"), colour = G.C.MULT })
-
-            for j, c in ipairs(candidates) do
-              if c == steelCard then
-                table.remove(candidates, j)
-                break
-              end
-            end
-          end
-        end
-      end
-    end
-  end
 })
 
--- Apollo
-local Apollo = {
-  name = "Apollo",
+-- Apollo Light
+local Apollo_Light = J({
+name = "Apollo_Light",
   pos = { x = 6, y = 12 },
   config = { extra = { chips_mod = 14, alt_chips_mod = 4, mult_mod_low = 3, current_chips = 0, current_mult = 0, triggered = false } },
   loc_vars = function(self, info_queue, center)
@@ -102,10 +56,10 @@ local Apollo = {
   pools = { ["Zeus"] = true },
   cost = 5,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "DF",
+  ptype = C.Forest,
+  pposition = C.DF,
   techtype = C.UPGRADES.Plus,
-  pteam = "Zeus",
+  pteam = "ina_team_zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_turn(context) and card.ability.extra.current_chips > 0 then
@@ -138,15 +92,91 @@ local Apollo = {
   ina_credits = {
     idea = { "Shadorossa" },
   }
-}
+})
 
--- Artemis
-local Artemis = J({
-  name = "Artemis",
+-- Jeff Iron
+local Jeff_Iron = J({
+name = "Jeff_Iron",
+  pos = { x = 9, y = 12 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+  end,
+  rarity = 2,
+  pools = { ["Zeus"] = true },
+  cost = 7,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.DF,
+  techtype = C.UPGRADES.Number,
+  pteam = "ina_team_zeus",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.blind_defeated and not context.blueprint then
+      local count = #Pokerleven.find_player_type_and_position("Fire", "DF")
+
+      if count > 0 and G.deck and G.deck.cards and #G.deck.cards > 0 then
+        table.unpack = table.unpack or unpack
+
+        local candidates = { table.unpack(G.deck.cards) }
+
+        for i = 1, count do
+          if #candidates == 0 then break end
+
+          local steelCard = pseudorandom_element(candidates, pseudoseed("steel_card_" .. i))
+          if steelCard then
+            convert_cards_to(steelCard, { mod_conv = "m_steel", true, true })
+            card_eval_status_text(steelCard, 'extra', nil, nil, nil,
+              { message = localize("ina_convert"), colour = G.C.MULT })
+
+            for j, c in ipairs(candidates) do
+              if c == steelCard then
+                table.remove(candidates, j)
+                break
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+})
+
+-- Lane War
+local Lane_War = J({
+  name = "Lane_War",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Zeus"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.DF,
+  pteam = "ina_team_zeus",
+})
+
+-- Danny Wood
+local Danny_Wood = J({
+  name = "Danny_Wood",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Zeus"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.DF,
+  pteam = "ina_team_zeus",
+})
+
+-- Artie Mishman
+local Artie_Mishman = J({
+name = "Artie_Mishman",
   pos = { x = 10, y = 12 },
   config = { extra = { current_chips = 0, chips_mod = 10 } },
   loc_vars = function(self, info_queue, center)
-    info_queue[#info_queue + 1] = { set = 'Other', key = 'Harvester' }
+    info_queue[#info_queue + 1] = { set = 'Other',
+}
     return { vars = { center.ability.extra.chips_mod, center.ability.extra.current_chips } }
   end,
   rarity = 2, -- Uncommon
@@ -156,7 +186,7 @@ local Artemis = J({
   ptype = C.Wind,
   pposition = C.MF, -- Midfielder
   techtype = C.UPGRADES.Plus,
-  pteam = "Zeus",
+  pteam = "ina_team_zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.discard and context.other_card.ability["ina_harvest_sticker"] == true then
@@ -184,7 +214,8 @@ local Artemis = J({
         and card.ability.extra.current_chips > 0 then
       card.ability.extra.triggered = true
       return {
-        message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.current_chips } },
+        message = localize { type = 'variable',
+vars = { card.ability.extra.current_chips } },
         colour = G.C.CHIPS,
         chip_mod = card.ability.extra.current_chips,
       }
@@ -192,9 +223,9 @@ local Artemis = J({
   end,
 })
 
--- Hermes
-local Hermes = {
-  name = "Hermes",
+-- Arion Matlock
+local Arion_Matlock = J({
+name = "Arion_Matlock",
   pos = { x = 11, y = 12 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
@@ -204,9 +235,9 @@ local Hermes = {
   pools = { ["Zeus"] = true },
   cost = 7,
   atlas = "Jokers01",
-  ptype = "Forest",
-  pposition = "MF", -- Midfielder
-  pteam = "Zeus",
+  ptype = C.Forest,
+  pposition = C.MF, -- Midfielder
+  pteam = "ina_team_zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.other_card and G.GAME.current_round.hands_played == 0
@@ -225,11 +256,25 @@ local Hermes = {
   ina_credits = {
     idea = { "LegendaryAd" },
   }
-}
+})
 
--- Demeter
-local Demeter = {
-  name = "Demeter",
+-- Wesley Knox
+local Wesley_Knox = J({
+  name = "Wesley_Knox",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Zeus"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.MF,
+  pteam = "ina_team_zeus",
+})
+
+-- Jonas Demetrius
+local Jonas_Demetrius = J({
+name = "Jonas_Demetrius",
   pos = { x = 0, y = 13 },
   config = { extra = { mult_mod_low = 4, chip_mod = 10 } },
   loc_vars = function(self, info_queue, center)
@@ -250,7 +295,7 @@ local Demeter = {
   ptype = C.Fire,
   pposition = C.FW,
   techtype = C.UPGRADES.Number,
-  pteam = "Zeus",
+  pteam = "ina_team_zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.cardarea == G.jokers and context.joker_main then
@@ -271,10 +316,9 @@ local Demeter = {
   ina_credits = {
     idea = { "Shadorossa" },
   }
-}
+})
 
--- Aphrodite
----@param card Card
+-- Byron Love
 local swap_random_to_fw_or_mf = function(card)
   local POS_FW = "FW"
   local POS_MF = "MF"
@@ -309,24 +353,21 @@ local get_byron_xmult = function(card, selected_position)
   return Xmult_mod
 end
 
----@param card Card
----@param selected_position string
 local select_byron_ability = function(card, selected_position)
   local Xmult_mod = get_byron_xmult(card, selected_position)
 
   return {
     message = localize {
       type = 'variable',
-      key = 'a_xmult',
-      vars = { Xmult_mod }
+vars = { Xmult_mod }
     },
     colour = G.C.MULT,
     Xmult_mod = Xmult_mod
   }
 end
 
-local Aphrodite = J({
-  name = "Aphrodite",
+local Byron_Love = J({
+name = "Byron_Love",
   pos = { x = 0, y = 2 },
   soul_pos = { x = 0, y = 3 },
   config = { extra = { byron_mult_fw = 0.6, byron_mult_mf = 0.3 } },
@@ -337,10 +378,10 @@ local Aphrodite = J({
   rarity = 4, -- Legendary
   cost = 15,
   atlas = "legendary01",
-  ptype = "Forest",
-  pposition = "MF", -- Midfielder
+  ptype = C.Forest,
+  pposition = C.MF, -- Midfielder
   techtype = C.UPGRADES.Plus,
-  pteam = "Zeus",
+  pteam = "ina_team_zeus",
   blueprint_compat = true,
   calculate = function(self, card, context)
     if Pokerleven.is_joker_end_of_round(context) then
@@ -363,7 +404,91 @@ local Aphrodite = J({
   }
 })
 
+-- Henry House
+local Henry_House = J({
+  name = "Henry_House",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Zeus"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.MF,
+  pteam = "ina_team_zeus",
+})
+
+-- Iggy Russ
+local Iggy_Russ = J({
+  name = "Iggy_Russ",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Zeus"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Wind,
+  pposition = C.GK,
+  pteam = "ina_team_zeus",
+})
+
+-- Gus Heeley
+local Gus_Heeley = J({
+  name = "Gus_Heeley",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Zeus"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.FW,
+  pteam = "ina_team_zeus",
+})
+
+-- Harry Closs
+local Harry_Closs = J({
+  name = "Harry_Closs",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Zeus"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pteam = "ina_team_zeus",
+})
+
+-- Andy Chronic
+local Andy_Chronic = J({
+  name = "Andy_Chronic",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Zeus"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Forest,
+  pposition = C.DF,
+  pteam = "ina_team_zeus",
+})
+
+-- Ned Yousef
+local Ned_Yousef = J({
+  name = "Ned_Yousef",
+  pos = { x = 0, y = 0 },
+  config = {},
+  rarity = 1,
+  pools = { ["Zeus"] = true },
+  cost = 4,
+  atlas = "Jokers01",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pteam = "ina_team_zeus",
+})
+
 return {
   name = "Zeus",
-  list = { Poseidon, Apollo, Hephestus, Artemis, Hermes, Demeter, Aphrodite },
+  list = { Paul_Siddon, Apollo_Light, Jeff_Iron, Artie_Mishman, Arion_Matlock, Jonas_Demetrius, Byron_Love },
 }

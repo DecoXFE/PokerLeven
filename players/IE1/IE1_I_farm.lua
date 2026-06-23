@@ -1,12 +1,11 @@
--- Farm Jokers
-
-local Greeny = J({
-    name = "Greeny",
+-- Albert Green
+local Albert_Green = J({
+name = "Albert_Green",
     pos = { x = 12, y = 9 },
-    config = { extra = { barriers_added = 1, DF_required = 2, barriers = 3 }
-    },
+    config = { extra = { barriers_added = 1, DF_required = 2, barriers = 3 } },
     loc_vars = function(self, info_queue, center)
-        table.insert(info_queue, { set = 'Other', key = 'Right_Footed' })
+        table.insert(info_queue, { set = 'Other',
+})
         return {
             vars = { center.ability.extra.barriers_added, center.ability.extra.DF_required,
                 center.ability.extra.barriers }
@@ -16,9 +15,9 @@ local Greeny = J({
     pools = { ["Farm"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "GK",
-    pteam = "Farm",
+    ptype = C.Fire,
+    pposition = C.GK,
+    pteam = "ina_team_farm",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -51,9 +50,9 @@ local Greeny = J({
     end
 })
 
-
-local Hayseed = J({
-    name = "Hayseed",
+-- Seward Hayseed
+local Seward_Hayseed = J({
+name = "Seward_Hayseed",
     pos = { x = 0, y = 10 },
     config = {
         extra = {
@@ -68,15 +67,16 @@ local Hayseed = J({
     pools = { ["Farm"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "DF",
-    pteam = "Farm",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pteam = "ina_team_farm",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.scoring_hand and context.joker_main
             and card.ability.extra.current_mult > 0 then
             return {
-                message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.current_mult } },
+                message = localize { type = 'variable',
+vars = { card.ability.extra.current_mult } },
                 mult_mod = card.ability.extra.current_mult,
                 colour = G.C.MULT
             }
@@ -92,9 +92,67 @@ local Hayseed = J({
     end,
 })
 
+-- Kent Work
+local Kent_Work = J({
+    name = "Kent_Work",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Farm"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.DF,
+    pteam = "ina_team_farm",
+})
 
-local Sherman = J({
-    name = "Sherman",
+-- Mark Hillvalley
+local Mark_Hillvalley = J({
+name = "Mark_Hillvalley",
+    pos = { x = 2, y = 10 },
+    config = { extra = { current_chips = 0, triggered = false } },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra.current_chips } }
+    end,
+    rarity = 1, -- Common
+    pools = { ["Farm"] = true },
+    cost = 5,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pteam = "ina_team_farm",
+    techtype = C.UPGRADES.Plus,
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        if context.individual and context.scoring_hand and context.other_card and
+            context.cardarea == G.play and
+            (context.other_card:get_id() == 8 or
+                context.other_card:get_id() == 9 or
+                context.other_card:get_id() == 10) then
+            card.ability.extra.current_chips = card.ability.extra.current_chips + context.other_card:get_id()
+            card.ability.extra.triggered = true
+            return {
+                message = localize('k_upgrade_ex'),
+                colour = G.C.CHIPS,
+                card = card
+            }
+        end
+
+        if context.scoring_hand and context.joker_main and card.ability.extra.current_chips > 0 then
+            card.ability.extra.triggered = true
+            return {
+                message = localize { type = 'variable',
+vars = { card.ability.extra.current_chips } },
+                colour = G.C.CHIPS,
+                chip_mod = card.ability.extra.current_chips
+            }
+        end
+    end,
+})
+
+-- Herb Sherman
+local Herb_Sherman = J({
+name = "Herb_Sherman",
     pos = { x = 3, y = 10 },
     config = { extra = { current_chips = 0, chip_mod = 5 } },
     loc_vars = function(self, info_queue, center)
@@ -104,15 +162,15 @@ local Sherman = J({
     pools = { ["Farm"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "DF",
-    pteam = "Farm",
+    ptype = C.Fire,
+    pposition = C.DF,
+    pteam = "ina_team_farm",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.post_trigger and context.other_card ~= card
             and context.other_card.ability and context.other_card.ability.extra.pteam
-            and context.other_card.ability.extra.pteam == "Farm" then
+            and Pokerleven.normalize_team(context.other_card.ability.extra.pteam) == Pokerleven.normalize_team("Farm") then
             card.ability.extra.current_chips =
                 card.ability.extra.current_chips + card.ability.extra.chip_mod
 
@@ -132,7 +190,8 @@ local Sherman = J({
             and context.joker_main then
             if card.ability.extra.current_chips > 0 then
                 return {
-                    message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.current_chips } },
+                    message = localize { type = 'variable',
+vars = { card.ability.extra.current_chips } },
                     colour = G.C.CHIPS,
                     chip_mod = card.ability.extra.current_chips
                 }
@@ -141,8 +200,37 @@ local Sherman = J({
     end,
 })
 
-local Spray = J({
-    name = "Spray",
+-- Joe Small
+local Joe_Small = J({
+    name = "Joe_Small",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Farm"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.MF,
+    pteam = "ina_team_farm",
+})
+
+-- Ike Steiner
+local Ike_Steiner = J({
+    name = "Ike_Steiner",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Farm"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.MF,
+    pteam = "ina_team_farm",
+})
+
+-- Orville Newman
+local Orville_Newman = J({
+name = "Orville_Newman",
     pos = { x = 6, y = 10 },
     config = { extra = { current_Xmult = 1, max_money = 4, Xmult_mod = 0.25, triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -152,9 +240,9 @@ local Spray = J({
     pools = { ["Farm"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "MF",
-    pteam = "Farm",
+    ptype = C.Fire,
+    pposition = C.MF,
+    pteam = "ina_team_farm",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -172,7 +260,8 @@ local Spray = J({
         if context.cardarea == G.jokers and context.joker_main and context.scoring_hand and card.ability.extra.current_Xmult > 1 then
             card.ability.extra.triggered = true
             return {
-                message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current_Xmult } },
+                message = localize { type = 'variable',
+vars = { card.ability.extra.current_Xmult } },
                 colour = G.C.XMULT,
                 Xmult_mod = card.ability.extra.current_Xmult
             }
@@ -180,8 +269,23 @@ local Spray = J({
     end,
 })
 
-local Dawson = J({
-    name = "Dawson",
+-- Tom Walters
+local Tom_Walters = J({
+    name = "Tom_Walters",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Farm"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.MF,
+    pteam = "ina_team_farm",
+})
+
+-- Daniel Dawson
+local Daniel_Dawson = J({
+name = "Daniel_Dawson",
     pos = { x = 7, y = 10 },
     config = { extra = { max_money = 2, triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -191,9 +295,9 @@ local Dawson = J({
     pools = { ["Farm"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF",
-    pteam = "Farm",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pteam = "ina_team_farm",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -227,21 +331,23 @@ local Dawson = J({
     end,
 })
 
-local Muffs = J({
-    name = "Muffs",
+-- Stuart Racoonfur
+local Stuart_Racoonfur = J({
+name = "Stuart_Racoonfur",
     pos = { x = 8, y = 10 },
     config = { extra = { current_mult = 0, mult_mod_low = 3, triggered = false } },
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue + 1] = { set = 'Other', key = 'Harvester' }
+        info_queue[#info_queue + 1] = { set = 'Other',
+}
         return { vars = { center.ability.extra.mult_mod_low, center.ability.extra.current_mult } }
     end,
     rarity = 2, -- Uncommon
     pools = { ["Farm"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "FW",
-    pteam = "Farm",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pteam = "ina_team_farm",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -278,7 +384,8 @@ local Muffs = J({
             and card.ability.extra.current_mult > 0 then
             card.ability.extra.triggered = true
             return {
-                message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.current_mult } },
+                message = localize { type = 'variable',
+vars = { card.ability.extra.current_mult } },
                 colour = G.C.MULT,
                 mult_mod = card.ability.extra.current_mult,
             }
@@ -286,49 +393,77 @@ local Muffs = J({
     end,
 })
 
-local Hillvalley = J({
-    name = "Hillvalley",
-    pos = { x = 2, y = 10 },
-    config = { extra = { current_chips = 0, triggered = false } },
-    loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.current_chips } }
-    end,
-    rarity = 1, -- Common
+-- Lorne Mower
+local Lorne_Mower = J({
+    name = "Lorne_Mower",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
     pools = { ["Farm"] = true },
-    cost = 5,
+    cost = 4,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "DF",
-    pteam = "Farm",
-    techtype = C.UPGRADES.Plus,
-    blueprint_compat = true,
-    calculate = function(self, card, context)
-        if context.individual and context.scoring_hand and context.other_card and
-            context.cardarea == G.play and
-            (context.other_card:get_id() == 8 or
-                context.other_card:get_id() == 9 or
-                context.other_card:get_id() == 10) then
-            card.ability.extra.current_chips = card.ability.extra.current_chips + context.other_card:get_id()
-            card.ability.extra.triggered = true
-            return {
-                message = localize('k_upgrade_ex'),
-                colour = G.C.CHIPS,
-                card = card
-            }
-        end
+    ptype = C.Mountain,
+    pposition = C.GK,
+    pteam = "ina_team_farm",
+})
 
-        if context.scoring_hand and context.joker_main and card.ability.extra.current_chips > 0 then
-            card.ability.extra.triggered = true
-            return {
-                message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.current_chips } },
-                colour = G.C.CHIPS,
-                chip_mod = card.ability.extra.current_chips
-            }
-        end
-    end,
+-- Homer Grower
+local Homer_Grower = J({
+    name = "Homer_Grower",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Farm"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pteam = "ina_team_farm",
+})
+
+-- Rolf Howells
+local Rolf_Howells = J({
+    name = "Rolf_Howells",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Farm"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Wind,
+    pposition = C.DF,
+    pteam = "ina_team_farm",
+})
+
+-- Luke Lively
+local Luke_Lively = J({
+    name = "Luke_Lively",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Farm"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.DF,
+    pteam = "ina_team_farm",
+})
+
+-- Ben Nevis
+local Ben_Nevis = J({
+    name = "Ben_Nevis",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Farm"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Wind,
+    pposition = C.DF,
+    pteam = "ina_team_farm",
 })
 
 return {
     name = "Farm",
-    list = { Greeny, Hayseed, Hillvalley, Sherman, Spray, Dawson, Muffs, },
+    list = { Albert_Green, Seward_Hayseed, Mark_Hillvalley, Herb_Sherman, Orville_Newman, Daniel_Dawson, Stuart_Racoonfur },
 }

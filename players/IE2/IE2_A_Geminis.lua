@@ -1,227 +1,225 @@
--- Dvalin
-local Dvalin = {
-  name = "Dvalin",
-  pos = { x = 4, y = 0 },
-  soul_pos = { x = 4, y = 1 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = "ina_top", -- Destacado
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "top",
-  ptype = C.Fire,
-  pposition = C.GK,
-  pteam = "Epsilon",
-  techtype = C.UPGRADES.Number,
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
-}
-
--- Kenville
-local Kenville = {
-  name = "Kenville",
-  pos = { x = 1, y = 5 },
+-- Galileo
+local Galileo = J({
+  name = "Galileo",
+  pos = { x = 1, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
   rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Fire,
-  pposition = C.DF,
-  pteam = "Epsilon",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
-}
-
--- Mole
-local Mole = {
-  name = "Mole",
-  pos = { x = 2, y = 5 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
+  pools = { ["Geminis"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Forest,
-  pposition = C.DF,
-  pteam = "Epsilon",
+  pposition = C.GK,
+  pteam = "Tormenta de Géminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- Kayson
-local Kayson = {
-  name = "Kayson",
-  pos = { x = 3, y = 5 },
+-- Coral
+local Coral = J({
+  name = "Coral",
+  pos = { x = 2, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
   rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
+  pools = { ["Geminis"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Wind,
   pposition = C.DF,
-  pteam = "Epsilon",
+  pteam = "Tormenta de Géminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- Tytan
-local Tytan = {
-  name = "Tytan",
-  pos = { x = 4, y = 5 },
+-- Gigs
+local Gigs = J({
+  name = "Gigs",
+  pos = { x = 3, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
   rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
+  pools = { ["Geminis"] = true },
+  cost = 7,
+  atlas = "Jokers02",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pteam = "Tormenta de Géminis",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Ganymede
+local Ganymede = J({
+  name = "Ganymede",
+  pos = { x = 4, y = 0 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1, -- Common
+  pools = { ["Geminis"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Mountain,
   pposition = C.DF,
-  pteam = "Epsilon",
+  pteam = "Tormenta de Géminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- Fedora
-local Fedora = {
-  name = "Fedora",
-  pos = { x = 5, y = 5 },
+-- Charon
+local Charon = J({
+  name = "Charon",
+  pos = { x = 5, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
   rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
+  pools = { ["Geminis"] = true },
+  cost = 7,
+  atlas = "Jokers02",
+  ptype = C.Fire,
+  pposition = C.DF,
+  pteam = "Tormenta de Géminis",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Pandora
+local Pandora = J({
+  name = "Pandora",
+  pos = { x = 6, y = 0 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1, -- Common
+  pools = { ["Geminis"] = true },
+  cost = 7,
+  atlas = "Jokers02",
+  ptype = C.Wind,
+  pposition = C.MF,
+  pteam = "Tormenta de Géminis",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Grengo
+local Grengo = J({
+  name = "Grengo",
+  pos = { x = 7, y = 0 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1, -- Common
+  pools = { ["Geminis"] = true },
+  cost = 7,
+  atlas = "Jokers02",
+  ptype = C.Mountain,
+  pposition = C.MF,
+  pteam = "Tormenta de Géminis",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+  end
+})
+
+-- Io
+local Io = J({
+  name = "Io",
+  pos = { x = 8, y = 0 },
+  config = { extra = {} },
+  loc_vars = function(self, info_queue, center)
+    return {}
+  end,
+  rarity = 1, -- Common
+  pools = { ["Geminis"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Fire,
   pposition = C.MF,
-  pteam = "Epsilon",
+  pteam = "Tormenta de Géminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- Krypto
-local Krypto = {
-  name = "Krypto",
-  pos = { x = 6, y = 5 },
+-- Rihm
+local Rihm = J({
+  name = "Rihm",
+  pos = { x = 9, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
   rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
+  pools = { ["Geminis"] = true },
   cost = 7,
   atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.MF,
-  pteam = "Epsilon",
+  ptype = C.Forest,
+  pposition = C.FW,
+  pteam = "Tormenta de Géminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- Sworm
-local Sworm = {
-  name = "Sworm",
-  pos = { x = 7, y = 5 },
+-- Janus
+local Janus = J({
+  name = "Janus",
+  pos = { x = 10, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
   rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
+  pools = { ["Geminis"] = true },
   cost = 7,
   atlas = "Jokers02",
   ptype = C.Forest,
   pposition = C.MF,
-  pteam = "Epsilon",
+  pteam = "Tormenta de Géminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
--- Mercury
-local Mercury = {
-  name = "Mercury",
-  pos = { x = 8, y = 5 },
+-- Diam
+local Diam = J({
+  name = "Diam",
+  pos = { x = 11, y = 0 },
   config = { extra = {} },
   loc_vars = function(self, info_queue, center)
     return {}
   end,
   rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
+  pools = { ["Geminis"] = true },
   cost = 7,
   atlas = "Jokers02",
-  ptype = C.Wind,
+  ptype = C.Forest,
   pposition = C.FW,
-  pteam = "Epsilon",
+  pteam = "Tormenta de Géminis",
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
-
--- Metron
-local Metron = {
-  name = "Metron",
-  pos = { x = 9, y = 5 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.FW,
-  pteam = "Epsilon",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
-}
-
--- Zell
-local Zell = {
-  name = "Zell",
-  pos = { x = 10, y = 5 },
-  config = { extra = {} },
-  loc_vars = function(self, info_queue, center)
-    return {}
-  end,
-  rarity = 1, -- Common
-  pools = { ["Epsilon"] = true },
-  cost = 7,
-  atlas = "Jokers02",
-  ptype = C.Wind,
-  pposition = C.FW,
-  pteam = "Epsilon",
-  blueprint_compat = true,
-  calculate = function(self, card, context)
-  end
-}
+})
 
 return {
-  name = "Epsilon",
+  name = "Tormenta de Géminis",
   list = {}
-  -- list = { Dvalin, Kenville, Mole, Kayson, Tytan, Fedora, Krypto, Sworm, Mercury, Metron, Zell },
+  -- list = { Galileo, Coral, Gigs, Ganymede, Charon, Pandora, Grengo, Io, Rihm, Janus, Diam },
 }

@@ -1,5 +1,5 @@
 -- Torch
-local Torch = {
+local Torch = J({
     name = "Torch",
     pos = { x = 6, y = 0 },
     soul_pos = { x = 6, y = 1 },
@@ -18,7 +18,7 @@ local Torch = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 return {
     name = "Prominence",

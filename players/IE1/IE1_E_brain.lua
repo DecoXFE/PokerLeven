@@ -1,13 +1,13 @@
--- Feldt
-local Feldt = J({
-    name = "Feldt",
+-- Thomas Feldt
+local Thomas_Feldt = J({
+name = "Thomas_Feldt",
     pos = { x = 0, y = 5 },
     config = { extra = { barriers_added = 1, Xmult_mod = 1, barriers = 4 } },
     loc_vars = function(self, info_queue, center)
         local Xmult_mod = center.ability.extra.Xmult_mod
         local current_mult = Xmult_mod * #find_player_type('Forest')
         return {
-            key = (center.ability.extra.tech_level or 0) >= 2 and 'j_ina_Feldt_n3' or 'j_ina_Feldt',
+            key = (center.ability.extra.tech_level or 0) >= 2 and 'j_ina_Thomas_Feldt_n3' or 'j_ina_Thomas_Feldt',
             vars = { center.ability.extra.barriers_added, Xmult_mod, current_mult, center.ability.extra.barriers }
         }
     end,
@@ -15,9 +15,9 @@ local Feldt = J({
     pools = { ["Brain"] = true },
     cost = 8,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "GK", -- Goalkeeper
-    pteam = "Brain",
+    ptype = C.Forest,
+    pposition = C.GK, -- Goalkeeper
+    pteam = "ina_team_brain",
     techtype = C.UPGRADES.Number,
     numberTechType = C.UPGRADES.NumberType.Z,
     blueprint_compat = true,
@@ -30,7 +30,8 @@ local Feldt = J({
             Pokerleven.ease_barriers(barriers_to_remove)
 
             return {
-                message = localize { type = 'variable', key = 'a_xmult', vars = { current_mult } },
+                message = localize { type = 'variable',
+vars = { current_mult } },
                 colour = G.C.MULT,
                 Xmult_mod = current_mult
             }
@@ -45,9 +46,37 @@ local Feldt = J({
     end
 })
 
--- Marvel
-local Marvel = {
-    name = "Marvel",
+-- Harry Leading
+local Harry_Leading = J({
+    name = "Harry_Leading",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Brain"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Wind,
+    pposition = C.DF,
+    pteam = "ina_team_brain",
+})
+
+-- Terry Stronger
+local Terry_Stronger = J({
+    name = "Terry_Stronger",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Brain"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Fire,
+    pposition = C.DF,
+    pteam = "ina_team_brain",
+})
+
+-- Philip Marvel
+local Philip_Marvel = J({
+name = "Philip_Marvel",
     pos = { x = 3, y = 5 },
     config = { extra = { mult_mod = 10, triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -57,9 +86,9 @@ local Marvel = {
     pools = { ["Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "DF", -- Defense
-    pteam = "Brain",
+    ptype = C.Mountain,
+    pposition = C.DF, -- Defense
+    pteam = "ina_team_brain",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -78,18 +107,47 @@ local Marvel = {
             if count_ones_in_binary(context.other_card:get_chip_bonus()) == 3 then
                 card.ability.extra.triggered = true
                 return {
-                    message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult_mod } },
+                    message = localize { type = 'variable',
+vars = { card.ability.extra.mult_mod } },
                     colour = G.C.MULT,
                     mult_mod = card.ability.extra.mult_mod
                 }
             end
         end
     end
-}
+})
 
--- Tell
-local Tell = {
-    name = "Tell",
+-- Noel Good
+local Noel_Good = J({
+    name = "Noel_Good",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Brain"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.DF,
+    pteam = "ina_team_brain",
+})
+
+-- Tyron Rock
+local Tyron_Rock = J({
+    name = "Tyron_Rock",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Brain"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Fire,
+    pposition = C.MF,
+    pteam = "ina_team_brain",
+})
+
+-- Francis Tell
+local Francis_Tell = J({
+name = "Francis_Tell",
     pos = { x = 6, y = 5 },
     config = { extra = { Xchips_mod = 3.1416 } },
     loc_vars = function(self, info_queue, center)
@@ -99,9 +157,9 @@ local Tell = {
     pools = { ["Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "MF", -- Midfielder
-    pteam = "Brain",
+    ptype = C.Forest,
+    pposition = C.MF, -- Midfielder
+    pteam = "ina_team_brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.joker_main and G.hand and G.hand.cards then
@@ -122,11 +180,25 @@ local Tell = {
             end
         end
     end,
-}
+})
 
--- Seller
-local Seller = {
-    name = "Seller",
+-- Samuel Buster
+local Samuel_Buster = J({
+    name = "Samuel_Buster",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Brain"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Fire,
+    pposition = C.MF,
+    pteam = "ina_team_brain",
+})
+
+-- Jonathan Seller
+local Jonathan_Seller = J({
+name = "Jonathan_Seller",
     pos = { x = 8, y = 5 },
     config = { extra = { sell_potential = 0, sell_mod = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -136,9 +208,9 @@ local Seller = {
     pools = { ["Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "FW", -- Forward
-    pteam = "Brain",
+    ptype = C.Wind,
+    pposition = C.FW, -- Forward
+    pteam = "ina_team_brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.end_of_round and not context.game_over and context.main_eval then
@@ -171,11 +243,11 @@ local Seller = {
     ina_credits = {
         idea = { "Shadorossa" }
     }
-}
+})
 
--- Kind
-local Kind = {
-    name = "Kind",
+-- Victor Kind
+local Victor_Kind = J({
+name = "Victor_Kind",
     pos = { x = 9, y = 5 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -185,9 +257,9 @@ local Kind = {
     pools = { ["Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "MF", -- Midfielder
-    pteam = "Brain",
+    ptype = C.Forest,
+    pposition = C.MF, -- Midfielder
+    pteam = "ina_team_brain",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -223,11 +295,11 @@ local Kind = {
             end
         end
     end
-}
+})
 
--- Turner
-local Turner = {
-    name = "Turner",
+-- Neil Turner
+local Neil_Turner = J({
+name = "Neil_Turner",
     pos = { x = 10, y = 5 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
@@ -237,9 +309,9 @@ local Turner = {
     pools = { ["Brain"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "FW", -- Forward
-    pteam = "Brain",
+    ptype = C.Fire,
+    pposition = C.FW, -- Forward
+    pteam = "ina_team_brain",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -269,11 +341,11 @@ local Turner = {
             }
         end
     end
-}
+})
 
--- Under
-local Under = {
-    name = "Under",
+-- Reg Underwood
+local Reg_Underwood = J({
+name = "Reg_Underwood",
     pos = { x = 11, y = 5 },
     config = { extra = { chips_mod = 120, triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -285,9 +357,9 @@ local Under = {
     pools = { ["Brain"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "GK", -- Goalkeeper
-    pteam = "Brain",
+    ptype = C.Forest,
+    pposition = C.GK, -- Goalkeeper
+    pteam = "ina_team_brain",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main then
@@ -297,15 +369,72 @@ local Under = {
             card.ability.extra.triggered = true
 
             return {
-                message = localize { type = 'variable', key = 'a_chips', vars = { result } },
+                message = localize { type = 'variable',
+vars = { result } },
                 colour = G.C.CHIPS,
                 chip_mod = result
             }
         end
     end
-}
+})
+
+-- Patrick Stiller
+local Patrick_Stiller = J({
+    name = "Patrick_Stiller",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Brain"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pteam = "ina_team_brain",
+})
+
+-- Charles Oughtry
+local Charles_Oughtry = J({
+    name = "Charles_Oughtry",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Brain"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.MF,
+    pteam = "ina_team_brain",
+})
+
+-- Clive Mooney
+local Clive_Mooney = J({
+    name = "Clive_Mooney",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Brain"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Fire,
+    pposition = C.FW,
+    pteam = "ina_team_brain",
+})
+
+-- Neil Waters
+local Neil_Waters = J({
+    name = "Neil_Waters",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Brain"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.DF,
+    pteam = "ina_team_brain",
+})
 
 return {
     name = "Brain",
-    list = { Feldt, Marvel, Tell, Seller, Kind, Turner, Under },
+    list = { Thomas_Feldt, Philip_Marvel, Francis_Tell, Jonathan_Seller, Victor_Kind, Neil_Turner, Reg_Underwood },
 }

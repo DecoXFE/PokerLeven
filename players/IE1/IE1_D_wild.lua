@@ -1,37 +1,6 @@
--- Chicken
-local Chicken = {
-    name = "Chicken",
-    pos = { x = 11, y = 3 },
-    config = { extra = { money = 4, odds = 2, triggered = false } },
-    loc_vars = function(self, info_queue, center)
-        return { vars = { '' .. (G.GAME and G.GAME.probabilities.normal or 1), center.ability.extra.odds, center.ability.extra.money } }
-    end,
-    rarity = 3, -- Rare
-    pools = { ["Wild"] = true },
-    cost = 8,
-    atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "MF", -- Midfielder
-    pteam = "Wild",
-    blueprint_compat = true,
-    calculate = function(self, card, context)
-        if context.individual and not context.end_of_round and context.cardarea == G.play and context.scoring_hand then
-            if SMODS.has_enhancement(context.other_card, 'm_wild') then
-                if pseudorandom('chicken') < G.GAME.probabilities.normal / card.ability.extra.odds then
-                    card.ability.extra.triggered = true
-                    return {
-                        dollars = card.ability.extra.money,
-                        card = card
-                    }
-                end
-            end
-        end
-    end,
-}
-
--- Boar
-local Boar = {
-    name = "Boar",
+-- Charlie Boardfield
+local Charlie_Boardfield = J({
+name = "Charlie_Boardfield",
     pos = { x = 10, y = 3 },
     config = { extra = { triggered = false, cards_removed = 0 } },
     loc_vars = function(self, info_queue, center)
@@ -41,9 +10,9 @@ local Boar = {
     pools = { ["Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Fire",
-    pposition = "GK", -- Goalkeeper
-    pteam = "Wild",
+    ptype = C.Fire,
+    pposition = C.GK, -- Goalkeeper
+    pteam = "ina_team_wild",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -71,11 +40,84 @@ local Boar = {
     ina_credits = {
         idea = { "YellowAlberto" }
     }
-}
+})
 
--- Chamaleon
-local Chamaleon = J({
-    name = "Chamaleon",
+-- Hugo Talgeese
+local Hugo_Talgeese = J({
+name = "Hugo_Talgeese",
+    pos = { x = 11, y = 3 },
+    config = { extra = { money = 4, odds = 2, triggered = false } },
+    loc_vars = function(self, info_queue, center)
+        return { vars = { '' .. (G.GAME and G.GAME.probabilities.normal or 1), center.ability.extra.odds, center.ability.extra.money } }
+    end,
+    rarity = 3, -- Rare
+    pools = { ["Wild"] = true },
+    cost = 8,
+    atlas = "Jokers01",
+    ptype = C.Fire,
+    pposition = C.MF, -- Midfielder
+    pteam = "ina_team_wild",
+    blueprint_compat = true,
+    calculate = function(self, card, context)
+        if context.individual and not context.end_of_round and context.cardarea == G.play and context.scoring_hand then
+            if SMODS.has_enhancement(context.other_card, 'm_wild') then
+                if pseudorandom('hugo_talgeese') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                    card.ability.extra.triggered = true
+                    return {
+                        dollars = card.ability.extra.money,
+                        card = card
+                    }
+                end
+            end
+        end
+    end,
+})
+
+-- Wilson Fishman
+local Wilson_Fishman = J({
+    name = "Wilson_Fishman",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Wild"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.DF,
+    pteam = "ina_team_wild",
+})
+
+-- Peter Johnson
+local Peter_Johnson = J({
+    name = "Peter_Johnson",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Wild"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.DF,
+    pteam = "ina_team_wild",
+})
+
+-- Leonard O'Shea
+local Leonard_OShea = J({
+    name = "Leonard_OShea",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Wild"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pteam = "ina_team_wild",
+})
+
+-- Cham Lion
+local Cham_Lion = J({
+name = "Cham_Lion",
     pos = { x = 2, y = 4 },
     config = { extra = { triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -85,9 +127,9 @@ local Chamaleon = J({
     pools = { ["Wild"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF", -- Midfielder
-    pteam = "Wild",
+    ptype = C.Wind,
+    pposition = C.MF, -- Midfielder
+    pteam = "ina_team_wild",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -148,9 +190,9 @@ local Chamaleon = J({
     },
 })
 
--- Eagle
-local Eagle = {
-    name = "Eagle",
+-- Steve Eagle
+local Steve_Eagle = J({
+name = "Steve_Eagle",
     pos = { x = 3, y = 4 },
     config = { extra = { current_mult = 0, mult_mod_low = 1, triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -160,9 +202,9 @@ local Eagle = {
     pools = { ["Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF", -- Midfielder
-    pteam = "Wild",
+    ptype = C.Wind,
+    pposition = C.MF, -- Midfielder
+    pteam = "ina_team_wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -183,7 +225,8 @@ local Eagle = {
         if context.joker_main then
             card.ability.extra.triggered = true
             return {
-                message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.current_mult } },
+                message = localize { type = 'variable',
+vars = { card.ability.extra.current_mult } },
                 colour = G.C.MULT,
                 mult_mod = card.ability.extra.current_mult
             }
@@ -194,11 +237,11 @@ local Eagle = {
             "Shadorossa",
         }
     },
-}
+})
 
--- Monkey
-local Monkey = {
-    name = "Monkey",
+-- Bruce Monkey
+local Bruce_Monkey = J({
+name = "Bruce_Monkey",
     pos = { x = 4, y = 4 },
     config = { extra = { wild_count = 0, triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -209,9 +252,9 @@ local Monkey = {
     pools = { ["Wild"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF", -- Midfielder
-    pteam = "Wild",
+    ptype = C.Wind,
+    pposition = C.MF, -- Midfielder
+    pteam = "ina_team_wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -229,7 +272,8 @@ local Monkey = {
                 local wild_players = #find_player_team('Wild')
                 card.ability.extra.triggered = true
                 return {
-                    message = localize { type = 'variable', key = 'a_xmult', vars = { 1 + ((wild_players * card.ability.extra.wild_count) / 10) } },
+                    message = localize { type = 'variable',
+vars = { 1 + ((wild_players * card.ability.extra.wild_count) / 10) } },
                     colour = G.C.MULT,
                     Xmult_mod = 1 + ((wild_players * card.ability.extra.wild_count) / 10)
                 }
@@ -241,11 +285,11 @@ local Monkey = {
             "Shadorossa",
         }
     },
-}
+})
 
--- Gorilla
-local Gorilla = {
-    name = "Gorilla",
+-- Gary Lancaster
+local Gary_Lancaster = J({
+name = "Gary_Lancaster",
     pos = { x = 5, y = 4 },
     config = { extra = {} },
     loc_vars = function(self, info_queue, center)
@@ -255,9 +299,9 @@ local Gorilla = {
     pools = { ["Wild"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "FW", -- Forward
-    pteam = "Wild",
+    ptype = C.Mountain,
+    pposition = C.FW, -- Forward
+    pteam = "ina_team_wild",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -272,11 +316,25 @@ local Gorilla = {
             }))
         end
     end
-}
+})
 
--- Cheetah
-local Cheetah = {
-    name = "Cheetah",
+-- Harry Snake
+local Harry_Snake = J({
+    name = "Harry_Snake",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Wild"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pteam = "ina_team_wild",
+})
+
+-- Adrian Speed
+local Adrian_Speed = J({
+name = "Adrian_Speed",
     pos = { x = 7, y = 4 },
     config = { extra = { current_element = "Wind", possible_elements = { "Wind", "Fire", "Forest", "Mountain" }, triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -291,7 +349,7 @@ local Cheetah = {
     ptype = C.Wind,
     pposition = C.FW,
     techtype = C.UPGRADES.Plus, -- Forward
-    pteam = "Wild",
+    pteam = "ina_team_wild",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval then
@@ -327,9 +385,79 @@ local Cheetah = {
             "Shadorossa",
         }
     },
-}
+})
+
+-- Chad Bullford
+local Chad_Bullford = J({
+    name = "Chad_Bullford",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Wild"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.GK,
+    pteam = "ina_team_wild",
+})
+
+-- Alan Coe
+local Alan_Coe = J({
+    name = "Alan_Coe",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Wild"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.MF,
+    pteam = "ina_team_wild",
+})
+
+-- Philip Anders
+local Philip_Anders = J({
+    name = "Philip_Anders",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Wild"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Fire,
+    pposition = C.FW,
+    pteam = "ina_team_wild",
+})
+
+-- Rocky Rackham
+local Rocky_Rackham = J({
+    name = "Rocky_Rackham",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Wild"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.DF,
+    pteam = "ina_team_wild",
+})
+
+-- Matt Mouseman
+local Matt_Mouseman = J({
+    name = "Matt_Mouseman",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Wild"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.MF,
+    pteam = "ina_team_wild",
+})
 
 return {
     name = "Wild",
-    list = { Boar, Chicken, Chamaleon, Eagle, Monkey, Gorilla, Cheetah },
+    list = { Charlie_Boardfield, Hugo_Talgeese, Cham_Lion, Steve_Eagle, Bruce_Monkey, Gary_Lancaster, Adrian_Speed },
 }

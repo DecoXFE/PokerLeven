@@ -7,14 +7,14 @@ local glasses_team = {
         }
     },
     jokers = {
-        { id = "j_ina_Willy", eternal = true },
-        { id = "j_ina_Willy", eternal = true },
-        { id = "j_ina_Willy", eternal = true },
-        { id = "j_ina_Willy", eternal = true },
+        { id = "j_ina_William_Glass", eternal = true },
+        { id = "j_ina_William_Glass", eternal = true },
+        { id = "j_ina_William_Glass", eternal = true },
+        { id = "j_ina_William_Glass", eternal = true },
     },
     restrictions = {
         banned_cards = {
-            { id = "j_ina_Cleats" }
+            { id = "j_ina_Jupiter_Jumper" }
         },
         banned_tags = {
         },
@@ -35,12 +35,12 @@ local love_pair = {
         }
     },
     jokers = {
-        { id = "j_ina_Damian", eternal = true },
+        { id = "j_ina_Toby_Damian", eternal = true },
         { id = "j_ina_Blazer", eternal = true },
     },
     restrictions = {
         banned_cards = {
-            { id = "j_ina_Cleats" }
+            { id = "j_ina_Jupiter_Jumper" }
         },
         banned_tags = {
         },
@@ -72,7 +72,7 @@ local elementals = {
     },
     restrictions = {
         banned_cards = {
-            { id = "j_ina_Cleats" },
+            { id = "j_ina_Jupiter_Jumper" },
             { id = "v_directors_cut" }
         },
         banned_tags = {
@@ -122,13 +122,13 @@ local more_or_less = {
         }
     },
     jokers = {
-        { id = "j_ina_Marvin", eternal = true },
-        { id = "j_ina_Thomas", eternal = true },
-        { id = "j_ina_Tyler",  eternal = true },
+        { id = "j_ina_Marvin_Murdock", eternal = true },
+        { id = "j_ina_Thomas_Murdock", eternal = true },
+        { id = "j_ina_Tyler_Murdock",  eternal = true },
     },
     restrictions = {
         banned_cards = {
-            { id = "j_ina_Cleats" }
+            { id = "j_ina_Jupiter_Jumper" }
         },
         banned_tags = {
         },
@@ -152,11 +152,11 @@ local mark_challenge = Ch({
         }
     },
     jokers = {
-        { id = "j_ina_Mark", eternal = true },
+        { id = "j_ina_Mark_Evans", eternal = true },
     },
     restrictions = {
         banned_cards = {
-            { id = "j_ina_Cleats" }
+            { id = "j_ina_Jupiter_Jumper" }
         },
         banned_tags = {},
         banned_other = {},
@@ -185,7 +185,7 @@ local recruiter = {
     },
     restrictions = {
         banned_cards = {
-            { id = "j_ina_Cleats" }
+            { id = "j_ina_Jupiter_Jumper" }
         },
         banned_tags = {},
         banned_other = {},

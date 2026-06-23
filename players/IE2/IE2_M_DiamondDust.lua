@@ -1,5 +1,5 @@
 -- Beluga
-local Beluga = {
+local Beluga = J({
     name = "Beluga",
     pos = { x = 6, y = 14 },
     config = { extra = {} },
@@ -17,10 +17,10 @@ local Beluga = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Icer
-local Icer = {
+local Icer = J({
     name = "Icer",
     pos = { x = 10, y = 14 },
     config = { extra = {} },
@@ -38,10 +38,10 @@ local Icer = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 -- Gazelle
-local Gazelle = {
+local Gazelle = J({
     name = "Gazelle",
     pos = { x = 7, y = 0 },
     soul_pos = { x = 7, y = 1 },
@@ -60,7 +60,7 @@ local Gazelle = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 return {
     name = "Diamond Dust",

@@ -1,11 +1,12 @@
-local hood = J({
-    name = "Hood",
+-- Morgan Sanders
+local Morgan_Sanders = J({
+name = "Morgan_Sanders",
     pos = { x = 9, y = 8 },
     config = {
         extra = {
             xmult_mod = 0.6,
             triggered = false,
-            pposition = "GK"
+            pposition = C.GK
         }
     },
     loc_vars = function(self, info_queue, center)
@@ -16,8 +17,9 @@ local hood = J({
     pools = { ["Shuriken"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pteam = "Shuriken",
+    ptype = C.Forest,
+    pposition = C.GK,
+    pteam = "ina_team_shuriken",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.scoring_hand and context.joker_main then
@@ -25,7 +27,8 @@ local hood = J({
             local total_xmult = count * card.ability.extra.xmult_mod + 1
             card.ability.extra.triggered = true
             return {
-                message = localize { type = 'variable', key = 'a_xmult', vars = { total_xmult } },
+                message = localize { type = 'variable',
+vars = { total_xmult } },
                 colour = G.C.XMULT,
                 Xmult_mod = total_xmult
             }
@@ -33,8 +36,23 @@ local hood = J({
     end,
 })
 
-local hillfort = J({
-    name = "Hillfort",
+-- Newton Flust
+local Newton_Flust = J({
+    name = "Newton_Flust",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Shuriken"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pteam = "ina_team_shuriken",
+})
+
+-- Jim Hillfort
+local Jim_Hillfort = J({
+name = "Jim_Hillfort",
     pos = { x = 11, y = 8 },
     config = { extra = { triggered = false, chips_mod = 1, current_chips = 0, dollars_needed = 1 } },
     loc_vars = function(self, info_queue, center)
@@ -44,9 +62,9 @@ local hillfort = J({
     pools = { ["Shuriken"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "DF",
-    pteam = "Shuriken",
+    ptype = C.Wind,
+    pposition = C.DF,
+    pteam = "ina_team_shuriken",
     techtype = C.UPGRADES.Plus,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -70,17 +88,46 @@ local hillfort = J({
     end,
 })
 
-local code = J({
-    name = "Code",
+-- Galen Thunderbird
+local Galen_Thunderbird = J({
+    name = "Galen_Thunderbird",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Shuriken"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pteam = "ina_team_shuriken",
+})
+
+-- Finn Stoned
+local Finn_Stoned = J({
+    name = "Finn_Stoned",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Shuriken"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Fire,
+    pposition = C.DF,
+    pteam = "ina_team_shuriken",
+})
+
+-- Phil Wingate
+local Phil_Wingate = J({
+name = "Phil_Wingate",
     pos = { x = 1, y = 9 },
     config = { extra = { { triggered = false } } },
     rarity = 2, -- Uncommon
     pools = { ["Shuriken"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Mountain",
-    pposition = "MF",
-    pteam = "Shuriken",
+    ptype = C.Mountain,
+    pposition = C.MF,
+    pteam = "ina_team_shuriken",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.hand
@@ -97,8 +144,9 @@ local code = J({
     end,
 })
 
-local star = J({
-    name = "Star",
+-- Jez Shell
+local Jez_Shell = J({
+name = "Jez_Shell",
     pos = { x = 2, y = 9 },
     config = { extra = { mult_mod_low = 1, money = 1, suit = "Diamonds", triggered = false } },
     loc_vars = function(self, info_queue, center)
@@ -108,9 +156,9 @@ local star = J({
     pools = { ["Shuriken"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF",
-    pteam = "Shuriken",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pteam = "ina_team_shuriken",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -129,8 +177,9 @@ local star = J({
     end,
 })
 
-local cleats = J({
-    name = "Cleats",
+-- Jupiter Jumper
+local Jupiter_Jumper = J({
+name = "Jupiter_Jumper",
     pos = { x = 3, y = 9 },
     config = {},
     loc_vars = function(self, info_queue, center)
@@ -140,16 +189,16 @@ local cleats = J({
     pools = { ["Shuriken"] = true },
     cost = 5,
     atlas = "Jokers01",
-    ptype = "Wind",
-    pposition = "MF",
-    pteam = "Shuriken",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pteam = "ina_team_shuriken",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.setting_blind then
             local right_joker = get_right_joker(card)
             if right_joker then
                 local selected_joker =
-                    get_random_joker_key("Cleats", right_joker.config.center.rarity, nil, nil, nil, false)
+                    get_random_joker_key("Jupiter_Jumper", right_joker.config.center.rarity, nil, nil, nil, false)
                 return {
                     message = ina_evolve(right_joker, selected_joker)
                 }
@@ -161,8 +210,23 @@ local cleats = J({
     }
 })
 
-local hattori = J({
-    name = "Hattori",
+-- Sam Samurai
+local Sam_Samurai = J({
+    name = "Sam_Samurai",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Shuriken"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.FW,
+    pteam = "ina_team_shuriken",
+})
+
+-- Hank Sullivan
+local Hank_Sullivan = J({
+name = "Hank_Sullivan",
     pos = { x = 5, y = 9 },
     config = { extra = { copies_number = 2 } },
     loc_vars = function(self, info_queue, center)
@@ -172,9 +236,9 @@ local hattori = J({
     pools = { ["Shuriken"] = true },
     cost = 7,
     atlas = "Jokers01",
-    ptype = "Forest",
-    pposition = "MF",
-    pteam = "Shuriken",
+    ptype = C.Forest,
+    pposition = C.MF,
+    pteam = "ina_team_shuriken",
     techtype = C.UPGRADES.Number,
     blueprint_compat = true,
     calculate = function(self, card, context)
@@ -187,8 +251,7 @@ local hattori = J({
                     for _ = 1, card.ability.extra.copies_number do
                         local create_args = {
                             set = 'Joker',
-                            key = 'j_ina_Hattori',
-                            edition = 'e_negative'
+edition = 'e_negative'
                         }
                         local _card = SMODS.create_card(create_args)
                         _card:add_to_deck()
@@ -218,7 +281,7 @@ local hattori = J({
     }
 })
 
---- Cloack
+-- Sail Bluesea
 local function can_duplicate_joker(card, context)
     return card:is_leftmost_joker()
         and context.setting_blind
@@ -226,7 +289,7 @@ local function can_duplicate_joker(card, context)
 end
 
 local function generate_cloack_card(perish_tally, tech_level)
-    local joker_index = pseudorandom("Cloack", 2, #G.jokers.cards)
+    local joker_index = pseudorandom("Sail_Bluesea", 2, #G.jokers.cards)
     local new_joker = copy_card(G.jokers.cards[joker_index])
     if tech_level ~= 5 then
         new_joker.ability.perishable = true
@@ -236,15 +299,15 @@ local function generate_cloack_card(perish_tally, tech_level)
     return new_joker
 end
 
-local cloack = J({
-    name = "Cloack",
+local Sail_Bluesea = J({
+name = "Sail_Bluesea",
     pos = { x = 6, y = 9 },
     atlas = "Jokers01",
     rarity = 3,
     cost = 8,
-    ptype = "Fire",
-    pposition = "FW",
-    pteam = "Shuriken",
+    ptype = C.Fire,
+    pposition = C.FW,
+    pteam = "ina_team_shuriken",
     pools = { ["Shuriken"] = true },
     blueprint_compat = true,
     config = {
@@ -254,9 +317,10 @@ local cloack = J({
         }
     },
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue + 1] = { set = 'Other', key = 'Frontal' }
+        info_queue[#info_queue + 1] = { set = 'Other',
+}
         return {
-            key = (center.ability.extra.tech_level or 0) < 5 and 'j_ina_Cloack' or 'j_ina_Cloack_inf',
+            key = (center.ability.extra.tech_level or 0) < 5 and 'j_ina_Sail_Bluesea' or 'j_ina_Sail_Bluesea_inf',
             vars = { center.ability.extra.barriers, center.ability.extra.perish_tally }
         }
     end,
@@ -273,7 +337,77 @@ local cloack = J({
     }
 })
 
+-- Kevin Castle
+local Kevin_Castle = J({
+    name = "Kevin_Castle",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Shuriken"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Wind,
+    pposition = C.GK,
+    pteam = "ina_team_shuriken",
+})
+
+-- John Reynolds
+local John_Reynolds = J({
+    name = "John_Reynolds",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Shuriken"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Wind,
+    pposition = C.FW,
+    pteam = "ina_team_shuriken",
+})
+
+-- Dan Hopper
+local Dan_Hopper = J({
+    name = "Dan_Hopper",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Shuriken"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Mountain,
+    pposition = C.DF,
+    pteam = "ina_team_shuriken",
+})
+
+-- Cal Trops
+local Cal_Trops = J({
+    name = "Cal_Trops",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Shuriken"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Forest,
+    pposition = C.MF,
+    pteam = "ina_team_shuriken",
+})
+
+-- Winston Falls
+local Winston_Falls = J({
+    name = "Winston_Falls",
+    pos = { x = 0, y = 0 },
+    config = {},
+    rarity = 1,
+    pools = { ["Shuriken"] = true },
+    cost = 4,
+    atlas = "Jokers01",
+    ptype = C.Wind,
+    pposition = C.MF,
+    pteam = "ina_team_shuriken",
+})
+
 return {
     name = "Shuriken",
-    list = { hood, hillfort, code, star, cleats, hattori, cloack },
+    list = { Morgan_Sanders, Jim_Hillfort, Phil_Wingate, Jez_Shell, Jupiter_Jumper, Hank_Sullivan, Sail_Bluesea },
 }

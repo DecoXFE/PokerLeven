@@ -340,7 +340,7 @@ G.FUNCS.can_unbench_card = function(e)
 end
 
 local change_bobby_sprites_if_needed = function(card, new_card)
-    if card.config.center_key == 'j_ina_Bobby' then
+    if card.config.center_key == 'j_ina_Bobby_Shearer' then
         local coords = C.CUSTOM.Bobby_Teams[card.ability.extra.pteam]
         new_card.children.center:set_sprite_pos({ x = coords.x, y = coords.y })
     end

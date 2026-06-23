@@ -1,5 +1,5 @@
 -- ropes
-local ropes = {
+local ropes = J({
   name = "ropes",
   pos = { x = 3, y = 2 },
   config = { extra = {} },
@@ -16,10 +16,10 @@ local ropes = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- downtown
-local downtown = {
+local downtown = J({
   name = "Downtown",
   pos = { x = 4, y = 2 },
   config = { extra = {} },
@@ -36,10 +36,10 @@ local downtown = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- bindings
-local bindings = {
+local bindings = J({
   name = "Bindings",
   pos = { x = 5, y = 2 },
   config = { extra = {} },
@@ -56,10 +56,10 @@ local bindings = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- gleeson
-local gleeson = {
+local gleeson = J({
   name = "Gleeson",
   pos = { x = 6, y = 2 },
   config = { extra = {} },
@@ -76,10 +76,10 @@ local gleeson = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- snowfield
-local snowfield = {
+local snowfield = J({
   name = "Snowfield",
   pos = { x = 7, y = 2 },
   config = { extra = {} },
@@ -96,10 +96,10 @@ local snowfield = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- bootgaiter
-local bootgaiter = {
+local bootgaiter = J({
   name = "Bootgaiter",
   pos = { x = 8, y = 2 },
   config = { extra = {} },
@@ -116,10 +116,10 @@ local bootgaiter = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- maddox
-local maddox = {
+local maddox = J({
   name = "Maddox",
   pos = { x = 9, y = 2 },
   config = { extra = {} },
@@ -136,10 +136,10 @@ local maddox = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- skipolson
-local skipolson = {
+local skipolson = J({
   name = "Skipolson",
   pos = { x = 10, y = 2 },
   config = { extra = {} },
@@ -156,10 +156,10 @@ local skipolson = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- shawn
-local shawn = {
+local shawn = J({
   name = "Shawn Froste",
   pos = { x = 11, y = 2 },
   config = { extra = {} },
@@ -176,10 +176,10 @@ local shawn = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- climbstein
-local climbstein = {
+local climbstein = J({
   name = "Climbstein",
   pos = { x = 1, y = 3 },
   config = { extra = {} },
@@ -196,10 +196,10 @@ local climbstein = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Rackner
-local rackner = {
+local rackner = J({
   name = "Rackner",
   pos = { x = 2, y = 3 },
   config = { extra = {} },
@@ -216,10 +216,10 @@ local rackner = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- peggs
-local peggs = {
+local peggs = J({
   name = "Peggs",
   pos = { x = 3, y = 3 },
   config = { extra = {} },
@@ -236,10 +236,10 @@ local peggs = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Ursus
-local ursus = {
+local ursus = J({
   name = "Ursus",
   pos = { x = 4, y = 3 },
   config = { extra = {} },
@@ -256,10 +256,10 @@ local ursus = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Bogg
-local bogg = {
+local bogg = J({
   name = "Bogg",
   pos = { x = 5, y = 3 },
   config = { extra = {} },
@@ -276,10 +276,10 @@ local bogg = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- strata
-local strata = {
+local strata = J({
   name = "Strata",
   pos = { x = 6, y = 3 },
   config = { extra = {} },
@@ -296,10 +296,10 @@ local strata = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- onlign
-local onlign = {
+local onlign = J({
   name = "Onlign",
   pos = { x = 7, y = 3 },
   config = { extra = {} },
@@ -316,7 +316,7 @@ local onlign = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 return {
   name = "Alpine",

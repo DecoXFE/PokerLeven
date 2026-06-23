@@ -8,6 +8,7 @@ SMODS.current_mod.optional_features = {
 
 Pokerleven = {}
 Pokerleven.config = SMODS.current_mod.config
+Pokerleven.team_players_order = {}
 
 --Load Sprites file
 local sprite, load_error = SMODS.load_file("sprites.lua")
@@ -342,45 +343,67 @@ end
 
 --Load jokers files
 local function load_joker_folder(folder_name, item_constructor)
-  local files = NFS.getDirectoryItems(mod_dir .. folder_name)
-  for _, file in ipairs(files) do
-    sendDebugMessage("The file is: " .. file)
-    local mod_func, load_error = SMODS.load_file(folder_name .. "/" .. file)
-    if load_error then
-      sendDebugMessage("The error is: " .. load_error)
-    else
-      local source = mod_func()
-      if source.init then source:init() end
+  local function recursive_load(path)
+    local items = NFS.getDirectoryItems(mod_dir .. path)
+    if not items then return end
+    for _, item in ipairs(items) do
+      local full_item_path = path .. "/" .. item
+      if string.sub(item, -4) == ".lua" then
+        sendDebugMessage("The file is: " .. item)
+        local mod_func, load_error = SMODS.load_file(full_item_path)
+        if load_error then
+          sendDebugMessage("The error is: " .. load_error)
+        else
+          local source = mod_func()
+          if source then
+            if source.init then source:init() end
 
-      for _, item in ipairs(source.list) do
-        if not item.discovered then
-          item.discovered = false
-        end
-        item.key = item.key or item.name
+            if folder_name == "players" and source.name then
+              Pokerleven.team_players_order[source.name] = {}
+              if source.list then
+                for _, sub_item in ipairs(source.list) do
+                  table.insert(Pokerleven.team_players_order[source.name], sub_item.name)
+                end
+              end
+            end
 
-        item.config = item.config or {}
-        item.config.extra = item.config.extra or {}
+            if source.list then
+              for _, sub_item in ipairs(source.list) do
+                if not sub_item.discovered then
+                  sub_item.discovered = false
+                end
+                sub_item.key = sub_item.key or sub_item.name
 
-        if item.ptype then item.config.extra.ptype = item.ptype end
-        if item.pposition then item.config.extra.pposition = item.pposition end
-        if item.pteam then item.config.extra.pteam = item.pteam end
-        if item.special then item.config.extra.special = item.special end
-        if item.techtype then item.config.extra.techtype = item.techtype end
-        if item.numberTechType then item.config.extra.numberTechType = item.numberTechType end
+                sub_item.config = sub_item.config or {}
+                sub_item.config.extra = sub_item.config.extra or {}
 
-        if not item.custom_pool_func then
-          item.in_pool = function(self)
-            return player_in_pool(self)
+                if sub_item.ptype then sub_item.config.extra.ptype = sub_item.ptype end
+                if sub_item.pposition then sub_item.config.extra.pposition = sub_item.pposition end
+                if sub_item.pteam then sub_item.config.extra.pteam = sub_item.pteam end
+                if sub_item.special then sub_item.config.extra.special = sub_item.special end
+                if sub_item.techtype then sub_item.config.extra.techtype = sub_item.techtype end
+                if sub_item.numberTechType then sub_item.config.extra.numberTechType = sub_item.numberTechType end
+
+                if not sub_item.custom_pool_func then
+                  sub_item.in_pool = function(self)
+                    return player_in_pool(self)
+                  end
+                end
+
+                sub_item.generate_ui = Pokerleven.generate_info_ui
+                sub_item.set_badges = ina_set_badges
+
+                item_constructor(sub_item)
+              end
+            end
           end
         end
-
-        item.generate_ui = Pokerleven.generate_info_ui
-        item.set_badges = ina_set_badges
-
-        item_constructor(item)
+      else
+        recursive_load(full_item_path)
       end
     end
   end
+  recursive_load(folder_name)
 end
 
 LeakScope = {

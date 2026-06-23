@@ -1,5 +1,5 @@
 -- ironwall
-local ironwall = {
+local ironwall = J({
   name = "ironwall",
   pos = { x = 12, y = 0 },
   config = { extra = {} },
@@ -16,10 +16,10 @@ local ironwall = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Western
-local western = {
+local western = J({
   name = "Western",
   pos = { x = 0, y = 1 },
   config = { extra = {} },
@@ -36,10 +36,10 @@ local western = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Hammond
-local hammond = {
+local hammond = J({
   name = "Hammond",
   pos = { x = 1, y = 1 },
   config = { extra = {} },
@@ -56,10 +56,10 @@ local hammond = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Stevens
-local stevens = {
+local stevens = J({
   name = "Stevens",
   pos = { x = 2, y = 1 },
   config = { extra = {} },
@@ -76,10 +76,10 @@ local stevens = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Smith
-local smith = {
+local smith = J({
   name = "Smith",
   pos = { x = 3, y = 1 },
   config = { extra = {} },
@@ -96,10 +96,10 @@ local smith = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Firepool
-local firepool = {
+local firepool = J({
   name = "Firepool",
   pos = { x = 4, y = 1 },
   config = { extra = {} },
@@ -116,10 +116,10 @@ local firepool = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Fielding
-local fielding = {
+local fielding = J({
   name = "Fielding",
   pos = { x = 5, y = 1 },
   config = { extra = {} },
@@ -136,10 +136,10 @@ local fielding = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Firsthand
-local firsthand = {
+local firsthand = J({
   name = "Firsthand",
   pos = { x = 6, y = 1 },
   config = { extra = {} },
@@ -156,10 +156,10 @@ local firsthand = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Mirror
-local mirror = {
+local mirror = J({
   name = "Mirror",
   pos = { x = 7, y = 1 },
   config = { extra = {} },
@@ -176,10 +176,10 @@ local mirror = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Tori
-local tori = {
+local tori = J({
   name = "Tori",
   pos = { x = 8, y = 1 },
   config = { extra = {} },
@@ -196,10 +196,10 @@ local tori = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Kennedy
-local kennedy = {
+local kennedy = J({
   name = "Kennedy",
   pos = { x = 10, y = 1 },
   config = { extra = {} },
@@ -216,10 +216,10 @@ local kennedy = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- Sights
-local sights = {
+local sights = J({
   name = "Sights",
   pos = { x = 11, y = 1 },
   config = { extra = {} },
@@ -236,10 +236,10 @@ local sights = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- beray
-local beray = {
+local beray = J({
   name = "Beray",
   pos = { x = 12, y = 1 },
   config = { extra = {} },
@@ -256,10 +256,10 @@ local beray = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 -- toppin
-local toppin = {
+local toppin = J({
   name = "Toppin",
   pos = { x = 0, y = 2 },
   config = { extra = {} },
@@ -276,7 +276,7 @@ local toppin = {
   blueprint_compat = true,
   calculate = function(self, card, context)
   end
-}
+})
 
 return {
   name = "SPFixers",

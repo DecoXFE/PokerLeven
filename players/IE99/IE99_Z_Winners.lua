@@ -1,7 +1,7 @@
 -- Versión 1
 
 -- Turiño
-local Turi = {
+local Turi = J({
     name = "Turi",
     pos = { x = 0, y = 0 },
     soul_pos = { x = 0, y = 1 },
@@ -31,14 +31,15 @@ local Turi = {
             if 1 + bonus > 1 then
                 card.ability.extra.triggered = true
                 return {
-                    message = localize { type = 'variable', key = 'a_xmult', vars = { 1 + bonus } },
+                    message = localize { type = 'variable',
+vars = { 1 + bonus } },
                     colour = G.C.MULT,
                     Xmult_mod = 1 + bonus
                 }
             end
         end
     end,
-}
+})
 
 if Pokerleven and Pokerleven.config and Pokerleven.config.winners_jokers == true then
     return {

@@ -1,5 +1,5 @@
 -- Nathan
-local NathanDark = {
+local NathanDark = J({
     name = "Nathan Swift",
     pos = { x = 8, y = 0 },
     soul_pos = { x = 8, y = 1 },
@@ -18,7 +18,7 @@ local NathanDark = {
     blueprint_compat = true,
     calculate = function(self, card, context)
     end
-}
+})
 
 return {
     name = "Emperadores Oscuros",

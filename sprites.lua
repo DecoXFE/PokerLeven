@@ -266,14 +266,19 @@ function loc_colour(_c, _default)
     if not G.ARGS.LOC_COLOURS then
         custom_colours()
     end
+    -- Elements
     G.ARGS.LOC_COLOURS["mountain"] = HEX("f57c00")
-    G.ARGS.LOC_COLOURS["gk"] = HEX("ffa726")
     G.ARGS.LOC_COLOURS["fire"] = HEX("d32f2f")
-    G.ARGS.LOC_COLOURS["fw"] = HEX("ef5350")
     G.ARGS.LOC_COLOURS["forest"] = HEX("2e7d32")
-    G.ARGS.LOC_COLOURS["df"] = HEX("66bb6a")
     G.ARGS.LOC_COLOURS["wind"] = HEX("81d4fa")
+
+    -- Positions
+    G.ARGS.LOC_COLOURS["gk"] = HEX("ffa726")
+    G.ARGS.LOC_COLOURS["fw"] = HEX("ef5350")
+    G.ARGS.LOC_COLOURS["df"] = HEX("66bb6a")
     G.ARGS.LOC_COLOURS["mf"] = HEX("4fc3f7")
+
+    -- Teams
     G.ARGS.LOC_COLOURS["raimon"] = HEX("ffa726")
     G.ARGS.LOC_COLOURS["occult"] = HEX("4B0082")
     G.ARGS.LOC_COLOURS["royal academy"] = HEX("2C5E4F")
@@ -285,6 +290,21 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["inazuma"] = HEX("ffa726")
     G.ARGS.LOC_COLOURS["kirkwood"] = HEX("7A5E3C")
     G.ARGS.LOC_COLOURS["zeus"] = HEX("D4AF37")
+
+    -- Localized Teams
+    G.ARGS.LOC_COLOURS["ina_team_raimon"] = HEX("ffa726")
+    G.ARGS.LOC_COLOURS["ina_team_occult"] = HEX("4B0082")
+    G.ARGS.LOC_COLOURS["ina_team_royal_academy"] = HEX("2C5E4F")
+    G.ARGS.LOC_COLOURS["ina_team_wild"] = HEX("797B49")
+    G.ARGS.LOC_COLOURS["ina_team_brain"] = HEX("888888")
+    G.ARGS.LOC_COLOURS["ina_team_otaku"] = HEX("A754C4")
+    G.ARGS.LOC_COLOURS["ina_team_inazuma_eleven"] = HEX("fb8c00")
+    G.ARGS.LOC_COLOURS["ina_team_shuriken"] = HEX("4B0082")
+    G.ARGS.LOC_COLOURS["ina_team_farm"] = HEX("7AC943")
+    G.ARGS.LOC_COLOURS["ina_team_kirkwood"] = HEX("7A5E3C")
+    G.ARGS.LOC_COLOURS["ina_team_zeus"] = HEX("D4AF37")
+
+    -- UI / Misc
     G.ARGS.LOC_COLOURS["pink"] = HEX("FF7ABF")
     G.ARGS.LOC_COLOURS["inazuma_eleven"] = HEX("fb8c00")
     G.ARGS.LOC_COLOURS["bench"] = HEX("4ca0a5")
