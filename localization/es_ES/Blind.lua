@@ -205,7 +205,7 @@ return {
 
         bl_ina_Genesis = {
             name = "Génesis",
-            text = { "" }
+            text = { "Todas las cartas", "deben ser {C:attention}Figuras{}" }
         },
 
         bl_ina_Prominence = {

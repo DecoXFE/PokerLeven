@@ -156,6 +156,10 @@ return {
 			bl_ina_zeus_caido = {
 				name = "Ultra Zeus",
 				text = { "Each drawn hand increases", "required chips by #1#%" }
+			},
+			bl_ina_Genesis = {
+				name = "Genesis",
+				text = { "All cards must be", "{C:attention}Face Cards{}" }
 			}
 		},
 	},

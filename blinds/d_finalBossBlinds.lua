@@ -73,7 +73,37 @@ local zeus = B({
     end
 })
 
+local genesis = B({
+    object_type = "Blind",
+    name = "Genesis",
+    key = "Genesis",
+    pos = { x = 0, y = 20 },
+    boss = { showdown = true },
+    discovered = false,
+    mult = 2,
+    atlas = "bossBlinds",
+    order = 1,
+    boss_colour = HEX("6B3FA0"),
+    calculate = function(self, blind, context)
+        if context.debuff_hand and not blind.disabled then
+            for _, card in ipairs(context.full_hand) do
+                if not card:is_face() then
+                    blind.triggered = true
+                    if not context.check then
+                        return { debuff = true, debuff_text = "Only face cards!" }
+                    end
+                    return { debuff = true }
+                end
+            end
+            blind.triggered = false
+        end
+    end,
+    ina_credits = {
+        art = { "Shadorossa" }
+    }
+})
+
 return {
     name = "Boss Blinds",
-    list = { zeus, zeus_caido }
+    list = { zeus, zeus_caido, genesis }
 }
