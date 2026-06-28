@@ -204,6 +204,26 @@ if SMODS.create_blind_pool then
                     filtered[#filtered + 1] = k
                 end
             end
+            if #filtered == 0 then
+                for k in pairs(G.GAME.bosses_used) do
+                    local blind = G.P_BLINDS[k]
+                    if blind and blind.mod and blind.mod.id == 'Pokerleven' then
+                        G.GAME.bosses_used[k] = 0
+                    end
+                end
+                pool = old_create_blind_pool(blind_type, skip_cull)
+                for _, k in ipairs(pool) do
+                    local blind = G.P_BLINDS[k]
+                    if blind and blind.mod and blind.mod.id == 'Pokerleven' then
+                        filtered[#filtered + 1] = k
+                    end
+                end
+                if #filtered == 0 then
+                    for _, k in ipairs(pool) do
+                        filtered[#filtered + 1] = k
+                    end
+                end
+            end
             return filtered
         end
         return pool
