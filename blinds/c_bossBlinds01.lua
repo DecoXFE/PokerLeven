@@ -1,38 +1,50 @@
 local debuff_position = function(pposition)
     if G.GAME.blind.prepped then
-        for _, y in pairs(G.jokers.cards) do
-            y:set_debuff(false)
-        end
         for _, v in pairs(G.jokers.cards) do
             if v.ability.extra.pposition == pposition then
-                v:set_debuff(true)
-                v:juice_up()
-                G.GAME.blind:wiggle()
+                if not v.debuff then
+                    v:set_debuff(true)
+                    v:juice_up()
+                    G.GAME.blind:wiggle()
+                end
             end
         end
     end
 end
 
+local has_type = function(card, ptype)
+    if card.ability.extra and card.ability.extra.ptype == ptype then
+        return true
+    end
+    if card.ability and card.ability[string.lower(ptype) .. "_sticker"] then
+        return true
+    end
+    return false
+end
+
 local debuff_type = function(ptype)
     if G.GAME.blind.prepped then
-        for _, y in pairs(G.jokers.cards) do
-            y:set_debuff(false)
-        end
-
         local elementals_index
         for i, v in pairs(G.jokers.cards) do
-            if C.ELEMENTALS_KEYS[v.config.center_key] and v.ability.extra.ptype == ptype and not elementals_index then
+            if C.ELEMENTALS_KEYS[v.config.center_key] and has_type(v, ptype) and not elementals_index then
                 elementals_index = i
-            elseif v.ability.extra.ptype == ptype then
+            elseif has_type(v, ptype) then
+                if not v.debuff then
+                    v:set_debuff(true)
+                    v:juice_up()
+                    G.GAME.blind:wiggle()
+                end
+            elseif v.debuff then
+                v:set_debuff(false)
+            end
+        end
+        if elementals_index then
+            local v = G.jokers.cards[elementals_index]
+            if not v.debuff then
                 v:set_debuff(true)
                 v:juice_up()
                 G.GAME.blind:wiggle()
             end
-        end
-        if elementals_index then
-            G.jokers.cards[elementals_index]:set_debuff(true)
-            G.jokers.cards[elementals_index]:juice_up()
-            G.GAME.blind:wiggle()
         end
     end
 end
@@ -61,6 +73,11 @@ local goalkeeper = {
     end,
     disable = function(self)
         self.config.disabled = true
+        if G.jokers and G.jokers.cards then
+            for _, v in pairs(G.jokers.cards) do
+                v:set_debuff(false)
+            end
+        end
     end,
     ina_credits = {
         art = { "Shadorossa" }
@@ -89,6 +106,11 @@ local forward = {
     end,
     disable = function(self)
         self.config.disabled = true
+        if G.jokers and G.jokers.cards then
+            for _, v in pairs(G.jokers.cards) do
+                v:set_debuff(false)
+            end
+        end
     end,
     ina_credits = {
         art = { "Shadorossa" }
@@ -117,6 +139,11 @@ local defense = {
     end,
     disable = function(self)
         self.config.disabled = true
+        if G.jokers and G.jokers.cards then
+            for _, v in pairs(G.jokers.cards) do
+                v:set_debuff(false)
+            end
+        end
     end,
     ina_credits = {
         art = { "Shadorossa" }
@@ -145,6 +172,11 @@ local midfielder = {
     end,
     disable = function(self)
         self.config.disabled = true
+        if G.jokers and G.jokers.cards then
+            for _, v in pairs(G.jokers.cards) do
+                v:set_debuff(false)
+            end
+        end
     end,
     ina_credits = {
         art = { "Shadorossa" }
@@ -173,6 +205,11 @@ local fire = {
     end,
     disable = function(self)
         self.config.disabled = true
+        if G.jokers and G.jokers.cards then
+            for _, v in pairs(G.jokers.cards) do
+                v:set_debuff(false)
+            end
+        end
     end,
     ina_credits = {
         art = { "Shadorossa" }
@@ -201,6 +238,11 @@ local mountain = {
     end,
     disable = function(self)
         self.config.disabled = true
+        if G.jokers and G.jokers.cards then
+            for _, v in pairs(G.jokers.cards) do
+                v:set_debuff(false)
+            end
+        end
     end,
     ina_credits = {
         art = { "Shadorossa" }
@@ -229,6 +271,11 @@ local wind = {
     end,
     disable = function(self)
         self.config.disabled = true
+        if G.jokers and G.jokers.cards then
+            for _, v in pairs(G.jokers.cards) do
+                v:set_debuff(false)
+            end
+        end
     end,
     ina_credits = {
         art = { "Shadorossa" }
@@ -257,6 +304,11 @@ local forest = {
     end,
     disable = function(self)
         self.config.disabled = true
+        if G.jokers and G.jokers.cards then
+            for _, v in pairs(G.jokers.cards) do
+                v:set_debuff(false)
+            end
+        end
     end,
     ina_credits = {
         art = { "Shadorossa" }

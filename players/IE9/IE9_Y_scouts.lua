@@ -123,6 +123,9 @@ local Blazer = J({
     remove_from_deck = function(self, card, from_debuff)
         if leftmost == card then
             restore_types_for_area()
+            if not from_debuff and G.GAME.blind and G.GAME.blind.drawn_to_hand then
+                G.GAME.blind:drawn_to_hand()
+            end
         end
     end
 })
@@ -159,6 +162,9 @@ local Weathervane = J({
     remove_from_deck = function(self, card, from_debuff)
         if leftmost == card then
             restore_types_for_area()
+            if not from_debuff and G.GAME.blind and G.GAME.blind.drawn_to_hand then
+                G.GAME.blind:drawn_to_hand()
+            end
         end
     end
 })
@@ -195,6 +201,9 @@ local Noggin = J({
     remove_from_deck = function(self, card, from_debuff)
         if leftmost == card then
             restore_types_for_area()
+            if not from_debuff and G.GAME.blind and G.GAME.blind.drawn_to_hand then
+                G.GAME.blind:drawn_to_hand()
+            end
         end
     end
 })
@@ -231,6 +240,9 @@ local Montayne = J({
     remove_from_deck = function(self, card, from_debuff)
         if leftmost == card then
             restore_types_for_area()
+            if not from_debuff and G.GAME.blind and G.GAME.blind.drawn_to_hand then
+                G.GAME.blind:drawn_to_hand()
+            end
         end
     end
 })
