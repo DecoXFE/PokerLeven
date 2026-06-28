@@ -9,6 +9,8 @@ local Consts = {
 	trainings = 1
 }
 
+local excluded_keys = {}
+
 local Growing_Pack = {
 	name = "Growing Pack",
 	key = "growing_pack",
@@ -23,9 +25,11 @@ local Growing_Pack = {
 	unlocked = true,
 	discovered = false,
 	create_card = function(self, card, i)
+		if i == 1 then excluded_keys = {} end
 		local selected_team = Pokerleven.get_random_team_from_actuals()
-
-		return create_random_ina_joker("growing_pack", nil, G.pack_cards, selected_team)
+		local selected = create_random_ina_joker("growing_pack", nil, G.pack_cards, selected_team, nil, nil, excluded_keys)
+		excluded_keys[selected.config.center_key] = true
+		return selected
 	end,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.choose, card.ability.extra } }
@@ -47,9 +51,11 @@ local Advanced_Pack = {
 	unlocked = true,
 	discovered = false,
 	create_card = function(self, card, i)
+		if i == 1 then excluded_keys = {} end
 		local selected_team = Pokerleven.get_random_team_from_actuals()
-
-		return create_random_ina_joker("advanced_pack", nil, G.pack_cards, selected_team)
+		local selected = create_random_ina_joker("advanced_pack", nil, G.pack_cards, selected_team, nil, nil, excluded_keys)
+		excluded_keys[selected.config.center_key] = true
+		return selected
 	end,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.choose, card.ability.extra } }

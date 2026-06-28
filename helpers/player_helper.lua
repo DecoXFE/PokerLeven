@@ -285,6 +285,18 @@ get_random_joker_key = function(pseed, inararity, area, inateam, exclude_keys, e
             end
         end
         if not ina_key then ina_key = ina_keys[#ina_keys].key end
+    elseif inateam then
+        local team_pool = {}
+        for _, v in pairs(G.P_CENTERS) do
+            if v.pteam == inateam and not v.aux_ina then
+                table.insert(team_pool, v.key)
+            end
+        end
+        if #team_pool > 0 then
+            ina_key = pseudorandom_element(team_pool, pseudoseed(pseed))
+        else
+            ina_key = "j_ina_Willy"
+        end
     else
         ina_key = "j_ina_Willy"
     end
