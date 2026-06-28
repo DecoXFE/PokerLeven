@@ -13,7 +13,7 @@
 	"badge_colour": "ED533A",
 	"badge_text_colour": "FFFFFF",
 	"display_name": "Pokerleven",
-	"version": "0.2.0a-BETA",
+	"version": "0.3.0-BETA",
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-1814a)",
 		"Lovely (>=0.9.0)"

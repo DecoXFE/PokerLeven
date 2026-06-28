@@ -110,7 +110,9 @@ local wintersea = Ba({
                 and context.card.ability.extra.ptype then
                 context.card.ability.eternal = true
                 context.card.pinned = true
+                local cost = context.card.cost
                 context.card:set_edition('e_polychrome')
+                context.card.cost = cost
             end
         end
     end
