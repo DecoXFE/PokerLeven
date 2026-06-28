@@ -447,27 +447,6 @@ position = "after"
 payload = "c_cards_destroyed = 0,"
 match_indent = true
 
-# Track card destruction (shatter)
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-pattern = "self.shattered = true"
-position = "after"
-payload = "inc_career_stat('c_cards_destroyed', 1)"
-match_indent = true
-
-# Inject UI variables for progress tracking
-[[patches]]
-[patches.pattern]
-target = "functions/common_events.lua"
-pattern = "elseif _c.name == 'Observatory' then loc_vars = {_c.unlock_condition.extra, G.PROFILES[G.SETTINGS.profile].career_stats.c_planetarium_used}"
-position = "after"
-payload = '''
-            elseif _c.name == 'Galileo' then loc_vars = {G.PROFILES[G.SETTINGS.profile].career_stats.c_cards_destroyed or 0, 100}
-            elseif _c.name == 'Janus' then loc_vars = {G.PROFILES[G.SETTINGS.profile].career_stats.c_planetarium_used or 0, 25}
-'''
-match_indent = true
-
 # Track all planet card usage
 [[patches]]
 [patches.pattern]

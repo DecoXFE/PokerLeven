@@ -18,6 +18,9 @@ local Galileo = J({
   techtype = C.UPGRADES.Grade,
   unlocked = false,
   unlock_condition = { type = 'c_cards_destroyed', extra = 100 },
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { G.PROFILES[G.SETTINGS.profile].career_stats.c_cards_destroyed or 0, 100 } }
+  end,
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.remove_playing_cards and not context.blueprint then
@@ -416,6 +419,9 @@ local Janus = J({
   techtype = C.UPGRADES.Grade,
   unlocked = false,
   unlock_condition = { type = 'c_planetarium_used', extra = 70 },
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { G.PROFILES[G.SETTINGS.profile].career_stats.c_planetarium_used or 0, 70 } }
+  end,
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.joker_main and context.scoring_hand then
