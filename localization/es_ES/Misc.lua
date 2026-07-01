@@ -59,6 +59,7 @@ return {
             ina_technique_card = "¡Técnica!",
             ina_gol = "¡Gol!",
             ina_mano = "¡Mano mejorada",
+            ina_perseus_skill = "¡Sierra Celestial!",
 
             -- Rarities
             k_ina_top = "Destacado",
