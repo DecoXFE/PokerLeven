@@ -60,6 +60,7 @@ return {
             ina_gol = "¡Gol!",
             ina_mano = "¡Mano mejorada",
             ina_perseus_skill = "¡Sierra Celestial!",
+            ina_hades_skill = "¡Justicia Divina!",
 
             -- Rarities
             k_ina_top = "Destacado",

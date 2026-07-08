@@ -818,13 +818,22 @@ return {
             },
         },
 
+                j_ina_Hadrian_Diesel = {
+            name = "Hades",
+            text = { {
+                "{C:wind}Subida al cielo{}",
+                "Un {C:attention}#1#%{} de las {C:chips}fichas{} obtenidas se convierten",
+                "en {C:mult}multi{} mientras está {C:attention}activo{}"
+            } }
+        },
+
         j_ina_Percy_Hurst = {
-            name = "Percy Hurst",
+            name = "Perseus",
             text = { {
                 "{C:wind}Sierra celestial{}",
                 "Cada mano consecutiva con {C:attention}>=2 cartas{} de {C:hearts}corazones{}",
                 "acumula {C:mult}+#1# mult{}, si falla {C:attention}#2# mano/s{} se resta {C:mult}#3#% mult{}",
-                "{C:inactive}(Actual:{} {C:mult}+#2# mult{}{C:inactive}){}" 
+                "{C:inactive}(Actual:{} {C:mult}+#4# mult{}{C:inactive}){}" 
             } }
         },
 
