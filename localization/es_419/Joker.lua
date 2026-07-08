@@ -402,7 +402,6 @@ return {
                 "{C:pink}Strat{} usada esta partida",
                 "{C:inactive}(Actual:{} {X:chips,C:white}X#2#{}{C:inactive}){}" }
         },
-
         -- Tormenta de Géminis
         j_ina_Janus = {
             name = "Janus",
@@ -819,6 +818,16 @@ return {
             },
         },
 
+        j_ina_Percy_Hurst = {
+            name = "Percy Hurst",
+            text = { {
+                "{C:wind}Sierra celestial{}",
+                "Cada mano consecutiva con {C:attention}>=2 cartas{} de {C:hearts}corazones{}",
+                "acumula {C:mult}+#1# mult{}, si falla {C:attention}#2# mano/s{} se resta {C:mult}#3#% mult{}",
+                "{C:inactive}(Actual:{} {C:mult}+#4# mult{}{C:inactive}){}" 
+            } }
+        },
+
         j_ina_Ace_Server = {
             name = "Ace Server",
             text = { {
@@ -932,6 +941,7 @@ return {
                 "{C:inactive}(Actual:{} {X:mult,C:white}X#1#{}, {C:tarot}#4#{} {C:inactive}usados){}" }, }
         },
 
+        -- GERENTES
         j_ina_Nelly = {
             name = "Nelly",
             text = { { "Por cada ronda se otorga entre {C:money}#1#${} a {C:money}#2#${},",
@@ -984,5 +994,6 @@ return {
                 "{C:dark_edition,E:1}Por favor espere un poco más{}"
             }
         },
+
     },
 }
