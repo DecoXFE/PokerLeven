@@ -25,7 +25,7 @@ local Perseus = J({
     pos = { x = 8, y = 3 },
     config = { extra = { mult_mod = 2, current_mult = 0, loss_countdown = 2, hands_needed_to_lose = 2, loss_percent = 0.3 } },
     loc_vars = function(self, info_queue, center)
-        return { vars = { center.ability.extra.mult_mod, center.ability.extra.loss_countdown, math.floor(center.ability.extra.loss_percent * 100) } }
+        return { vars = { center.ability.extra.mult_mod, center.ability.extra.loss_countdown, math.floor(center.ability.extra.loss_percent * 100), center.ability.extra.current_mult } }
     end,
     rarity = 3,
     pools = { ["Zeus_Ares"] = true },
