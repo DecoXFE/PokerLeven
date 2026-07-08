@@ -18,12 +18,14 @@ local Hades = J({
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and context.scoring_hand and context.other_card then
             local mult_gained = (context.other_card:get_id() or 4) * card.ability.extra.chip_to_mult_percent
-            return {
-                message = localize("ina_hades_skill"),
-                colour = G.C.MULT,
-                chip_mod = -mult_gained,
-                mult_mod = mult_gained
-            }
+            if mult_gained > 0 then
+                return {
+                    message = localize("ina_hades_skill"),
+                    colour = G.C.MULT,
+                    chip_mod = -mult_gained,
+                    mult_mod = mult_gained
+                }
+            end
         end
     end
 })
