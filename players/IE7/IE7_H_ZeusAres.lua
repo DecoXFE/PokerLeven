@@ -1,21 +1,30 @@
 -- Hades
 local Hades = J({
-    name = "Hades",
+    name = "Hadrian_Diesel",
     pos = { x = 7, y = 3 },
-    config = { extra = {} },
+    config = { extra = { chip_to_mult_percent = 0.1 } },
     loc_vars = function(self, info_queue, center)
-        return {}
+        return { vars = { math.floor(center.ability.extra.chip_to_mult_percent * 100) } }
     end,
-    rarity = 1,
+    rarity = 2,
     pools = { ["Zeus_Ares"] = true },
-    cost = 5,
+    cost = 3,
     atlas = "Jokers07",
     ptype = C.Wind,
     pposition = C.DF,
     techtype = C.UPGRADES.Plus,
-    pteam = "ina_team_Zeus_Ares",
+    pteam = "Zeus (Ares)",
     blueprint_compat = false,
-    calculate = function(self, card, ctx)
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.scoring_hand and context.other_card then
+            local mult_gained = (context.other_card:get_id() or 4) * card.ability.extra.chip_to_mult_percent
+            return {
+                message = localize("ina_hades_skill"),
+                colour = G.C.MULT,
+                chip_mod = -mult_gained,
+                mult_mod = mult_gained
+            }
+        end
     end
 })
 
@@ -34,7 +43,7 @@ local Perseus = J({
     ptype = C.Fire,
     pposition = C.FW,
     techtype = C.UPGRADES.Plus,
-    pteam = "ZeusAres",
+    pteam = "Zeus (Ares)",
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.before and context.cardarea == G.jokers and context.scoring_hand then
@@ -64,5 +73,5 @@ local Perseus = J({
 
 return {
     name = "Zeus_Ares",
-    list = { Perseus }
+    list = { Hades, Perseus }
 }
