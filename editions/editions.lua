@@ -90,20 +90,19 @@
 -- }
 
 -- === Register the Shader ===
-SMODS.Shader({
-    key = 'lethal', path = 'lethal.fs'
-})
+local function register_shaders()
+    SMODS.Shader({
+        key = 'lethal', path = 'lethal.fs'
+    })
+
+    SMODS.Shader({
+        key = 'astral', path = 'astral.fs'
+    })
+end
 
 -- === Register the Edition ===
-SMODS.Edition({
+local lethal = {
     key = "lethal",
-    loc_txt = {
-        name = "Letal",
-        label = "Letal",
-        text = { "{X:dark_edition,C:white}^1.1{} Multi",
-        "{C:inactive}no se pueden aplicar tarots o espectrales",
-        "{C:inactive}no pueden ser destrozadas o duplicadas{} ." }
-    },
     disable_shadow = false,
     disable_base_shader = true,
     shader = "lethal",
@@ -112,15 +111,96 @@ SMODS.Edition({
     in_shop = false,
     weight = 8,
     extra_cost = 6,
-    apply_to_float = true,
-    config = {},
-    loc_vars = function(self)
-        return { vars = {} }
-    end
-})
+    apply_to_float = false,
+    config = { e_mult = 1.1, trigger = nil },
 
-return{
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card and card.edition and card.edition.e_mult or self.config.e_mult
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        local emult = card and card.edition and card.edition.e_mult or self.config.e_mult
+
+        if (context.edition and context.cardarea == G.jokers and card.config.trigger)
+            or (context.main_scoring and context.cardarea == G.play) then
+            return {
+                mult = (mult ^ emult) - mult,
+                remove_default_message = true,
+                extra = {
+                    message = localize {
+                        type = "variable",
+                        key = "ina_a_powmult",
+                        vars = { number_format(emult) }
+                    },
+                    colour = G.C.UI.TEXT_DARK,
+                    text_colour = G.C.MULT
+                }
+            }
+        end
+
+        if context.joker_main then
+            card.config.trigger = true
+        end
+
+        if context.after then
+            card.config.trigger = nil
+        end
+    end
+}
+
+
+local astral = {
+    key = "astral",
+    disable_shadow = false,
+    disable_base_shader = true,
+    shader = "astral",
+    discovered = false,
+    unlocked = false,
+    in_shop = true,
+    weight = 7,
+    extra_cost = 4,
+    apply_to_float = false,
+    config = { x_chips = 1.5, trigger = nil },
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card and card.edition and card.edition.x_chips or self.config.x_chips
+            }
+        }
+    end,
+    calculate = function(self, card, context)
+        if (context.edition and context.cardarea == G.jokers and card.config.trigger)
+            or (context.main_scoring and context.cardarea == G.play) then
+            return {
+                x_chips = card and card.edition and card.edition.x_chips or self.config.x_chips,
+                remove_default_message = true,
+                extra = {
+                    message = localize {
+                        type = 'variable',
+                        key = 'ina_a_xchips',
+                        vars = { card and card.edition and card.edition.x_chips or self.config.x_chips }
+                    },
+                    colour = G.C.CHIPS
+                }
+            }
+        end
+
+        if context.joker_main then
+            card.config.trigger = true
+        end
+
+        if context.after then
+            card.config.trigger = nil
+        end
+    end
+}
+
+return {
 	name = "Editions",
---	init = apply_shader(),
-	list = {lethal}
+	init = register_shaders,
+	list = {astral, lethal}
 }
